@@ -1,0 +1,27 @@
+[05-Jul-2018 09:48:40 UTC] PHP Fatal error:  Class 'app\models\MuvtiSubSector' not found in /home/k5127415/public_html/controllers/AdminController.php on line 178
+[05-Jul-2018 16:49:15 UTC] PHP Fatal error:  Class 'app\models\MuvtiSubSector' not found in /home/k5127415/public_html/controllers/AdminController.php on line 178
+[05-Jul-2018 16:50:30 UTC] PHP Fatal error:  Class 'app\models\MuvtiSubSector' not found in /home/k5127415/public_html/controllers/AdminController.php on line 178
+[05-Jul-2018 16:51:40 UTC] PHP Fatal error:  Class 'app\models\MuvtiSubSector' not found in /home/k5127415/public_html/controllers/AdminController.php on line 178
+[05-Jul-2018 16:52:48 UTC] PHP Fatal error:  Class 'app\models\MuvtiSubSector' not found in /home/k5127415/public_html/controllers/AdminController.php on line 178
+[05-Jul-2018 16:54:22 UTC] PHP Fatal error:  Class 'app\models\MuvtiSubSector' not found in /home/k5127415/public_html/controllers/AdminController.php on line 178
+[05-Jul-2018 16:54:51 UTC] PHP Fatal error:  Class 'app\models\MuvtiSubSector' not found in /home/k5127415/public_html/controllers/AdminController.php on line 178
+[06-Jul-2018 16:32:37 UTC] PHP Fatal error:  Uncaught exception 'yii\base\InvalidConfigException' with message 'The "id" configuration for the Application is required.' in /home/k5127415/public_html/vendor/yiisoft/yii2/base/Application.php:220
+Stack trace:
+#0 /home/k5127415/public_html/vendor/yiisoft/yii2/base/Application.php(202): yii\base\Application->preInit(1)
+#1 /home/k5127415/public_html/index.php(12): yii\base\Application->__construct(1)
+#2 {main}
+  thrown in /home/k5127415/public_html/vendor/yiisoft/yii2/base/Application.php on line 220
+[18-Jul-2018 04:09:40 UTC] PHP Fatal error:  Call to a member function saveAs() on null in /home/k5127415/public_html/models/FinancialForm.php on line 88
+[18-Jul-2018 04:12:35 UTC] PHP Fatal error:  Call to a member function saveAs() on null in /home/k5127415/public_html/models/FinancialForm.php on line 88
+[18-Jul-2018 06:18:02 UTC] PHP Fatal error:  Call to a member function saveAs() on null in /home/k5127415/public_html/models/FinancialForm.php on line 88
+[18-Jul-2018 06:21:20 UTC] PHP Fatal error:  Call to a member function saveAs() on null in /home/k5127415/public_html/models/FinancialForm.php on line 88
+[18-Jul-2018 06:21:27 UTC] PHP Fatal error:  Call to a member function saveAs() on null in /home/k5127415/public_html/models/FinancialForm.php on line 88
+[18-Jul-2018 08:57:27 UTC] PHP Fatal error:  Call to a member function saveAs() on null in /home/k5127415/public_html/models/FinancialForm.php on line 88
+[18-Jul-2018 08:57:30 UTC] PHP Fatal error:  Call to a member function saveAs() on null in /home/k5127415/public_html/models/FinancialForm.php on line 88
+[25-Jul-2018 01:33:44 UTC] PHP Fatal error:  Class 'app\models\MuvtiFee' not found in /home/k5127415/public_html/controllers/DashboardController.php on line 77
+[25-Jul-2018 01:35:39 UTC] PHP Fatal error:  Class 'app\models\EmailForm' not found in /home/k5127415/public_html/controllers/DashboardController.php on line 80
+[06-Aug-2018 22:04:28 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Aug-2018 16:54:58 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[11-Aug-2018 02:30:31 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[17-Aug-2018 03:08:16 UTC] PHP Parse error:  syntax error, unexpected '--' (T_DEC), expecting '(' in /home/k5127415/public_html/controllers/AdminController.php on line 238
+[19-Oct-2018 13:36:50 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
