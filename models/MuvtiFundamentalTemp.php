@@ -5,7 +5,7 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "{{%muvti_fundamental}}".
+ * This is the model class for table "{{%muvti_fundamental_temp}}".
  *
  * @property int $id
  * @property string $code
@@ -23,14 +23,14 @@ use Yii;
  * @property string $date_updated
  * @property bool $is_deleted
  */
-class MuvtiFundamental extends \yii\db\ActiveRecord
+class MuvtiFundamentalTemp extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        return '{{%muvti_fundamental}}';
+        return '{{%muvti_fundamental_temp}}';
     }
 
     /**
@@ -39,8 +39,8 @@ class MuvtiFundamental extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['id', 'sector_id', 'subsector_id', 'quarter'], 'integer'],
             [['code'], 'required'],
-            [['sector_id', 'subsector_id', 'quarter'], 'integer'],
             [['per', 'pbv', 'roe', 'dy', 'der'], 'number'],
             [['watched', 'is_deleted'], 'boolean'],
             [['date_created', 'date_updated'], 'safe'],
@@ -71,45 +71,5 @@ class MuvtiFundamental extends \yii\db\ActiveRecord
             'date_updated' => 'Date Updated',
             'is_deleted' => 'Is Deleted',
         ];
-    }
-    
-     /**
-     * @inheritdoc
-     */
-    public static function primaryKey()
-    {
-        return ['code'];
-}
-    
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getSector()
-    {
-        return $this->hasOne(MuvtiSector::className(), ['id' => 'sector_id']);
-    }
-    
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getSubsector()
-    {
-        return $this->hasOne(MuvtiSubsector::className(), ['id' => 'subsector_id']);
-    }
-    
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getEmiten()
-    {
-        return $this->hasOne(MuvtiEmiten::className(), ['code' => 'code']);
-    }
-    
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getPeriode()
-    {
-        return $this->hasOne(MuvtiPeriode::className(), ['id' => 'quarter']);
     }
 }

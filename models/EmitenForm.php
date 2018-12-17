@@ -184,43 +184,80 @@ class EmitenForm extends Model
     }
     
     private function backup(){
-                        
-        $sql2 ="INSERT INTO muvti_emiten_history (quarter,code,name,sector_id,subsector_id,idx,price,currency,margin,liability,equity,dividen,profit,share,file)
-                SELECT quarter,code,name,sector_id,subsector_id,idx,price,currency,margin,liability,equity,dividen,profit,share,file FROM  muvti_emiten";
-        Yii::$app->db->createCommand($sql2)->execute();
         
-        $sql3 ="INSERT INTO muvti_fundamental_history (code, sector_id, subsector_id, quarter, per, pbv, roe, dy, der,watched)
-                SELECT code, sector_id, subsector_id, quarter, per, pbv, roe, dy, der,watched FROM  muvti_fundamental";
-        Yii::$app->db->createCommand($sql3)->execute();
+        $db = Yii::$app->db;
+        $transaction = $db->beginTransaction();
+        try {
+            // backup emiten data
+            $sql2 ="INSERT INTO muvti_emiten_history (quarter,code,name,sector_id,subsector_id,idx,price,currency,margin,liability,equity,dividen,profit,share,file)
+                    SELECT quarter,code,name,sector_id,subsector_id,idx,price,currency,margin,liability,equity,dividen,profit,share,file FROM  muvti_emiten";
+            $db->createCommand($sql2)->execute();
         
-        $sql4 ="CREATE TEMPORARY TABLE muvti_emiten_temp AS SELECT * FROM muvti_emiten";
-        Yii::$app->db->createCommand($sql4)->execute();
+            // backup emitens' fundamental data
+            $sql3 ="INSERT INTO muvti_fundamental_history (code, sector_id, subsector_id, quarter, per, pbv, roe, dy, der,watched)
+                    SELECT code, sector_id, subsector_id, quarter, per, pbv, roe, dy, der,watched FROM  muvti_fundamental";
+            $db->createCommand($sql3)->execute();
         
-        $sql5 ="CREATE TEMPORARY TABLE muvti_fundamental_temp AS SELECT * FROM muvti_fundamental";
-        Yii::$app->db->createCommand($sql5)->execute();
+            // keep in temporary table
+            $sql4 ="INSERT INTO muvti_emiten_temp SELECT * FROM muvti_emiten";
+            $db->createCommand($sql4)->execute();
         
-        Yii::$app->db->createCommand()->truncateTable('muvti_fundamental')->execute();
-        Yii::$app->db->createCommand()->truncateTable('muvti_emiten')->execute();
+            // keep in temporary table
+            $sql5 ="INSERT INTO muvti_fundamental_temp SELECT * FROM muvti_fundamental";
+            $db->createCommand($sql5)->execute();
+        
+            $db->createCommand()->truncateTable('muvti_fundamental')->execute();
+            $db->createCommand()->truncateTable('muvti_emiten')->execute();
+            
+            $transaction->commit();
+            
+        } catch (\Exception $e) {
+            $transaction->rollBack();
+            throw $e;
+        } catch (\Throwable $e) {
+            $transaction->rollBack();
+            throw $e;
+        }
         
     }
     
     private function updateTemp(){
         
+        $db = Yii::$app->db;
+        $transaction = $db->beginTransaction();
+        try {
+        # insert new emitens data
         $sql1 ="INSERT INTO muvti_fundamental (quarter,code,sector_id,subsector_id)
-                SELECT quarter,code,name,sector_id,subsector_id FROM  muvti_emiten";
-        Yii::$app->db->createCommand($sql1)->execute();
+                SELECT quarter,code,sector_id,subsector_id FROM  muvti_emiten";
+        $db->createCommand($sql1)->execute();
         
+        # update new emiten data
         $sql2 ="UPDATE muvti_emiten AS e 
                 INNER JOIN  muvti_emiten_temp AS et ON  (e.code = et.code)
                 SET  e.quarter=et.quarter,e.sector_id=et.sector_id,e.subsector_id=et.subsector_id,e.idx=et.idx,e.price=et.price,e.currency=et.currency,e.margin=et.margin,e.liability=et.liability,e.equity=et.equity,e.dividen=et.dividen,e.profit=et.profit,e.share=et.share,e.file=et.file
                 ";
-        Yii::$app->db->createCommand($sql2)->execute();
+        $db->createCommand($sql2)->execute();
         
+        # update new emiten fundamental data
         $sql3 ="UPDATE muvti_fundamental AS f 
                 INNER JOIN muvti_fundamental_temp AS ef ON  (f.code = ef.code)
                 SET f.sector_id=ef.sector_id, f.subsector_id=ef.subsector_id, f.quarter=ef.quarter, f.per=ef.per, f.pbv=ef.pbv, f.roe=ef.roe, f.dy=ef.dy, f.der=ef.der,f.watched=ef.watched
                 ";
-        Yii::$app->db->createCommand($sql3)->execute();
+        $db->createCommand($sql3)->execute();
+        
+        # drop temporary table
+        $db->createCommand()->truncateTable('muvti_emiten_temp')->execute();
+        $db->createCommand()->truncateTable('muvti_fundamental_temp')->execute();
+        
+        $transaction->commit();
+            
+        } catch (\Exception $e) {
+            $transaction->rollBack();
+            throw $e;
+        } catch (\Throwable $e) {
+            $transaction->rollBack();
+            throw $e;
+        }
         
     }
     

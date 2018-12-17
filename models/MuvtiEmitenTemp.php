@@ -5,7 +5,7 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "{{%muvti_emiten}}".
+ * This is the model class for table "{{%muvti_emiten_temp}}".
  *
  * @property int $id
  * @property int $quarter
@@ -30,14 +30,14 @@ use Yii;
  * @property string $date_updated
  * @property bool $is_deleted
  */
-class MuvtiEmiten extends \yii\db\ActiveRecord
+class MuvtiEmitenTemp extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        return '{{%muvti_emiten}}';
+        return '{{%muvti_emiten_temp}}';
     }
 
     /**
@@ -46,7 +46,7 @@ class MuvtiEmiten extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['quarter', 'sector_id', 'subsector_id'], 'integer'],
+            [['id', 'quarter', 'sector_id', 'subsector_id'], 'integer'],
             [['code', 'name'], 'required'],
             [['price', 'currency', 'margin', 'trend', 'liability', 'equity', 'dividen', 'profit', 'eps', 'share'], 'number'],
             [['date_created', 'date_updated'], 'safe'],
@@ -88,37 +88,5 @@ class MuvtiEmiten extends \yii\db\ActiveRecord
             'date_updated' => 'Date Updated',
             'is_deleted' => 'Is Deleted',
         ];
-    }
-    
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getSector()
-    {
-        return $this->hasOne(MuvtiSector::className(), ['id' => 'sector_id']);
-}
-    
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getSubsector()
-    {
-        return $this->hasOne(MuvtiSubsector::className(), ['id' => 'subsector_id']);
-    }
-    
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getFundamental()
-    {
-        return $this->hasOne(MuvtiFundamental::className(), ['code' => 'code']);
-    }
-    
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getPeriode()
-    {
-        return $this->hasOne(MuvtiPeriode::className(), ['id' => 'quarter']);
     }
 }
