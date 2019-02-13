@@ -10,10 +10,10 @@ foreach($index as $i => $value){
     $list2[$value->name] = $value->name;
 }
 
-$list4[1] = "Kuartal I ".date('Y');
-$list4[2] = "Kuartal II ".date('Y');
-$list4[3] = "Kuartal III ".date('Y');
-$list4[4] = "Kuartal IV ".date('Y');
+$list4 = array();
+foreach($periode as $i => $value){
+    $list4[$value->id] = $value->name;
+}
 
 ?>
 

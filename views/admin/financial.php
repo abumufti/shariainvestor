@@ -20,10 +20,10 @@ foreach($data as $i => $value){
     $list3[$value->id] = $value->code;
 }
 
-$list4[1] = "Kuartal I ".date('Y');
-$list4[2] = "Kuartal II ".date('Y');
-$list4[3] = "Kuartal III ".date('Y');
-$list4[4] = "Kuartal IV ".date('Y');
+$list4 = array();
+foreach($periode as $i => $value){
+    $list4[$value->id] = $value->name;
+}
 
 ?>
 
@@ -43,17 +43,18 @@ $list4[4] = "Kuartal IV ".date('Y');
             <div class="col-md-4" style="padding:0">
                 <div class="col-md-6">
                 <div class="form-group">
-                    <?php echo $form->field($model, 'quarter')->dropdownList($list4,
-                        ['prompt'=>'Select Quarter','class'=>'form-control select2']
-                    ); ?>
-                </div>
-                </div>
-                <div class="col-md-6">
-                <div class="form-group">
                     <?php echo $form->field($model, 'emiten')->dropdownList($list3,
                         ['prompt'=>'Select Emiten','class'=>'form-control select2']
                     ); ?>
                 </div>  
+
+                </div>
+                <div class="col-md-6">
+                <div class="form-group">
+                    <?php echo $form->field($model, 'quarter')->dropdownList($list4,
+                        ['prompt'=>'Select Quarter','class'=>'form-control select2']
+                    ); ?>
+                </div>
                 </div>
             </div>
             
@@ -81,14 +82,10 @@ $list4[4] = "Kuartal IV ".date('Y');
                 </div>
                 <div class="col-md-6">
                 <div class="form-group">
-                    <?php echo $form->field($model, 'subsector')->dropdownList($list2,
-                        ['prompt'=>'Select Sub Sector','class'=>'form-control select2']
-                    ); ?>
-                </div>  
+                    <?= $form->field($model, 'currency')->textInput(['value' => 1]) ?>
                 </div>
-                <div class="form-group">
-                
-                </div>  
+                </div>
+               
             </div>
             
             <div class="col-md-4">
@@ -108,9 +105,12 @@ $list4[4] = "Kuartal IV ".date('Y');
         <div class="row">
             <div class="col-md-4" style="padding:0">
                 <div class="col col-lg-6" style="margin:0">
-                <div class="form-group">
-                    <?= $form->field($model, 'currency')->textInput(['value' => 1]) ?>
-                </div>
+                    <div class="form-group">
+                    <?php echo $form->field($model, 'subsector')->dropdownList($list2,
+                        ['prompt'=>'Select Sub Sector','class'=>'form-control select2']
+                    ); ?>
+                </div>  
+
             </div>
                 <div class="col col-lg-6" style="margin:0">
                 <div class="form-group">

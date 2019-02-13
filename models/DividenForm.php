@@ -30,7 +30,7 @@ class DividenForm extends Model
             
             $latest = MuvtiHistory::find()->orderBy(['id' => SORT_DESC])->one();
             $date_dividen = $this->date;
-            $code = $this->emiten;
+            $code = MuvtiEmiten::findOne($this->emiten)->code;
             $amount = floatval($this->amount);
             $balance = floatval($latest['balance']) + floatval($this->amount);
             $status = "Dividen $code";

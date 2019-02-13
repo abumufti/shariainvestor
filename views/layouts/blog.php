@@ -105,14 +105,17 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'Indexed Emitens', 'url' => ['/site/index-emiten']],
-            ['label' => 'Under Value', 'url' => ['/site/under-value']],
+            ['label' => 'Emitens', 'items'=>[
+                ['label' => 'All', 'url' => ['/emiten/all']],
+                ['label' => 'Indexed', 'url' => ['/emiten/indexed']],
+                ['label' => 'Under Value', 'url' => ['/emiten/under-value']],
+            ]],          
             ['label' => 'Blog', 'url' => ['/blog/index']],
             ['label' => 'About', 'url' => ['/site/about']],
             ['label' => 'Contact', 'url' => ['/site/contact']],
             Yii::$app->user->isGuest ? (
             ''
-            ):( ['label' => 'Dashboard', 'url' => ['/dashboard/index']]   ),        
+            ):( ['label' => 'Dashboard', 'url' => ['/user/dashboard']]   ),        
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (                

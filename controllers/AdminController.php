@@ -16,6 +16,7 @@ use app\models\CategoryForm;
 use app\models\EmitenForm;
 use app\models\EmailForm;
 use app\models\FinancialForm;
+use app\models\MuvtiPeriode;
 use yii\helpers\BaseUrl;
 use yii\web\UploadedFile;
 
@@ -161,7 +162,9 @@ class AdminController extends Controller
         
         $data = MuvtiEmiten::find()->all();
         
-        return $this->render('emiten',['index'=>$index,'model'=>$model, 'data'=>$data]);
+        $periode = MuvtiPeriode::find()->all();
+        
+        return $this->render('emiten',['index'=>$index,'model'=>$model, 'data'=>$data,'periode'=>$periode]);
     }
     
     /**
@@ -183,6 +186,8 @@ class AdminController extends Controller
         
         $subsector = MuvtiSubsector::find()->all();
         
+        $periode = MuvtiPeriode::find()->all();
+        
         $model = new FinancialForm();
         
         if ($model->load(Yii::$app->request->post()) && $model->insert()) {
@@ -193,8 +198,10 @@ class AdminController extends Controller
             
         }
         
-        return $this->render('financial',['data'=>$data, 'model'=>$model, 'sector'=>$sector, 'subsector'=>$subsector]);
+        return $this->render('financial',['data'=>$data, 'model'=>$model, 'sector'=>$sector, 'subsector'=>$subsector,'periode'=>$periode]);
     }
+    
+    
     
     /**
      * Displays homepage.

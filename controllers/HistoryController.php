@@ -6,7 +6,7 @@ use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
-use app\models\MuvtiHistory;
+use app\models\MuvtiSell;
 use app\models\MuvtiBuy;
 use yii\helpers\BaseUrl;
 
@@ -23,6 +23,7 @@ class HistoryController extends Controller
         Yii::$app->view->params['header'] =$this->getHeader();
         Yii::$app->view->params['footer'] =$this->getFooter();
         Yii::$app->view->params['page'] ='User';
+        Yii::$app->view->params['subpage'] ='History';
         
         return [
             'access' => [
@@ -61,25 +62,23 @@ class HistoryController extends Controller
         ];
     }
     
-    public function actionAll(){
-        
-        Yii::$app->view->params['subpage'] ='History';
-        Yii::$app->view->params['selected'] = ['','','','','','','','','','','active',''];
-        
-        $history = MuvtiHistory::find()->orderBy(['id' => SORT_DESC])->all();
-        
-        return $this->render('all',['history'=>$history]);
-        
-    }
-    
     public function actionBuy(){
         
-        Yii::$app->view->params['subpage'] ='History';
-        Yii::$app->view->params['selected'] = ['','','','','','','','','','','','active'];
+        Yii::$app->view->params['selected'] = ['','','','','','','','','','','active',''];
         
         $buy = MuvtiBuy::find()->orderBy(['id' => SORT_DESC])->all();
         
         return $this->render('buy',['buy'=>$buy]);
+        
+    }
+    
+    public function actionSell(){
+        
+        Yii::$app->view->params['selected'] = ['','','','','','','','','','','','active'];
+        
+        $sell = MuvtiSell::find()->orderBy(['id' => SORT_DESC])->all();
+        
+        return $this->render('sell',['sell'=>$sell]);
         
     }
           

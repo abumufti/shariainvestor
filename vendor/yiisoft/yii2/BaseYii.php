@@ -93,7 +93,7 @@ class BaseYii
      */
     public static function getVersion()
     {
-        return '2.0.15.1';
+        return '2.0.16';
     }
 
     /**
@@ -489,9 +489,9 @@ class BaseYii
      */
     public static function powered()
     {
-        return \Yii::t('yii', '{yii}', [
-            'yii' => '<a href="http://www.shariainvestor.com/" rel="external">' . \Yii::t('yii',
-                    'shariainvestor.com') . '</a>',
+        return \Yii::t('yii', 'Powered by {yii}', [
+            'yii' => '<a href="http://www.yiiframework.com/" rel="external">' . \Yii::t('yii',
+                    'Yii Framework') . '</a>',
         ]);
     }
 

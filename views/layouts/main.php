@@ -97,10 +97,13 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'Indexed Emitens', 'url' => ['/site/index-emiten']],
-            ['label' => 'Under Value', 'url' => ['/site/under-value']],
-//            ['label' => 'Blog', 'url' => ['/blog/index']],
+            ['label' => 'Home', 'url' => Yii::$app->homeUrl],
+            ['label' => 'Stoks', 'items'=>[
+                ['label' => 'All', 'url' => ['/emiten/all']],
+                ['label' => 'Indexed', 'url' => ['/emiten/indexed']],
+                ['label' => 'Under Value', 'url' => ['/emiten/under-value']],
+            ]],          
+            ['label' => 'Blog'],
             ['label' => 'About', 'url' => ['/site/about']],
             ['label' => 'Contact', 'url' => ['/site/contact']],
             Yii::$app->user->isGuest ? (
@@ -141,9 +144,9 @@ AppAsset::register($this);
   <footer class="main-footer" style="background:#bae1ff">
     <div class="container">
       <div class="pull-right hidden-xs">
-        <b>Version</b> 1.1
+        <b>Version</b> 2.2
       </div>
-      <strong>Copyright &copy; <?= date('Y') ?> <?= Yii::powered() ?>.</strong> All rights
+      <strong>Copyright &copy; <?= date('Y') ?>.</strong> All rights
       reserved.
     </div>
     <!-- /.container -->
@@ -172,12 +175,12 @@ AppAsset::register($this);
   $(function () {
 
     $("#table1").DataTable({
-        "paging"      : true,
-        "lengthChange": true,
-        "searching"   : true,
-        "ordering"    : true,
-        "info"        : true,
-        "autoWidth"   : true,
+        "paging"      : false,
+        "lengthChange": false,
+        "searching"   : false,
+        "ordering"    : false,
+        "info"        : false,
+        "autoWidth"   : false,
         "scrollX"     : "200px",
         "scrollCollapse": true,
         "select": {
@@ -188,6 +191,14 @@ AppAsset::register($this);
     });
     
     $("#table2").DataTable({
+        "paging"      : false,
+        "lengthChange": false,
+        "searching"   : false,
+        "ordering"    : false,
+        "info"        : false,
+        "autoWidth"   : false,
+        "scrollX"     : "200px",
+        "scrollCollapse": true,
         "select": {
             style:    'single',
             

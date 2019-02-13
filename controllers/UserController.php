@@ -19,6 +19,7 @@ use app\models\MuvtiBroker;
 use yii\helpers\BaseUrl;
 
 
+
 class UserController extends Controller
 {
     public $layout ='dashboard';
@@ -83,7 +84,6 @@ class UserController extends Controller
         
         MuvtiPortofolio::deleteAll('share = 0');
         $data = MuvtiPortofolio::find()->orderBy(['code' => SORT_ASC])->all();
-        
         $sell = MuvtiSell::findBySql('SELECT SUM(margin) AS margins FROM muvti_sell')->all();
         $broker = MuvtiBroker::find()->orderBy(['name' => SORT_ASC])->all();
         $deposit = MuvtiDeposit::find()->orderBy(['id' => SORT_DESC])->one();
@@ -93,8 +93,9 @@ class UserController extends Controller
         $emiten = MuvtiEmiten::find()->all();
         $stocks = MuvtiFundamental::find()->all();
         
-        
         $model2 = new SellForm();
+        
+        
         
         if ($model->load(Yii::$app->request->post()) && $model->insert()) {
             Yii::$app->session->setFlash('emitenFormSubmitted');
@@ -105,8 +106,8 @@ class UserController extends Controller
             Yii::$app->session->setFlash('sellFormSubmitted');
             return $this->refresh();
         }
-        
-        return $this->render('dashboard',['data'=>$data,'broker'=>$broker,'stocks'=>$stocks, 'model'=>$model,'history'=>$history,'fundamental'=>$fundamental,'dividen'=>$dividen,'sell'=>$sell,'emiten'=>$emiten,'deposit'=>$deposit, 'model2'=>$model2]);
+
+        return $this->render('dashboard',['data'=>$data,'broker'=>$broker,'stocks'=>$stocks, 'model'=>$model,'history'=>$history,'fundamental'=>$fundamental,'sell'=>$sell,'emiten'=>$emiten,'deposit'=>$deposit, 'model2'=>$model2,'dividen'=>$dividen]);
     }
    
     private function getHeader(){
@@ -201,17 +202,59 @@ class UserController extends Controller
 
             $("#buyform-buy").mouseleave(function(){
                                     
-                var price = $("#buyform-price").val();
-                var buy = $("#buyform-buy").val();                                          
+                var buy = $("#buyform-buy").val();   
+                var buyfee = $("#sellform-buyfee").val();
+                var sellfee = $("#sellform-sellfee").val();
+                var percentage = $("#buyform-profitpercentage").val();
                                         
-                if( price > 0  && buy > 0){
+                if( buy > 0){
                         
-                    var margintoprice = ((price*0.9975-buy*1.0015)/buy)*100;
-                    $("#buyform-margintoprice").val(margintoprice.toFixed(2));
+                    var sell = (((percentage/100)*buy + (buy*(1+(buyfee/100))))/(1-(sellfee/100)));
+                    $("#buyform-sell").val(Math.ceil(sell.toFixed(2)));
                              
                 }else{
                         
-                    $("#buyform-margintoprice").val(0);
+                    $("#buyform-sell").val(0);
+                            
+                }
+                
+            });
+            
+            $("#buyform-profitpercentage").mouseleave(function(){
+                                    
+                var buy = $("#buyform-buy").val();   
+                var buyfee = $("#sellform-buyfee").val();
+                var sellfee = $("#sellform-sellfee").val();
+                var percentage = $("#buyform-profitpercentage").val();
+                                        
+                if( buy > 0){
+                        
+                    var sell = (((percentage/100)*buy + (buy*(1+(buyfee/100))))/(1-(sellfee/100)));
+                    $("#buyform-sell").val(Math.ceil(sell.toFixed(2)));
+                             
+                }else{
+                        
+                    $("#buyform-sell").val(0);
+                            
+                }
+                
+            });
+            
+            $("#buyform-lot").mouseleave(function(){
+                                    
+                var buy = $("#buyform-buy").val();   
+                var buyfee = $("#sellform-buyfee").val();
+                var sellfee = $("#sellform-sellfee").val();
+                var percentage = $("#buyform-profitpercentage").val();
+                                        
+                if( buy > 0){
+                        
+                    var sell = (((percentage/100)*buy + (buy*(1+(buyfee/100))))/(1-(sellfee/100)));
+                    $("#buyform-sell").val(Math.ceil(sell.toFixed(2)));
+                             
+                }else{
+                        
+                    $("#buyform-sell").val(0);
                             
                 }
                 
@@ -263,6 +306,20 @@ class UserController extends Controller
                 "ordering"    : true,
                 "info"        : true,
                 "autoWidth"   : true,
+                "scrollX"     : "200px",
+                "scrollCollapse": true,
+                "select": {
+                    style:"single",
+                },
+            });
+            
+             $("#example5").DataTable({
+                "paging"      : true,
+                "lengthChange": true,
+                "searching"   : true,
+                "ordering"    : true,
+                "info"        : true,
+                "autoWidth"   : false,
                 "scrollX"     : "200px",
                 "scrollCollapse": true,
                 "select": {
@@ -361,6 +418,11 @@ class UserController extends Controller
             });
     
             $("#datepicker2").datepicker({
+                autoclose: true,
+                format: \'yyyy-mm-dd\',
+            });
+            
+            $("#datepicker3").datepicker({
                 autoclose: true,
                 format: \'yyyy-mm-dd\',
             });

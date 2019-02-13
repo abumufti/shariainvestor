@@ -87,7 +87,7 @@ class EmitenForm extends Model
             $code = $value['Stock'];
             $emiten = MuvtiEmiten::find()->where(['code' =>$code])->one();
                 
-            if(count($emiten)>0 && intval($value['Last']) >0 && intval($value['Prev']) >0){
+            if(count($emiten)>0 && intval($value['Last'])>0){
                 
                 $this->updatePrice($value,$emiten, $code);
             
@@ -152,12 +152,12 @@ class EmitenForm extends Model
     
     private function updatePrice($value,$emiten,$code){
         
-        $price = intval($value['Last']) <= 0 ? floatval($value['Prev']) : floatval($value['Last']);
+        $price = floatval($value['Last']);
         $margin = intval($value['Last']) <= 0 ? 0 : floatval($value['+/-']/$value['Last'])*100;
         $per = $emiten->profit <=0 ? 0 : ($emiten->price/((($emiten->profit*$emiten->currency*$this->multiply($emiten->quarter))/$emiten->share)));
         $pbv = $emiten->equity == 0 ? 0 : floatval($price/(($emiten->equity*$emiten->currency)/$emiten->share));
         $dy = $price == 0 ? 0 : floatval((($emiten->dividen*$emiten->currency)/$price)*100);
-        $trend = $margin + $emiten->margin;
+        $trend = floatval($margin) + floatval($emiten->margin);
             
         $db = Yii::$app->db;
         $transaction = $db->beginTransaction();

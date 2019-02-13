@@ -60,7 +60,7 @@ class FinancialForm extends Model
                 $emiten->profit =  floatval($this->multiply*floatval(str_replace(",","",$this->profit)));
                 $emiten->dividen =  floatval(str_replace(",","",$this->dividen));
                 $emiten->currency =  floatval(str_replace(",","",$this->currency));
-                $emiten->share =  floatval(str_replace(",","",$this->share));
+                $emiten->share =  floatval(str_replace(".","",$this->share));
                 $emiten->update();
                 
                 $fundamental->quarter = $this->quarter;

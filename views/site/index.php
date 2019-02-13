@@ -2,58 +2,162 @@
 
 /* @var $this yii\web\View */
 
-
-use yii\helpers\Html;
-$this->title = 'Index Saham Syariah Indonesia ( ISSI )';
+$this->title = 'Home';
 
 ?>
 
-<div class="callout callout-info" style="text-align:justify;">
-    <h4><?= Html::encode($this->title) ?></h4>
-    <p>Di bawah ini adalah saham-saham syariah yang tercatat di BEI. Saham-saham ini selalu diseleksi ulang setiap bulan Mei dan November.
-       Kami sajikan informasi fundamental masing-masing saham dengan harga penutupan pada hari kemarin.</p>
-</div>
 
-<div class="box">
-    <div class="box-body">
-        <table id="table1" class="table table-bordered table-striped">
+
+        <div class="col-lg-8">
+            <div class="jumbotron" style="background-image: url('images/home-bg.jpg');background-repeat: no-repeat;
+  background-size: cover;background-color: rgba(255,255,255,0.5) !important;">
+        
+            <h1 style="font-size: 80px;">Sharia Investor</h1>
+
+            <p class="lead" style="">Sakinah Berinvestasi Saham.</p>
+            
+        </div>
+            
+            <div class="row">
+    <div class="body-content">
+
+        <div class="row">
+            
+            <div class="col-lg-6">
+                <h4>Top Gainers</h4>
+                <div class="box box-success">
+                <div class="box-body">
+            <table id="table1" class="table table-bordered table-striped">
             <thead>
             <tr>
                 <th>Code</th>
-                <th>Sector</th>
-                <th>Subsector</th>
-                <th>M.Cap(B)</th>
                 <th>Price</th>
                 <th>Chg(%)</th>
-                <th>Priode</th>
-                <th>PER</th>
-                <th>PBV</th>
-                <th>ROE(%)</th>
-                <th>DY(%)</th>
-                <th>DER</th>
             </tr>
             </thead>
             <tbody>
-                <?php $no = 1; foreach($data as $index => $value){ ?>
+                <?php $no = 1; foreach($gainers as $index => $value){ ?>
                 <tr> 
                   <td><?= $value['code']; ?></td>
-                  <td><?= $value['sector']['name']; ?></td>
-                  <td><?= $value['subsector']['name']; ?></td>
-                  <td style="text-align:right;"><?= number_format(($value['emiten']['price']*$value['emiten']['share'])/1000000000,2,'.',','); ?></td>
-                  <td style="text-align:right;"><?= number_format($value['emiten']['price']); ?></td>
-                  <td style="text-align:right;"><?= number_format($value['emiten']['margin'],2,'.',','); ?></td>
-                  <td style="text-align:center;"><?= $value['periode']['name']; ?></td>
-                  <td style="text-align:right;"><?= number_format($value['per'],2,'.',','); ?></td>
-                  <td style="text-align:right;"><?= number_format($value['pbv'],2,'.',','); ?></td>
-                  <td style="text-align:right;"><?= number_format($value['roe'],2,'.',','); ?></td>
-                  <td style="text-align:right;"><?= number_format($value['dy'],2,'.',','); ?></td>
-                  <td style="text-align:right;"><?= number_format($value['der'],2,'.',','); ?></td>
-                  
+                  <td style="text-align:right;"><?= number_format($value['price']); ?></td>
+                  <td style="text-align:right;"><?= number_format($value['margin'],2,'.',','); ?></td>
                 </tr>
                 <?php $no++; } ?>  
             </tbody>
         </table>
+        </div>
+                                <div class="box-footer text-center">
+              <a href="javascript:void(0)" class="uppercase">View More</a>
+            </div>
+            <!-- /.box-footer -->
+                    </div>
+
+           
+            </div>
+            
+            <div class="col-lg-6">
+                <h4>Top Losers</h4>
+                <div class="box box-danger">
+    <div class="box-body">
+            <table id="table2" class="table table-bordered table-striped">
+            <thead>
+            <tr>
+                <th>Code</th>
+                <th>Price</th>
+                <th>Chg(%)</th>
+            </tr>
+            </thead>
+            <tbody>
+                <?php $no = 1; foreach($losers as $index => $value){ ?>
+                <tr> 
+                  <td><?= $value['code']; ?></td>
+                  <td style="text-align:right;"><?= number_format($value['price']); ?></td>
+                  <td style="text-align:right;"><?= number_format($value['margin'],2,'.',','); ?></td>
+                </tr>
+                <?php $no++; } ?>  
+            </tbody>
+        </table>
+        </div>
+                                <div class="box-footer text-center">
+              <a href="javascript:void(0)" class="uppercase">View More</a>
+            </div>
+            <!-- /.box-footer -->
+                    </div>
+
+           
+            </div>
+            
+            
+        </div>
+
     </div>
-    <!-- /.box-body -->
-</div>
+        </div>
+        
+        
+        </div>
+        
+        <div class="col-lg-4">
+                      <!-- PRODUCT LIST -->
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h1 class="box-title">Top 5 Articles</h1>
+
+
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <ul class="products-list product-list-in-box">
+                <li class="item">
+                  <div class="product-img">
+                    <img src="dist/img/default-50x50.gif" alt="Product Image">
+                  </div>
+                  <div class="product-info">
+                    <a href="javascript:void(0)" class="product-title">Langkah Awal Berinvestasi Saham</a>
+                  </div>
+                </li>
+                <li class="item">
+                  <div class="product-img">
+                    <img src="dist/img/default-50x50.gif" alt="Product Image">
+                  </div>
+                  <div class="product-info">
+                    <a href="javascript:void(0)" class="product-title">Sabar dan Waktu Adalah Kuncinya</a>
+                  </div>
+                </li>
+                <li class="item">
+                  <div class="product-img">
+                    <img src="dist/img/default-50x50.gif" alt="Product Image">
+                  </div>
+                  <div class="product-info">
+                    <a href="javascript:void(0)" class="product-title">Teknik Membaca Grafik Saham</a>
+                  </div>
+                </li>
+                <li class="item">
+                  <div class="product-img">
+                    <img src="dist/img/default-50x50.gif" alt="Product Image">
+                  </div>
+                  <div class="product-info">
+                    <a href="javascript:void(0)" class="product-title">Waktu yang Tepat Membeli dan Menjual Saham</a>
+                  </div>
+                </li>
+                <li class="item">
+                  <div class="product-img">
+                    <img src="dist/img/default-50x50.gif" alt="Product Image">
+                  </div>
+                  <div class="product-info">
+                    <a href="javascript:void(0)" class="product-title">Kapan Harus Cutloss ? </a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer text-center">
+              <a href="javascript:void(0)" class="uppercase">View All Articles</a>
+            </div>
+            <!-- /.box-footer -->
+          </div>
+          <!-- /.box -->
+        </div>
+
+    
+    
 

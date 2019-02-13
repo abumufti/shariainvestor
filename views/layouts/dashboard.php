@@ -53,7 +53,7 @@ use yii\helpers\Html;
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="https://shariainvestor.com" class="logo">
+    <a href="<?= Yii::$app->homeUrl ?>" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>S</b>INV</span>
       <!-- logo for regular state and mobile devices -->
@@ -287,15 +287,15 @@ use yii\helpers\Html;
         </li>
         <li class="treeview <?= $this->params['tree'][3];?>">
           <a href="#">
-            <i class="fa fa-newspaper-o"></i><span>Transaction</span>
+            <i class="fa fa-newspaper-o"></i><span>Administration</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="<?= $this->params['selected'][7];?>" ><a href="<?= BaseUrl::toRoute(['transaction/broker']);?>"><i class="fa fa-circle-o text-red"></i> Broker</a></li>
-            <li class="<?= $this->params['selected'][8];?>" ><a href="<?= BaseUrl::toRoute(['transaction/deposit']);?>"><i class="fa fa-circle-o text-yellow"></i> Deposit</a></li>
-            <li class="<?= $this->params['selected'][9];?>" ><a href="<?= BaseUrl::toRoute(['transaction/dividen']);?>"><i class="fa fa-circle-o text-yellow"></i> Dividen</a></li>
+            <li class="<?= $this->params['selected'][7];?>" ><a href="<?= BaseUrl::toRoute(['administration/broker']);?>"><i class="fa fa-circle-o text-red"></i> Broker</a></li>
+            <li class="<?= $this->params['selected'][8];?>" ><a href="<?= BaseUrl::toRoute(['administration/deposit']);?>"><i class="fa fa-circle-o text-yellow"></i> Bank</a></li>
+            <li class="<?= $this->params['selected'][9];?>" ><a href="<?= BaseUrl::toRoute(['administration/dividen']);?>"><i class="fa fa-circle-o text-green"></i> Dividen</a></li>
           </ul>
         </li>   
         <li class="treeview <?= $this->params['tree'][4];?>">
@@ -306,8 +306,8 @@ use yii\helpers\Html;
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="<?= $this->params['selected'][10];?>" ><a href="<?= BaseUrl::toRoute(['history/all']);?>"><i class="fa fa-circle-o text-red"></i> All</a></li>
-            <li class="<?= $this->params['selected'][11];?>" ><a href="<?= BaseUrl::toRoute(['history/buy']);?>"><i class="fa fa-circle-o text-yellow"></i> Buy & Sell</a></li>
+            <li class="<?= $this->params['selected'][10];?>" ><a href="<?= BaseUrl::toRoute(['history/buy']);?>"><i class="fa fa-circle-o text-red"></i> Buy</a></li>
+            <li class="<?= $this->params['selected'][11];?>" ><a href="<?= BaseUrl::toRoute(['history/sell']);?>"><i class="fa fa-circle-o text-yellow"></i> Sell</a></li>
           </ul>
         </li>  
       </ul>

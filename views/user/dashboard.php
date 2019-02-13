@@ -21,6 +21,7 @@ $buyTotal =0;
 
 ?>
 
+<!-- Pop Up -->
 <div class="modal modal-info fade" id="modal-info">
     <div class="modal-dialog">
             <div class="modal-content">
@@ -108,7 +109,6 @@ $buyTotal =0;
           </div>
           <!-- /.modal-dialog -->
         </div>
-<!-- /.modal -->
 
 <div class="modal modal-default fade" id="modal-stock">
     <div class="modal-dialog">
@@ -119,36 +119,32 @@ $buyTotal =0;
                 <h4 class="modal-title">ISSI</h4>
             </div>
             <div class="modal-body">
-               
-            
-        <table id="history" class="table table-bordered table-striped">
-            <thead>
-            <tr>
-                <th></th>
-                <th>Code</th>
-                <th>Price</th>
-                <th>Trend(%)</th>
-                <th>PBV</th>
-                <th>ROE</th>
-                <th>DY</th>
-            </tr>
-            </thead>
-            <tbody>
+                <table id="history" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>Code</th>
+                    <th>PER</th>
+                    <th>Trend(%)</th>
+                    <th>PBV</th>
+                    <th>ROE</th>
+                    <th>DY</th>
+                </tr>
+                </thead>
+                <tbody>
                 <?php $no = 1; foreach($stocks as $index => $value){?>
                 <tr>
-                  <td>&nbsp;&nbsp;</td>  
-                  <td><?= $value['code']; ?></td>
-                  <td style="text-align:right;"><?= number_format($value['emiten']['price']); ?></td>
-                  <td style="text-align:right;"><?= number_format($value['emiten']['trend'],2,'.',','); ?></td>
-                  <td style="text-align:right;"><?= number_format($value['pbv'],2,'.',','); ?></td>
-                  <td style="text-align:right;"><?= number_format($value['roe'],2,'.',','); ?></td>
-                  <td style="text-align:right;"><?= number_format($value['dy'],2,'.',','); ?></td>
+                    <td>&nbsp;&nbsp;</td>  
+                    <td><?= $value['code']; ?></td>
+                    <td style="text-align:right;"><?= number_format($value['per']); ?></td>
+                    <td style="text-align:right;"><?= number_format($value['emiten']['trend'],2,'.',','); ?></td>
+                    <td style="text-align:right;"><?= number_format($value['pbv'],2,'.',','); ?></td>
+                    <td style="text-align:right;"><?= number_format($value['roe'],2,'.',','); ?></td>
+                    <td style="text-align:right;"><?= number_format($value['dy'],2,'.',','); ?></td>
                 </tr>
                 <?php $no++; } ?>  
-            </tbody>
-        </table>
-    
-                  
+                </tbody>
+                </table>
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-success" id="watch">Watch List</button>
@@ -156,12 +152,13 @@ $buyTotal =0;
         </div>
     </div>
 </div>
+<!-- /Pop Up -->
 
 <div class="row">    
     <div class="col-md-7"> 
         <div class="box box-default">
             <div class="box-header with-border">
-              <h3 class="box-title">Buy</h3>
+              <h3 class="box-title">Stocks</h3>
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                 </button>
@@ -173,6 +170,7 @@ $buyTotal =0;
                 <div class="row">
                     <div class="hide">
                         <?= $form->field($model,'sellFee')->hiddenInput()->label(false) ?>
+                        <?= $form->field($model,'buyFee')->hiddenInput()->label(false) ?>
                     </div>
                 
                     <div class="col-md-3">
@@ -199,7 +197,7 @@ $buyTotal =0;
                 
                     <div class="col-md-3">
                     <div class="form-group">
-                        <?= $form->field($model, 'buyFee')->textInput(['value'=>0,'readOnly'=>true]) ?>
+                        <?= $form->field($model, 'buy')->textInput(['value'=>0]) ?>
                     </div>
                 </div>
                 
@@ -209,21 +207,21 @@ $buyTotal =0;
                 
                     <div class="col-md-3">
                     <div class="form-group">
-                        <?= $form->field($model, 'buy')->textInput(['value'=>0]) ?>
+                        <?= $form->field($model, 'lot')->textInput(['value'=>0]) ?>
                     </div>
                     <!-- /.form-group -->
                 </div>
                     
                     <div class="col-md-3">
                     <div class="form-group">
-                        <?= $form->field($model, 'lot')->textInput(['value'=>0]) ?>
+                        <?= $form->field($model, 'profitPercentage')->textInput(['value'=>2]) ?>
                     </div>
                     <!-- /.form-group -->
                 </div>
             
                     <div class="col-md-3">
                     <div class="form-group">
-                       <?= $form->field($model, 'profitPercentage')->textInput(['value'=>2]) ?>
+                       <?= $form->field($model, 'sell')->textInput(['value'=>0,'readOnly'=>true]) ?>
                     </div>
                     <!-- /.form-group -->
                 </div>
@@ -239,18 +237,6 @@ $buyTotal =0;
                 </div>
                 <?php ActiveForm::end() ?>
             </div>
-        </div>
-        
-        <div class="box box-success">
-            <div class="box-header with-border">
-              <h3 class="box-title">Stock Column</h3>
-
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-              </div>
-            </div>
             <div class="box-body">
                 <table id="example1" class="table table-bordered table-striped">
                     <thead>
@@ -259,7 +245,9 @@ $buyTotal =0;
                         <th>Buy</th>
                         <th>Price</th> 
                         <th>Target</th> 
+                        <th>Trend</th> 
                         <th>Lot</th>
+                        <th>Total</th>
                         <th>Margin</th>
                         <th>Margin</th>
                         <th>Action</th>
@@ -280,8 +268,10 @@ $buyTotal =0;
                         <td><?= $value['code']; ?></td>
                         <td style="text-align:right;"><?= number_format($value['buy']); ?></td>
                         <td style="text-align:right;"><?= number_format($value['emiten']['price']); ?></td>
-                        <td style="text-align:right;"><?= number_format(ceil($target)); ?></td>  
+                        <td style="text-align:right;"><?= number_format(ceil($target)); ?></td>
+                        <td style="text-align:right;"><?= number_format($value['trend']); ?></td>
                         <td style="text-align:right;"><?= number_format($value['share']/100); ?></td>
+                        <td style="text-align:right;"><?= number_format($value['share']*$value['emiten']['price']); ?></td>
                         <td style="text-align:right;"><?= number_format(($margin2/$value['buy'])*100,2,".",","); ?> %</td>   
                         <td style="text-align:right;"><?= number_format(($margin2)*$value['share'],2,".",","); ?></td>   
                         <td><button type="button" class="btn btn-block btn-success btn-xs" data-toggle="modal" data-target="#modal-info" id="buyform-sell" onclick="sell(<?= $value['id'] ?>)">Sell</button></td>
@@ -291,17 +281,16 @@ $buyTotal =0;
                    
                 </table>
             </div>
-            <!-- /.box-body -->
-        </div>
-   
+        </div>       
+        
+        
+        
     </div>
     
     <div class="col-md-5">
-        
         <div class="box box-primary">
             <div class="box-header with-border">
               <h3 class="box-title">Portofolio</h3>
-
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                 </button>
@@ -374,6 +363,7 @@ $buyTotal =0;
                     <tr>
                         <th>Code</th>
                         <th>Price</th>
+                        <th>PER</th>
                         <th>PBV</th>
                         <th>ROE</th>
                         <th>DY</th>
@@ -384,7 +374,8 @@ $buyTotal =0;
                     <?php foreach($fundamental as $index => $value){ ?>
                     <tr>
                         <td><?= $value['code']; ?></td>
-                        <td style="text-align:right;"><?= number_format($value['emiten']['price']); ?></td> 
+                        <td style="text-align:right;"><?= number_format($value['emiten']['price']); ?></td>
+                        <td style="text-align:right;"><?= number_format($value['per']); ?></td> 
                         <td style="text-align:right;"><?= number_format($value['pbv'],2,'.',','); ?></td>
                         <td style="text-align:right;"><?= number_format($value['roe'],2,'.',','); ?></td>
                         <td style="text-align:right;"><?= number_format($value['dy'],2,'.',','); ?></td> 

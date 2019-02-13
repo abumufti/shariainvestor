@@ -9,7 +9,8 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
-use app\models\MuvtiFundamental;
+use app\models\MuvtiEmiten;
+use yii\helpers\BaseUrl;
 
 class SiteController extends Controller
 {
@@ -62,36 +63,14 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $data = MuvtiFundamental::find()->all();
+        $gainers = MuvtiEmiten::find()->limit(5)->orderBy(["margin"=> SORT_DESC] )->all();
         
-        return $this->render('index',['data'=>$data]);
+        $losers = MuvtiEmiten::find()->limit(5)->orderBy("margin")->all();
+        
+        return $this->render('index',['gainers'=>$gainers,'losers'=>$losers]);
     }
-    
+
     /**
-     * Displays homepage.
-     *
-     * @return string
-     */
-    public function actionIndexEmiten()
-    {
-        $data = MuvtiFundamental::find()->where("muvti_emiten.idx IS NOT NULL")->joinWith('emiten')->all();
-        
-        return $this->render('indexed',['data'=>$data]);
-    }
-    
-    /**
-     * Displays recommended page.
-     *
-     * @return string
-     */
-    public function actionUnderValue()
-    {
-        $data = MuvtiFundamental::find()->where("per > 0 AND per <15")->joinWith('emiten')->all();
-        
-        return $this->render('undervalue',['data'=>$data]);
-    }
-    
-        /**
      * Displays recommended page.
      *
      * @return string
@@ -114,7 +93,8 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+            $site = BaseUrl::base().'/user/dashboard';
+            return $this->redirect($site, 301);
         }
 
         $model->password = '';

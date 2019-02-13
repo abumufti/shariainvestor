@@ -13,6 +13,8 @@ use Yii;
  * @property string $share
  * @property double $buy_fee
  * @property double $sell_fee
+ * @property double $target
+ * @property double $trend
  * @property string $buy_date
  * @property string $status
  * @property string $date_created
@@ -36,7 +38,7 @@ class MuvtiPortofolio extends \yii\db\ActiveRecord
     {
         return [
             [['code', 'share'], 'required'],
-            [['buy', 'buy_fee', 'sell_fee'], 'number'],
+            [['buy', 'buy_fee', 'sell_fee', 'target', 'trend'], 'number'],
             [['share'], 'integer'],
             [['buy_date', 'date_created', 'date_updated'], 'safe'],
             [['is_deleted'], 'boolean'],
@@ -57,6 +59,8 @@ class MuvtiPortofolio extends \yii\db\ActiveRecord
             'share' => 'Share',
             'buy_fee' => 'Buy Fee',
             'sell_fee' => 'Sell Fee',
+            'target' => 'Target',
+            'trend' => 'Trend',
             'buy_date' => 'Buy Date',
             'status' => 'Status',
             'date_created' => 'Date Created',

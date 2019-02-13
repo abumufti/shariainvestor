@@ -16,6 +16,7 @@ class BuyForm extends Model
     public $buyFee;
     public $sellFee;
     public $buy;
+    public $sell;
     public $dateBuy;
     public $lot;
     public $profitPercentage;
@@ -25,8 +26,9 @@ class BuyForm extends Model
         return [
             ['emiten', 'required', 'message' => 'Please choose an emiten.'],
             ['broker', 'required', 'message' => 'Please choose a broker.'],
-            ['buyFee', 'required', 'message' => 'Please fill Buy Fee.'],
+            ['buyFee', 'required'],
             ['sellFee', 'required'],
+            ['sell', 'required'],
             ['dateBuy', 'required', 'message' => 'Please fill Buy Fee.'],
             ['buy', 'required', 'message' => 'Please fill Buy value.'],
             ['lot', 'required', 'message' => 'Please fill Lot.'],
