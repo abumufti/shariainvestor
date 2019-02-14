@@ -206,6 +206,22 @@ AppAsset::register($this);
         
     });
     
+        $("#table3").DataTable({
+        "paging"      : true,
+        "lengthChange": true,
+        "searching"   : true,
+        "ordering"    : false,
+        "info"        : false,
+        "autoWidth"   : false,
+        "scrollX"     : "200px",
+        "scrollCollapse": true,
+        "select": {
+            style:    'single',
+            
+        }
+        
+    });
+    
     $(".se-pre-con").hide();
     
     $(window).load(function() {

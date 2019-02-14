@@ -269,7 +269,7 @@ $buyTotal =0;
                         <td style="text-align:right;"><?= number_format($value['buy']); ?></td>
                         <td style="text-align:right;"><?= number_format($value['emiten']['price']); ?></td>
                         <td style="text-align:right;"><?= number_format(ceil($target)); ?></td>
-                        <td style="text-align:right;"><?= number_format($value['trend']); ?></td>
+                        <td style="text-align:right;"><?= number_format($value['trend'],2,'.',','); ?> %</td>
                         <td style="text-align:right;"><?= number_format($value['share']/100); ?></td>
                         <td style="text-align:right;"><?= number_format($value['share']*$value['emiten']['price']); ?></td>
                         <td style="text-align:right;"><?= number_format(($margin2/$value['buy'])*100,2,".",","); ?> %</td>   

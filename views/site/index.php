@@ -1,20 +1,21 @@
 <?php
-
+use yii\helpers\Url;
 /* @var $this yii\web\View */
 
 $this->title = 'Home';
+
 
 ?>
 
 
 
         <div class="col-lg-8">
-            <div class="jumbotron" style="background-image: url('images/home-bg.jpg');background-repeat: no-repeat;
+            <div class="jumbotron" style="background-color: #FFF; background-image: url('images/home-bg.jpg');background-repeat: no-repeat;
   background-size: cover;background-color: rgba(255,255,255,0.5) !important;">
         
-            <h1 style="font-size: 80px;">Sharia Investor</h1>
+            <h1 style="color:green;">Sharia Investor</h1>
 
-            <p class="lead" style="">Sakinah Berinvestasi Saham.</p>
+            <p  style="color:blue;font-size:24px;">Sakinah Berinvestasi Saham.</p>
             
         </div>
             
@@ -26,7 +27,7 @@ $this->title = 'Home';
             <div class="col-lg-6">
                 <h4>Top Gainers</h4>
                 <div class="box box-success">
-                <div class="box-body">
+                <div class="box-body"><p>Berdasarkan Harga Penutupan Kemarin.</p>
             <table id="table1" class="table table-bordered table-striped">
             <thead>
             <tr>
@@ -47,7 +48,7 @@ $this->title = 'Home';
         </table>
         </div>
                                 <div class="box-footer text-center">
-              <a href="javascript:void(0)" class="uppercase">View More</a>
+              <a href="<?= Url::to(['emiten/all', 'order' => "desc"]); ?>" class="uppercase">More</a>
             </div>
             <!-- /.box-footer -->
                     </div>
@@ -58,7 +59,7 @@ $this->title = 'Home';
             <div class="col-lg-6">
                 <h4>Top Losers</h4>
                 <div class="box box-danger">
-    <div class="box-body">
+    <div class="box-body"><p>Berdasarkan Harga Penutupan Kemarin.</p>
             <table id="table2" class="table table-bordered table-striped">
             <thead>
             <tr>
@@ -79,7 +80,7 @@ $this->title = 'Home';
         </table>
         </div>
                                 <div class="box-footer text-center">
-              <a href="javascript:void(0)" class="uppercase">View More</a>
+                                    <a href="<?= Url::to(['emiten/all', 'order' => "asc"]); ?>" class="uppercase">More</a>
             </div>
             <!-- /.box-footer -->
                     </div>

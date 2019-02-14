@@ -1,7 +1,7 @@
 <?php
 
 namespace app\controllers;
-
+use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -58,7 +58,13 @@ class EmitenController extends Controller
      */
     public function actionAll()
     {
-        $data = MuvtiFundamental::find()->all();
+        if(Yii::$app->request->get("order") ==="desc"){
+            $data = MuvtiFundamental::find()->joinWith('emiten')->where("muvti_emiten.margin > 0")->orderBy(["muvti_emiten.margin"=> SORT_DESC])->all();
+        }elseif(Yii::$app->request->get("order") ==="asc"){
+            $data = MuvtiFundamental::find()->joinWith('emiten')->where("muvti_emiten.margin < 0")->orderBy(["muvti_emiten.margin"=> SORT_ASC])->all();
+        }else{
+            $data = MuvtiFundamental::find()->all();
+        }
         
         return $this->render('index',['data'=>$data]);
     }

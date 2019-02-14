@@ -13,8 +13,8 @@ $this->title = 'Index Sharia Emitens';
 </div>
 
 <div class="box">
-    <div class="box-body">
-        <table id="table1" class="table table-bordered table-striped">
+    <div class="box-body"><p>Berdasarkan Harga Penutupan Kemarin.</p>
+        <table id="table3" class="table table-bordered table-striped">
             <thead>
             <tr>
                 <th>Code</th>
