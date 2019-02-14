@@ -206,12 +206,28 @@ AppAsset::register($this);
         
     });
     
-        $("#table3").DataTable({
+    $("#table3").DataTable({
+        "paging"      : true,
+        "lengthChange": true,
+        "searching"   : true,
+        "ordering"    : true,
+        "info"        : true,
+        "autoWidth"   : true,
+        "scrollX"     : "200px",
+        "scrollCollapse": true,
+        "select": {
+            style:    'single',
+            
+        }
+        
+    });
+    
+    $("#table4").DataTable({
         "paging"      : true,
         "lengthChange": true,
         "searching"   : true,
         "ordering"    : false,
-        "info"        : false,
+        "info"        : true,
         "autoWidth"   : false,
         "scrollX"     : "200px",
         "scrollCollapse": true,

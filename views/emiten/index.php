@@ -16,7 +16,7 @@ $this->title = 'Index Saham Syariah Indonesia ( ISSI )';
 
 <div class="box">
     <div class="box-body"><p>Berdasarkan Harga Penutupan Kemarin.</p>
-        <table id="table3" class="table table-bordered table-striped">
+        <table id="<?=$table;?>" class="table table-bordered table-striped">
             <thead>
             <tr>
                 <th>Code</th>
