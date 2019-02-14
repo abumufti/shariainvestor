@@ -158,6 +158,16 @@ class EmitenForm extends Model
         $pbv = $emiten->equity == 0 ? 0 : floatval($price/(($emiten->equity*$emiten->currency)/$emiten->share));
         $dy = $price == 0 ? 0 : floatval((($emiten->dividen*$emiten->currency)/$price)*100);
         $trend = floatval($margin) + floatval($emiten->margin);
+        
+        $portofolio = MuvtiPortofolio::find()->where(['code' =>$code])->one();
+        
+        if(count($portofolio) && $margin !=0){
+            
+            $trend2 = floatval($margin+$portofolio->trend)<0 ? floatval($margin) + floatval($portofolio->trend) : 0;
+                
+            $sql3 = "UPDATE muvti_portofolio SET trend=$trend2  WHERE code='$code'";
+            
+        }
             
         $db = Yii::$app->db;
         $transaction = $db->beginTransaction();
@@ -169,6 +179,7 @@ class EmitenForm extends Model
                 
             $db->createCommand($sql1)->execute();
             $db->createCommand($sql2)->execute();
+            if(count($portofolio) && $margin !=0){$db->createCommand($sql3)->execute();}
             $transaction->commit();
                 
         }catch(\Exception $e) {
