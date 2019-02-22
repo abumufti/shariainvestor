@@ -21,6 +21,7 @@ $buyTotal =0;
 
 ?>
 
+
 <!-- Pop Up -->
 <div class="modal modal-info fade" id="modal-info">
     <div class="modal-dialog">
