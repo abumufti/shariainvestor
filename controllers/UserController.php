@@ -400,13 +400,15 @@ class UserController extends Controller
                         type: "PUT",
                         data:{"watched":1},
                         success: function(response) {
-                            
+                            if(allData.length-- <=1){
+                                window.location =\''.BaseUrl::toRoute(["user/dashboard"]).'\';
+                            }
                         }
                     });
                     
                 });
                 
-                window.location =\''.BaseUrl::toRoute(["user/dashboard"]).'\';
+                //
             });
                 
             $(".select2").select2();
