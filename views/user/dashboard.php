@@ -158,7 +158,7 @@ $buyTotal =0;
     <div class="col-md-7"> 
         <div class="box box-default">
             <div class="box-header with-border">
-              <h3 class="box-title">Stocks</h3>
+              <h3 class="box-title">Buy</h3>
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                 </button>
@@ -197,7 +197,7 @@ $buyTotal =0;
                 
                     <div class="col-md-3">
                     <div class="form-group">
-                        <?= $form->field($model, 'buy')->textInput(['value'=>0]) ?>
+                        <?= $form->field($model, 'budget')->textInput(['value'=>number_format($history['balance'],2,".",",")]) ?>
                     </div>
                 </div>
                 
@@ -207,36 +207,53 @@ $buyTotal =0;
                 
                     <div class="col-md-3">
                     <div class="form-group">
+                        <?= $form->field($model, 'buy')->textInput(['value'=>0]) ?>
+                    </div>
+                    </div>
+                    
+                    <div class="col-md-3">
+                    <div class="form-group">
                         <?= $form->field($model, 'lot')->textInput(['value'=>0]) ?>
                     </div>
                     <!-- /.form-group -->
-                </div>
-                    
+                    </div>
+            
                     <div class="col-md-3">
                     <div class="form-group">
                         <?= $form->field($model, 'profitPercentage')->textInput(['value'=>2]) ?>
                     </div>
                     <!-- /.form-group -->
-                </div>
-            
+                    </div>
+                    
                     <div class="col-md-3">
                     <div class="form-group">
                        <?= $form->field($model, 'sell')->textInput(['value'=>0,'readOnly'=>true]) ?>
                     </div>
                     <!-- /.form-group -->
-                </div>
-                    
-                    <div class="col-md-3">
-                    <div class="form-group">
-                        <br>
-                        <?= Html::submitButton('Submit', ['class' => 'btn btn-primary btn-block']) ?>
                     </div>
-                    <!-- /.form-group -->
-                </div>
             
                 </div>
-                <?php ActiveForm::end() ?>
+                
             </div>
+            <div class="box-footer clearfix">
+              <div class="form-group">
+                        <?= Html::submitButton('Submit', ['class' => 'btn btn-primary pull-right']) ?>
+                    </div>
+                    <!-- /.form-group -->
+            </div>
+            <?php ActiveForm::end() ?>
+        </div>       
+        
+        <div class="box box-default">
+            <div class="box-header with-border">
+              <h3 class="box-title">Stocks</h3>
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
+            
             <div class="box-body">
                 <table id="example1" class="table table-bordered table-striped">
                     <thead>

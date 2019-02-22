@@ -20,12 +20,14 @@ class BuyForm extends Model
     public $dateBuy;
     public $lot;
     public $profitPercentage;
+    public $budget;
     
     public function rules()
     {
         return [
             ['emiten', 'required', 'message' => 'Please choose an emiten.'],
             ['broker', 'required', 'message' => 'Please choose a broker.'],
+            ['budget', 'required'],
             ['buyFee', 'required'],
             ['sellFee', 'required'],
             ['sell', 'required'],
