@@ -185,10 +185,12 @@ class UserController extends Controller
                     url: "'.BaseUrl::base().'/fundamentals/"+code,
                     type: "PUT",
                     data:{"watched":0},
-                    success: function(response){}
+                    success: function(response){
+                        window.location =\''.BaseUrl::toRoute(["user/dashboard"]).'\';
+                    }
                 });
                                
-                window.location =\''.BaseUrl::toRoute(["user/dashboard"]).'\';
+                
             };
             
             $("#buyform-broker").change(function(){ 
