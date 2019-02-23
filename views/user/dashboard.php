@@ -101,7 +101,7 @@ $buyTotal =0;
                   
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal" >Close</button>
                 <?= Html::submitButton('Submit', ['class' => 'btn btn-outline']) ?>
               </div>
                 <?php ActiveForm::end() ?>
@@ -273,25 +273,30 @@ $buyTotal =0;
                     </thead>
                     <tbody>
                     <?php $no=1; foreach($data as $index => $value){ 
-                        $margin = floatval(($value['share']*$value['emiten']['price']*(1-($value['sell_fee']/100)))-($value['share']*$value['buy']*(1+($value['buy_fee']/100))));
-                        $buy = floatval($value['share']*$value['buy']*(1+($value['buy_fee']/100)));
-                        $buyTotal += $buy;
+                        $buyfee = floatval($value['buy_fee']/100);
+                        $sellfee = floatval($value['sell_fee']/100);
+                        $buy = floatval($value['buy']*(1+$buyfee));
+                        $sell = floatval($value['emiten']['price']*(1-$sellfee));
+                        $margin = floatval(($sell-$buy)*$value['share']);
+                        $marginPercentage = floatval((($sell-$buy)/$buy)*100);
+                        $target = floatval($value['target']/100);
+                        $targetSell = $buy*(1+$sellfee+$target);
+                        
+                        $portofolio +=$sell*$value['share'];
                         $marginTotal += $margin;
-                        $sellAmount = floatval($value['share']*$value['emiten']['price']*(1-($value['sell_fee']/100)));                                              
-                        $portofolio += $sellAmount;
-                        $margin2 = floatval(($value['emiten']['price']*(1-($value['sell_fee']/100)))-($value['buy']*(1+($value['buy_fee']/100))));
-                        $target = floatval((($value['target']/100)*$value['buy'] + ($value['buy']*(1+($value['buy_fee']/100))))/(1-($value['sell_fee']/100)));
+                        $buyTotal =0;
+                        
                     ?>
                     <tr>
                         <td><?= $value['code']; ?></td>
                         <td style="text-align:right;"><?= number_format($value['buy']); ?></td>
                         <td style="text-align:right;"><?= number_format($value['emiten']['price']); ?></td>
-                        <td style="text-align:right;"><?= number_format(ceil($target)); ?></td>
+                        <td style="text-align:right;"><?= number_format(ceil($targetSell)); ?></td>
                         <td style="text-align:right;"><?= number_format($value['trend'],2,'.',','); ?> %</td>
                         <td style="text-align:right;"><?= number_format($value['share']/100); ?></td>
-                        <td style="text-align:right;"><?= number_format($value['share']*$value['emiten']['price']); ?></td>
-                        <td style="text-align:right;"><?= number_format(($margin2/$value['buy'])*100,2,".",","); ?> %</td>   
-                        <td style="text-align:right;"><?= number_format(($margin2)*$value['share'],2,".",","); ?></td>   
+                        <td style="text-align:right;"><?= number_format($value['share']*$sell); ?></td>
+                        <td style="text-align:right;"><?= number_format($marginPercentage,2,".",","); ?> %</td>   
+                        <td style="text-align:right;"><?= number_format($margin,2,".",","); ?></td>   
                         <td><button type="button" class="btn btn-block btn-success btn-xs" data-toggle="modal" data-target="#modal-info" id="buyform-sell" onclick="sell(<?= $value['id'] ?>)">Sell</button></td>
                     </tr>
                     <?php $no++; } ?>    
@@ -357,7 +362,7 @@ $buyTotal =0;
                     <tbody>
                     <tr> 
                         <td style="text-align:center;"><?= number_format($marginTotal,2,".",","); ?></td>
-                        <td style="text-align:center;"><?= number_format($sell[0]['margins'],2,".",","); ?></td>
+                        <td style="text-align:center;"><?= number_format($gain[0]['margins'],2,".",","); ?></td>
                         <td style="text-align:center;"><?= number_format($dividen[0]['amounts'],2,".",","); ?></td>
                     </tr>
                     </tbody>

@@ -107,7 +107,7 @@ class UserController extends Controller
             return $this->refresh();
         }
 
-        return $this->render('dashboard',['data'=>$data,'broker'=>$broker,'stocks'=>$stocks, 'model'=>$model,'history'=>$history,'fundamental'=>$fundamental,'sell'=>$sell,'emiten'=>$emiten,'deposit'=>$deposit, 'model2'=>$model2,'dividen'=>$dividen]);
+        return $this->render('dashboard',['data'=>$data,'broker'=>$broker,'stocks'=>$stocks, 'model'=>$model,'history'=>$history,'fundamental'=>$fundamental,'gain'=>$sell,'emiten'=>$emiten,'deposit'=>$deposit, 'model2'=>$model2,'dividen'=>$dividen]);
     }
    
     private function getHeader(){
@@ -154,24 +154,24 @@ class UserController extends Controller
                     
                     var table = $("#example1").DataTable();
                     var allData = table.rows({ selected: true }).data();
-                    var buyid = data.id;
-                    var code = data.code;
-                    var sell = allData[0][2].replace(",","");
-                    var sellfee= data.sell_fee;
-                    var lot = data.share/100;
-                    var buy = allData[0][1].replace(",","");
-                    var buyfee = data.buy_fee;
-                    var shares = data.share;
-                    var margin = (sell*(1-sellfee/100)-buy*(1+buyfee/100))*shares; 
-                    var percentage = ((sell*(1-sellfee/100)-buy*(1+buyfee/100))/buy)*100;
+                    var sellfee= data.sell_fee/100;
+                    var sell = allData[0][2].replace(",","")*(1-sellfee);
                     
-                    $("#sellform-emiten").val(code);
-                    $("#sellform-buy").val(buy);
-                    $("#sellform-buyfee").val(buyfee);
+                    var lot = data.share/100;
+                    var buyfee = data.buy_fee/100;
+                    var buy = allData[0][1].replace(",","")*(1+buyfee);
+                    
+                    var shares = data.share;
+                    var margin = (sell-buy)*data.share; 
+                    var percentage = ((sell-buy)/buy)*100;
+                    
+                    $("#sellform-emiten").val(data.code);
+                    $("#sellform-buy").val(allData[0][1].replace(",",""));
+                    $("#sellform-buyfee").val(data.buy_fee);
                     $("#sellform-lot").val(lot);
-                    $("#sellform-buyid").val(buyid);
-                    $("#sellform-sell").val(sell);
-                    $("#sellform-sellfee").val(sellfee);
+                    $("#sellform-buyid").val(data.id);
+                    $("#sellform-sell").val(allData[0][2].replace(",",""));
+                    $("#sellform-sellfee").val(data.sell_fee);
                     $("#sellform-margin").val(margin.toLocaleString("en"));
                     $("#sellform-percentage").val(percentage.toFixed(2));
                     
@@ -215,6 +215,36 @@ class UserController extends Controller
                 $("#buyform-sell").val(sell);
                 $("#buyform-lot").val(lot);
               
+                
+            });
+            
+            $("#sellform-sell").mouseleave(function(){
+            
+                var buyfee = parseFloat($("#sellform-buyfee").val()/100);
+                var sellfee = parseFloat($("#sellform-sellfee").val()/100);
+                var buy = parseFloat($("#sellform-buy").val()*(1+buyfee));
+                var sell = parseFloat($("#sellform-sell").val()*(1-sellfee));
+                var lot = parseFloat($("#sellform-lot").val()*100);
+                var margin = ((sell - buy)*lot).toFixed(2);
+                var percentage = (((sell - buy)/buy)*100).toFixed(2);
+                
+                $("#sellform-margin").val(margin.replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+                $("#sellform-percentage").val(percentage);
+              
+            });
+            
+            $("#sellform-lot").mouseleave(function(){
+
+                var buyfee = parseFloat($("#sellform-buyfee").val()/100);
+                var sellfee = parseFloat($("#sellform-sellfee").val()/100);
+                var buy = parseFloat($("#sellform-buy").val()*(1+buyfee));
+                var sell = parseFloat($("#sellform-sell").val()*(1-sellfee));
+                var lot = parseFloat($("#sellform-lot").val()*100);
+                var margin = ((sell - buy)*lot).toFixed(2);
+                var percentage = (((sell - buy)/buy)*100).toFixed(2);
+                
+                $("#sellform-margin").val(margin.replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+                $("#sellform-percentage").val(percentage);
                 
             });
             
