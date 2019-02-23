@@ -54,25 +54,31 @@ alert("Data is already saved !");
             <!-- /.col -->
             <div class="col-md-3">
               <div class="form-group">
+                <?= $form->field($model, 'currency')->textInput(['value' => 1]) ?>
+             </div>
+              <!-- /.form-group -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-3">
+              <div class="form-group">
                 <?= $form->field($model, 'excelFile')->fileInput(); ?>
               </div>
               <!-- /.form-group -->
             </div>
              <!-- /.col -->
-            <div class="col-md-3">
-              <div class="form-group">
-                <br/>
-                <?= Html::submitButton('Submit', ['class' => 'btn btn-primary']) ?>
-             </div>
-              <!-- /.form-group -->
-            </div>
-            <!-- /.col -->
-            <?php ActiveForm::end() ?>
+            
           </div>
           <!-- /.row -->
         </div>
-        <!-- /.box-body -->
-      </div>
+    <!-- /.box-body -->
+    <div class="box-footer clearfix">
+        <div class="form-group">
+            <?= Html::submitButton('Submit', ['class' => 'btn btn-primary pull-right']) ?>
+        </div>
+        <!-- /.form-group -->
+    </div>
+    <?php ActiveForm::end() ?>
+</div>
 <!-- /.box -->
 
 <div class="box">

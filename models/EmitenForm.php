@@ -15,6 +15,7 @@ class EmitenForm extends Model
     public $excelFile;
     public $category;
     public $quarter;
+    public $currency;
     
     
     public function rules()
@@ -23,6 +24,7 @@ class EmitenForm extends Model
             [['excelFile'], 'file', 'skipOnEmpty' => false],
             ['category', 'required', 'message' => 'Please choose a category.'],
             ['quarter', 'required', 'message' => 'Please choose a quarter.'],
+            ['currency', 'required', 'message' => 'Please input currency.'],
         ];
     }
     
@@ -86,9 +88,10 @@ class EmitenForm extends Model
             
             $code = $value['Stock'];
             $emiten = MuvtiEmiten::find()->where(['code' =>$code])->one();
-                
+              
             if(count($emiten)>0 && intval($value['Last'])>0){
-                
+                $emiten->currency = $emiten->currency > 1 && floatval($this->currency) >1 ? floatval($this->currency) : $emiten->currency;
+                $emiten->update();
                 $this->updatePrice($value,$emiten, $code);
             
             }
