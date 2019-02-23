@@ -201,89 +201,52 @@ class UserController extends Controller
             });
 
             $("#buyform-buy").mouseleave(function(){
-                                    
-                var buy = $("#buyform-buy").val();   
-                var buyfee = $("#sellform-buyfee").val();
-                var sellfee = $("#sellform-sellfee").val();
-                var percentage = $("#buyform-profitpercentage").val();
-                                        
-                if( buy > 0){
-                        
-                    var sell = (((percentage/100)*buy + (buy*(1+(buyfee/100))))/(1-(sellfee/100)));
-                    $("#buyform-sell").val(Math.ceil(sell.toFixed(2)));
-                             
-                }else{
-                        
-                    $("#buyform-sell").val(0);
-                            
-                }
+
+                var budget = Math.floor(parseFloat($("#buyform-budget").val().replace(/,/g, "")));   
+                var buyfee = parseFloat($("#buyform-buyfee").val()/100);
+                var sellfee = parseFloat($("#buyform-sellfee").val()/100);
+                var buy = parseFloat($("#buyform-buy").val()*(1+buyfee));
+                var profit = parseFloat($("#buyform-profitpercentage").val()/100);
+                var sell = Math.ceil(parseFloat(buy*(1+sellfee+profit)));
+                var lot = buy == 0 ? 0 : Math.floor(parseFloat(budget/(buy*100)));
                 
+                $("#buyform-sell").val(sell);
+                $("#buyform-lot").val(lot);
+              
+                
+            });
+            
+            $("#buyform-budget").mouseleave(function(){
+                                    
+                var budget = Math.floor(parseFloat($("#buyform-budget").val().replace(/,/g, "")));   
+                var buyfee = parseFloat($("#buyform-buyfee").val()/100);
+                var sellfee = parseFloat($("#buyform-sellfee").val()/100);
+                var buy = parseFloat($("#buyform-buy").val()*(1+buyfee));
+                var profit = parseFloat($("#buyform-profitpercentage").val()/100);
+                var sell = Math.ceil(parseFloat(buy*(1+sellfee+profit)));
+                var lot = buy == 0 ? 0 : Math.floor(parseFloat(budget/(buy*100)));
+                
+                $("#buyform-sell").val(sell);
+                $("#buyform-lot").val(lot);
+                               
             });
             
             $("#buyform-profitpercentage").mouseleave(function(){
                                     
-                var buy = $("#buyform-buy").val();   
-                var buyfee = $("#sellform-buyfee").val();
-                var sellfee = $("#sellform-sellfee").val();
-                var percentage = $("#buyform-profitpercentage").val();
-                                        
-                if( buy > 0){
-                        
-                    var sell = (((percentage/100)*buy + (buy*(1+(buyfee/100))))/(1-(sellfee/100)));
-                    $("#buyform-sell").val(Math.ceil(sell.toFixed(2)));
-                             
-                }else{
-                        
-                    $("#buyform-sell").val(0);
-                            
-                }
+                var budget = Math.floor(parseFloat($("#buyform-budget").val().replace(/,/g, "")));   
+                var buyfee = parseFloat($("#buyform-buyfee").val()/100);
+                var sellfee = parseFloat($("#buyform-sellfee").val()/100);
+                var buy = parseFloat($("#buyform-buy").val()*(1+buyfee));
+                var profit = parseFloat($("#buyform-profitpercentage").val()/100);
+                var sell = Math.ceil(parseFloat(buy*(1+sellfee+profit)));
+                var lot = buy == 0 ? 0 : Math.floor(parseFloat(budget/(buy*100)));
+                
+                $("#buyform-sell").val(sell);
+                $("#buyform-lot").val(lot);
                 
             });
             
-            $("#buyform-lot").mouseleave(function(){
-                                    
-                var buy = $("#buyform-buy").val();   
-                var buyfee = $("#sellform-buyfee").val();
-                var sellfee = $("#sellform-sellfee").val();
-                var percentage = $("#buyform-profitpercentage").val();
-                                        
-                if( buy > 0){
-                        
-                    var sell = (((percentage/100)*buy + (buy*(1+(buyfee/100))))/(1-(sellfee/100)));
-                    $("#buyform-sell").val(Math.ceil(sell.toFixed(2)));
-                             
-                }else{
-                        
-                    $("#buyform-sell").val(0);
-                            
-                }
-                
-            });
-                
-            $("#sellform-sell").mouseleave(function(){
-                
-                var sell = $("#sellform-sell").val();
-                var buy = $("#sellform-buy").val();
-                var shares = $("#sellform-lot").val()*100;
-                var buyfee = $("#sellform-buyfee").val();
-                var sellfee = $("#sellform-sellfee").val();
-                                           
-                if( sell > 0 && buy > 0){
-                    
-                    var percentage = ((sell*(1-sellfee/100)-buy*(1+buyfee/100))/buy)*100; 
-                    $("#sellform-percentage").val(percentage.toFixed(2));
-                        
-                    var margin = (sell*(1-sellfee/100)-buy*(1+buyfee/100))*shares; 
-                    $("#sellform-margin").val(margin.toLocaleString("en"));
-                             
-                }else{
-                        
-                    $("#sellform-percentage").val(0);
-                    $("#sellform-margin").val(0);
-                          
-                }
-                    
-            });
+            
                 
             $("#example").DataTable({
                 "paging"      : true,
