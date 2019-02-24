@@ -8,6 +8,9 @@ use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
 use yii\helpers\BaseUrl;
+use app\models\PostForm;
+use app\models\MuvtiPost;
+use yii\web\UploadedFile;
 
 class PostController extends Controller
 {
@@ -70,7 +73,18 @@ class PostController extends Controller
         Yii::$app->view->params['page'] ='Post';
         Yii::$app->view->params['subpage'] ='Insert';
         Yii::$app->view->params['selected'] = ['','','','','','active','','','','','','',];
-        return $this->render('compose');
+        
+        $model = new PostForm();
+        
+        if ($model->load(Yii::$app->request->post()) && $model->upload()) {
+            
+            $model->image = UploadedFile::getInstance($model, 'image');
+            $model->file = UploadedFile::getInstance($model, 'file');
+            // file is uploaded successfully
+            return $this->refresh();
+            
+        }
+        return $this->render('compose',['model'=>$model]);
     }
     
     /**
@@ -86,8 +100,9 @@ class PostController extends Controller
         Yii::$app->view->params['subpage'] ='View';        
         Yii::$app->view->params['selected'] = ['','','','','','','active','','','','','',];
         
+        $data = MuvtiPost::find()->orderBy(['id' => SORT_DESC])->all();
         
-        return $this->render('view');
+        return $this->render('view',['data'=>$data]);
     }
     
         /**

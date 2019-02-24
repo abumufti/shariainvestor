@@ -148,13 +148,9 @@ class AdminController extends Controller
         
         $model = new EmitenForm();
         
-        if ($model->load(Yii::$app->request->post())) {
+        if ($model->load(Yii::$app->request->post()) && $model->upload() && $model->insertFilter()) {
             
             $model->excelFile = UploadedFile::getInstance($model, 'excelFile');
-            
-        }
-
-        if ($model->upload() && $model->insertFilter()) {
             Yii::$app->session->setFlash('emitenFormSubmitted');
             
             return $this->refresh();

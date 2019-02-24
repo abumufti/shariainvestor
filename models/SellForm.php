@@ -19,8 +19,6 @@ class SellForm extends Model
     public $sell;
     public $date;
     
-    
-    
     public function rules()
     {
         return [

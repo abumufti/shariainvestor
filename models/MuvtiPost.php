@@ -5,7 +5,7 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "{{%muvti_post}}".
+ * This is the model class for table "muvti_post".
  *
  * @property int $id
  * @property int $menu_id
@@ -16,7 +16,6 @@ use Yii;
  * @property string $youtube
  * @property string $file
  * @property string $image
- * @property string $date
  * @property string $status
  * @property string $date_created
  * @property string $date_updated
@@ -29,7 +28,7 @@ class MuvtiPost extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return '{{%muvti_post}}';
+        return 'muvti_post';
     }
 
     /**
@@ -38,14 +37,13 @@ class MuvtiPost extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['menu_id', 'menu_name'], 'required'],
             [['menu_id'], 'integer'],
             [['body'], 'string'],
             [['date_created', 'date_updated'], 'safe'],
             [['is_deleted'], 'boolean'],
             [['menu_name'], 'string', 'max' => 100],
             [['title', 'youtube', 'image'], 'string', 'max' => 500],
-            [['author', 'file', 'date'], 'string', 'max' => 200],
+            [['author', 'file'], 'string', 'max' => 200],
             [['status'], 'string', 'max' => 10],
         ];
     }
@@ -65,7 +63,6 @@ class MuvtiPost extends \yii\db\ActiveRecord
             'youtube' => 'Youtube',
             'file' => 'File',
             'image' => 'Image',
-            'date' => 'Date',
             'status' => 'Status',
             'date_created' => 'Date Created',
             'date_updated' => 'Date Updated',

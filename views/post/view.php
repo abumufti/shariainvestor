@@ -17,52 +17,31 @@ $this->title='View';
         <table id="example1" class="table table-bordered table-striped">
             <thead>
             <tr>
-                <th>Name</th>
-                <th>Code</th>
-                <th>Sector</th>
-                <th>Subsector</th>
-                <th>Price</th>
-                <th>PER</th>
-                <th>PBV</th>
-                <th>Dividen Yield</th>
-                <th>EPS</th>
-                <th>ROE</th>
-                <th>DER</th>
-                <th>Index</th>
+                <th>No.</th>
+                <th>Date</th>
+                <th>Title</th>
+                <th>Youtube</th>
+                <th>File</th>
+                <th>Image</th>
+                <th>Author</th>
+                <th>Action</th>
             </tr>
             </thead>
             <tbody>
+                <?php $no = 1; foreach($data as $index => $value){?>
                 <tr>
-                  <td>Trident</td>
-                  <td>Internet Explorer 4.0</td>
-                  <td>Win 95+</td>
-                  <td> 4</td>
-                  <td>X</td>
-                  <td>Trident</td>
-                  <td>Trident</td>
-                  <td>Trident</td>
-                  <td>Trident</td>
-                  <td>Trident</td>
-                  <td>Trident</td>
-                  <td>Trident</td>
+                  <td><?= $no; ?></td>
+                  <td><?= $value['date_created']; ?></td>
+                  <td><?= $value['title']; ?></td>
+                  <td><?= $value['youtube']; ?></td>
+                  <td><?= $value['file']; ?></td>
+                  <td><?= $value['image']; ?></td>
+                  <td><?= $value['author']; ?></td>
+                  <td><a href="<?= BaseUrl::toRoute(['site/edit-post','id'=> $value['id']]);?>" class="label label-success">Edit</a>&nbsp;<a href="<?= BaseUrl::toRoute(['site/delete-post','id'=> $value['id']]);?>" class="label label-danger">Delete</a>&nbsp;<a href="<?= $value['status'] ==='Active' ? BaseUrl::toRoute(['site/draft-post','id'=> $value['id']]) : BaseUrl::toRoute(['site/active-post','id'=> $value['id']]); ?>" class="label label-warning"><?= $value['status'] === 'Inactive' ? 'Activate' : 'Draft' ?></a></td>
                 </tr>
+                <?php $no++; } ?>   
             </tbody>
-            <tfoot>
-                <tr>
-                    <th>Name</th>
-                    <th>Code</th>
-                    <th>Sector</th>
-                    <th>Subsector</th>
-                    <th>Price</th>
-                    <th>PER</th>
-                    <th>PBV</th>
-                    <th>Dividen Yield</th>
-                    <th>EPS</th>
-                    <th>ROE</th>
-                    <th>DER</th>
-                    <th>Index</th>
-                </tr>
-            </tfoot>
+            
         </table>
     </div>
     <!-- /.box-body -->
