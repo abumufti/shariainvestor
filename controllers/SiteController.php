@@ -11,6 +11,8 @@ use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\MuvtiEmiten;
 use yii\helpers\BaseUrl;
+use app\models\MuvtiFundamental;
+use app\models\MuvtiPost;
 
 class SiteController extends Controller
 {
@@ -19,6 +21,8 @@ class SiteController extends Controller
      */
     public function behaviors()
     {
+        Yii::$app->view->params['selected'] = ['','','','',''];
+        
         return [
             'access' => [
                 'class' => AccessControl::className(),
@@ -63,11 +67,15 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        Yii::$app->view->params['selected'][0]='active';
+        
         $gainers = MuvtiEmiten::find()->limit(5)->orderBy(["margin"=> SORT_DESC] )->all();
         
         $losers = MuvtiEmiten::find()->limit(5)->orderBy("margin")->all();
         
-        return $this->render('index',['gainers'=>$gainers,'losers'=>$losers]);
+        $posts = MuvtiPost::find()->limit(3)->orderBy(["date_created"=> SORT_DESC])->all();
+        
+        return $this->render('index',['gainers'=>$gainers,'losers'=>$losers,'posts'=>$posts]);
     }
 
     /**
@@ -75,9 +83,62 @@ class SiteController extends Controller
      *
      * @return string
      */
-    public function actionDashboard()
+     /**
+     * Displays homepage.
+     *
+     * @return string
+     */
+    public function actionIssi()
     {
-        return $this->render('dashboard');
+        Yii::$app->view->params['selected'][1]='active';
+        
+        $table='table2';
+        if(Yii::$app->request->get("order") ==="desc"){
+            $data = MuvtiFundamental::find()->joinWith('emiten')->where("muvti_emiten.margin > 0")->orderBy(["muvti_emiten.margin"=> SORT_DESC])->all();
+        }elseif(Yii::$app->request->get("order") ==="asc"){
+            $data = MuvtiFundamental::find()->joinWith('emiten')->where("muvti_emiten.margin < 0")->orderBy(["muvti_emiten.margin"=> SORT_ASC])->all();
+        }else{
+            $data = MuvtiFundamental::find()->all();
+            $table='table1';
+        }
+        
+        return $this->render('issi',['data'=>$data,'table'=>$table]);
+    }
+    
+        /**
+     * Displays homepage.
+     *
+     * @return string
+     */
+    public function actionBlog()
+    {
+        Yii::$app->view->params['selected'][2]='active';
+        
+        $gainers = MuvtiEmiten::find()->limit(5)->orderBy(["margin"=> SORT_DESC] )->all();
+        
+        $losers = MuvtiEmiten::find()->limit(5)->orderBy("margin")->all();
+        
+        $posts = MuvtiPost::find()->limit(5)->orderBy("date_created")->orderBy(["date_created"=> SORT_DESC])->all();
+        
+        return $this->render('blog',['gainers'=>$gainers,'losers'=>$losers, 'posts'=>$posts]);
+        
+    }
+    
+    /**
+     * Displays contact page.
+     *
+     * @return Response|string
+     */
+    public function actionContact()
+    {
+        Yii::$app->view->params['selected'][3]='active';
+        $model = new ContactForm();
+        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
+            Yii::$app->session->setFlash('contactFormSubmitted');
+
+            return $this->refresh();
+        }
+        return $this->render('contact', ['model' => $model]);
     }
 
     /**
@@ -87,6 +148,7 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
+        Yii::$app->view->params['selected'][4]='active';
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
@@ -98,9 +160,7 @@ class SiteController extends Controller
         }
 
         $model->password = '';
-        return $this->render('login', [
-            'model' => $model,
-        ]);
+        return $this->render('login', ['model' => $model]);
     }
 
     /**
@@ -115,34 +175,6 @@ class SiteController extends Controller
         return $this->goHome();
     }
 
-    /**
-     * Displays contact page.
-     *
-     * @return Response|string
-     */
-    public function actionContact()
-    {
-        $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
-            Yii::$app->session->setFlash('contactFormSubmitted');
-
-            return $this->refresh();
-        }
-        return $this->render('contact', [
-            'model' => $model,
-        ]);
-    }
-
-    /**
-     * Displays about page.
-     *
-     * @return string
-     */
-    public function actionAbout()
-    {
-        return $this->render('about');
-    }
-    
     public function actionDownload()
     {
         $path = Yii::$app->request->get('path');

@@ -11,6 +11,12 @@ use yii\captcha\Captcha;
 $this->title = 'Contact';
 
 ?>
+
+<div class="jumbotron text-center" style="background-image: url('<?=Yii::$app->homeUrl;?>img/home-bg.jpg'); background-size:cover;margin-bottom:0">
+  <h1>Sharia Investor</h1> 
+  <p>Sakinah Berinvestasi Saham.</p> 
+</div>
+
 <div class="container-fluid" style="text-align:justify;">
 
     <?php if (Yii::$app->session->hasFlash('contactFormSubmitted')): ?>
@@ -40,9 +46,7 @@ $this->title = 'Contact';
                         'template' => '<div class="row"><div class="col-lg-3">{image}</div><div class="col-lg-6">{input}</div></div>',
                     ]) ?>
 
-                    <div class="form-group">
-                        <?= Html::submitButton('Submit', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
-                    </div>
+                    <?= Html::submitButton('Submit', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
 
                 <?php ActiveForm::end(); ?>
 

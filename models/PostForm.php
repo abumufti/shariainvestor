@@ -30,7 +30,7 @@ class PostForm extends Model
             
             $post = new MuvtiPost();
             $post->title = $this->title;
-            $post->author = Yii::$app->user->identity->id;
+            $post->author = Yii::$app->user->identity->username;
             $post->youtube = $this->youtube;
             $post->body = $this->content;
             $post->image =  isset($this->image->baseName) ? 'uploads/images/' . $this->image->baseName . '.' . $this->image->extension : '';

@@ -12,10 +12,10 @@ $this->title = 'Home';
 <html lang="en">
 <head>
   <!-- Theme Made By www.w3schools.com -->
-  <title>Shariai Investor</title>
+  <title>Sharia Investor</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="<?= BaseUrl::base();?>/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -53,6 +53,7 @@ $this->title = 'Home';
       margin-bottom:10px;
       
   }
+
   .container-fluid {
       padding: 0px 50px;
       font-family: Montserrat, sans-serif;
@@ -212,7 +213,7 @@ $this->title = 'Home';
 </head>
 <body id="myPage">
 
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -224,20 +225,22 @@ $this->title = 'Home';
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="<?=Yii::$app->homeUrl;?>">HOME</a></li>
-        <li><a href="<?=Yii::$app->homeUrl;?>emiten/all">STOCK</a></li>
-        <li><a href="#">BLOG</a></li>
-        <li><a href="<?=Yii::$app->homeUrl;?>site/contact">CONTACT</a></li>
+        <li class="<?=Yii::$app->view->params['selected'][0];?>"><a href="<?=Yii::$app->homeUrl;?>">HOME</a></li>
+        <li class="<?=Yii::$app->view->params['selected'][1];?>"><a href="<?=Yii::$app->homeUrl;?>site/issi">STOCK</a></li>
+        <li class="<?=Yii::$app->view->params['selected'][2];?>"><a href="<?=Yii::$app->homeUrl;?>site/blog">BLOG</a></li>
+        <li class="<?=Yii::$app->view->params['selected'][3];?>"><a href="<?=Yii::$app->homeUrl;?>site/contact">CONTACT</a></li>
+        <?php if(Yii::$app->user->isGuest){ ?>
+        <li class="<?=Yii::$app->view->params['selected'][4];?>"><a href="<?=Yii::$app->homeUrl;?>site/login">LOGIN</a></li>
+        <?php }else{ ?>
+        <li class="<?=Yii::$app->view->params['selected'][4];?>"><a href="<?=Yii::$app->homeUrl;?>user/dashboard">DASHBOARD</a></li>
+        
+        <?php } ?>
       </ul>
     </div>
   </div>
 </nav>
 
-<div class="jumbotron text-center" style="background-image: url('<?=Yii::$app->homeUrl;?>img/home-bg.jpg'); background-size:cover">
-  <h1>Sharia Investor</h1> 
-  <p>Sakinah Berinvestasi Saham.</p> 
-  
-</div>
+
 
 <?=$content;?>
 
@@ -247,7 +250,7 @@ $this->title = 'Home';
   </a>
   <p>Copyright © 2019. All rights reserved. <a href="<?=Yii::$app->homeUrl;?>" title="Visit Sharia Investor">www.shariainvestor.com</a></p>
 </footer>
-    
+<script src="<?= BaseUrl::base();?>/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- DataTables -->
 <script src="<?= BaseUrl::base();?>/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="<?= BaseUrl::base();?>/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>

@@ -1,30 +1,22 @@
 <?php
 use yii\helpers\Url;
-use yii\helpers\Html;
 use yii\helpers\BaseStringHelper;
 $formatter = \Yii::$app->formatter;
 
-$this->title = 'Home';
+$this->title = 'Blog';
 
 
 ?>
-<div class="jumbotron text-center" style="background-image: url('<?=Yii::$app->homeUrl;?>img/home-bg.jpg'); background-size:cover;margin-bottom:0;">
-    <h1>Sharia Investor</h1> 
-  <p>Sakinah Berinvestasi Saham.</p> <br>
+<div class="jumbotron text-center" style="background-image: url('<?=Yii::$app->homeUrl;?>img/home-bg.jpg'); background-size:cover;">
+  <h1>Sharia Investor</h1> 
+  <p>Sakinah Berinvestasi Saham.</p> 
 </div>
 
-<div class="container-fluid bg-grey" style="text-align:justify;margin-bottom:10px;">
-            <h2>Tentang Kami</h2>
-            <p><strong>Sakinah Berinvestasi Saham</strong> itulah moto kami.</p> 
-            <p>Anda tidak perlu lagi dipusingkan dengan membaca laporan keuangan perusahaan. Anda dapat menanam saham dengan tenang (sakinah) karena <strong><?= Html::a('shariainvestor.com','http://shariainvestor.com',['style'=>'text-decoration:none']) ?></strong> menyajikan data fundamental saham berdasarkan laporan keuangan terkini yang dibuat oleh masing-masing emiten..</p> 
-            <p>Ikuti terus <strong><?= Html::a('shariainvestor.com','http://shariainvestor.com',['style'=>'text-decoration:none']) ?></strong> untuk mengetahui data fundamental saham-saham syariah terkini. Sehingga Anda tidak melakukan kesalahan dalam berinvestasi saham. Bersama <strong><?= Html::a('shariainvestor.com','http://shariainvestor.com',['style'=>'text-decoration:none']) ?></strong> menanam saham tidak lagi menjadi hal yang memusingkan bahkan menguntungkan dan menenangkan.  <strong>Selamat berinvestasi saham syariah ! </strong></p>
-</div>
 <!-- Container (About Section) -->
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-8 " style="text-align:justify;">
-            
-            <?php foreach($posts as $index => $value){ ?>
+          <?php foreach($posts as $index => $value){ ?>
             <div class="card">
                 <div class="card-body">
                     <h2><?= $value['title']; ?></h2>
@@ -35,7 +27,7 @@ $this->title = 'Home';
                 <hr>
             </div>
           <?php } ?>  
-    
+            
         </div>
     <div class="col-sm-4">
         <div class="row">
