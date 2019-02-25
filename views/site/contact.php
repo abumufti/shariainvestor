@@ -14,7 +14,7 @@ $this->title = 'Contact';
 
 <div class="jumbotron text-center" style="background-image: url('<?=Yii::$app->homeUrl;?>img/home-bg.jpg'); background-size:cover;margin-bottom:0">
   <h1>Sharia Investor</h1> 
-  <p>Sakinah Berinvestasi Saham.</p> 
+  <p>Sakinah Berinvestasi Saham.</p> <br><br><br>
 </div>
 
 <div class="container-fluid" style="text-align:justify;">

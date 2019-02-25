@@ -9,7 +9,7 @@ $this->title = 'Blog';
 ?>
 <div class="jumbotron text-center" style="background-image: url('<?=Yii::$app->homeUrl;?>img/home-bg.jpg'); background-size:cover;">
   <h1>Sharia Investor</h1> 
-  <p>Sakinah Berinvestasi Saham.</p> 
+  <p>Sakinah Berinvestasi Saham.</p> <br><br><br>
 </div>
 
 <!-- Container (About Section) -->
