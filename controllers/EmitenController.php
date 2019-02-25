@@ -58,14 +58,14 @@ class EmitenController extends Controller
      */
     public function actionAll()
     {
-        $table='table4';
+        $table='table2';
         if(Yii::$app->request->get("order") ==="desc"){
             $data = MuvtiFundamental::find()->joinWith('emiten')->where("muvti_emiten.margin > 0")->orderBy(["muvti_emiten.margin"=> SORT_DESC])->all();
         }elseif(Yii::$app->request->get("order") ==="asc"){
             $data = MuvtiFundamental::find()->joinWith('emiten')->where("muvti_emiten.margin < 0")->orderBy(["muvti_emiten.margin"=> SORT_ASC])->all();
         }else{
             $data = MuvtiFundamental::find()->all();
-            $table='table3';
+            $table='table1';
         }
         
         return $this->render('index',['data'=>$data,'table'=>$table]);

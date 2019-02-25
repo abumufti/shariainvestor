@@ -17,7 +17,7 @@ $this->title = 'Index Saham Syariah Indonesia ( ISSI )';
     </p>
 
 
-        <table id="table1" class="table table-bordered table-striped">
+        <table id="<?=$table;?>" class="table table-bordered table-striped">
             <thead>
             <tr>
                 <th>Code</th>
