@@ -8,15 +8,16 @@ $this->title = 'Index Saham Syariah Indonesia ( ISSI )';
 
 ?>
 
-<div class="callout callout-info" style="text-align:justify;">
-    <h4><?= Html::encode($this->title) ?></h4>
-    <p>Di bawah ini adalah saham-saham syariah yang tercatat di BEI. Saham-saham ini selalu diseleksi ulang setiap bulan Mei dan November.
-       Kami sajikan informasi fundamental masing-masing saham dengan harga penutupan pada hari kemarin.</p>
-</div>
+<div class="container-fluid" style="text-align:justify;">
+  <div class="row">
+    <h2><?= Html::encode($this->title) ?></h2>
+    <p>Di bawah ini adalah data rasio fundamental saham-saham syariah yang tercatat di BEI atau yang dikenal dengan ISSI. Saham-saham ini selalu diseleksi ulang setiap bulan Mei dan November. 
+        Diantara <?= count($data); ?> saham syariah ini, ada diantaranya sudah terindex JII, LQ45, Pefindo25, Kompas 100, IDX30, Bisnis-27, Sri-Kehati, DBX, dan MBX. Saham-saham yang terindex merupakan saham-saham yang memiliki likuiditas yang tinggi, nilai kapitalisasi pasar yang besar, serta manajemen perusahaan yang baik sehingga mudah diperjualbelikan.
+        Dalam berinvestasi yang sakinah, pilihlah saham syariah yang sudah terindex, berfundamental baik, dan berharga murah ( under value ).
+    </p>
 
-<div class="box">
-    <div class="box-body"><p>Berdasarkan Harga Penutupan Kemarin.</p>
-        <table id="<?=$table;?>" class="table table-bordered table-striped">
+
+        <table id="table1" class="table table-bordered table-striped">
             <thead>
             <tr>
                 <th>Code</th>
@@ -54,6 +55,5 @@ $this->title = 'Index Saham Syariah Indonesia ( ISSI )';
             </tbody>
         </table>
     </div>
-    <!-- /.box-body -->
 </div>
 

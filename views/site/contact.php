@@ -11,13 +11,7 @@ use yii\captcha\Captcha;
 $this->title = 'Contact';
 
 ?>
-<div class="row ">
-            <div class="col-lg-6 col-lg-offset-3">
-    <div class="callout callout-info" style="text-align:justify;">
-        <h4><?= Html::encode($this->title) ?></h4>
-    </div>
-                </div>
-</div>
+<div class="container-fluid" style="text-align:justify;">
 
     <?php if (Yii::$app->session->hasFlash('contactFormSubmitted')): ?>
 
@@ -29,6 +23,8 @@ $this->title = 'Contact';
 
     <div class="row">
             <div class="col-lg-6 col-lg-offset-3">
+                
+                <h2><?= Html::encode($this->title) ?></h2>
 
                 <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
 
@@ -55,3 +51,4 @@ $this->title = 'Contact';
 
     <?php endif; ?>
 
+</div>

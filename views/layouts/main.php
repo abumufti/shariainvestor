@@ -1,185 +1,267 @@
-
 <?php
-
-/* @var $this \yii\web\View */
-/* @var $content string */
-
-use app\widgets\Alert;
-use yii\helpers\Html;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
-use yii\widgets\Breadcrumbs;
-use app\assets\AppAsset;
+use yii\helpers\Url;
 use yii\helpers\BaseUrl;
+use yii\helpers\Html;
 
-AppAsset::register($this);
+$this->title = 'Home';
+
+
 ?>
-<?php $this->beginPage() ?>
+
 <!DOCTYPE html>
-<html lang="<?= Yii::$app->language ?>">
+<html lang="en">
 <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121955327-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'UA-121955327-1');
-    </script>
-
-    <meta charset="<?= Yii::$app->charset ?>">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <?= Html::csrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
-    <!-- Bootstrap 3.3.7 -->
-    <link rel="stylesheet" href="<?= BaseUrl::base();?>/bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="<?= BaseUrl::base();?>/bower_components/font-awesome/css/font-awesome.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="<?= BaseUrl::base();?>/bower_components/Ionicons/css/ionicons.min.css">
-    <!-- DataTables -->
+  <!-- Theme Made By www.w3schools.com -->
+  <title>Bootstrap Theme Company Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <!-- DataTables -->
     <link rel="stylesheet" href="<?= BaseUrl::base();?>/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
     <link rel="stylesheet" href="<?= BaseUrl::base();?>/bower_components/datatables.net-bs/css/select.dataTables.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="<?= BaseUrl::base();?>/dist/css/AdminLTE.min.css">
-    <!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="<?= BaseUrl::base();?>/dist/css/skins/_all-skins.min.css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Google Font -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
     
-    <style>
-        .se-pre-con {
-            position: fixed;
-            left: 0px;
-            top: 0px;
-            width: 100%;
-            height: 100%;
-            z-index: 9999;
-            background: url(<?= BaseUrl::base();?>/images/Preloader.gif) center no-repeat #fff;
-            opacity: 0.5;
-            filter: alpha(opacity=50); /* For IE8 and earlier */
-        }
-        
-        body{
-             font-size :1.8rem;
-        
-        }
-        
-        h4{
-           font-size:2.25rem;
-        }
-    </style>
+  <style>
+  body {
+      font: 400 15px Lato, sans-serif;
+      line-height: 1.8;
+      color: #818181;
+  }
+  h2 {
+      font-size: 24px;
+      text-transform: uppercase;
+      color: #303030;
+      font-weight: 600;
+      margin-bottom: 30px;
+  }
+  h4 {
+      font-size: 19px;
+      line-height: 1.375em;
+      color: #303030;
+      font-weight: 400;
+      margin-bottom: 30px;
+  }  
+  .jumbotron {
+      background-color: #f4511e;
+      color: #fff;
+      padding: 100px 25px;
+      font-family: Montserrat, sans-serif;
+      height:100%;
+      margin-bottom:10px;
+      
+  }
+  .container-fluid {
+      padding: 0px 50px;
+      font-family: Montserrat, sans-serif;
+      font-size: 18px;
+  }
+  .bg-grey {
+      background-color: #f6f6f6;
+  }
+  .logo-small {
+      color: #f4511e;
+      font-size: 50px;
+  }
+  .logo {
+      color: #f4511e;
+      font-size: 200px;
+  }
+  .thumbnail {
+      padding: 0 0 15px 0;
+      border: none;
+      border-radius: 0;
+  }
+  .thumbnail img {
+      width: 100%;
+      height: 100%;
+      margin-bottom: 10px;
+  }
+  .carousel-control.right, .carousel-control.left {
+      background-image: none;
+      color: #f4511e;
+  }
+  .carousel-indicators li {
+      border-color: #f4511e;
+  }
+  .carousel-indicators li.active {
+      background-color: #f4511e;
+  }
+  .item h4 {
+      font-size: 19px;
+      line-height: 1.375em;
+      font-weight: 400;
+      font-style: italic;
+      margin: 70px 0;
+  }
+  .item span {
+      font-style: normal;
+  }
+  /*.panel {
+      border: 1px solid #f4511e; 
+      border-radius:0 !important;
+      transition: box-shadow 0.5s;
+  }
+  .panel:hover {
+      box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+  }
+  .panel-footer .btn:hover {
+      border: 1px solid #f4511e;
+      background-color: #fff !important;
+      color: #f4511e;
+  }
+  .panel-heading {
+      color: #fff !important;
+      background-color: #f4511e !important;
+      padding: 25px;
+      border-bottom: 1px solid transparent;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+  }
+  .panel-footer {
+      background-color: white !important;
+  }
+  .panel-footer h3 {
+      font-size: 32px;
+  }
+  .panel-footer h4 {
+      color: #aaa;
+      font-size: 14px;
+  }
+  .panel-footer .btn {
+      margin: 15px 0;
+      background-color: #f4511e;
+      color: #fff;
+  }*/
+  
+  .navbar {
+      margin-bottom: 0;
+      background-color: #f4511e;
+      z-index: 9999;
+      border: 0;
+      font-size: 12px !important;
+      line-height: 1.42857143 !important;
+      letter-spacing: 4px;
+      border-radius: 0;
+      font-family: Montserrat, sans-serif;
+  }
+  .navbar li a, .navbar .navbar-brand {
+      color: #fff !important;
+  }
+  .navbar-nav li a:hover, .navbar-nav li.active a {
+      color: #f4511e !important;
+      background-color: #fff !important;
+  }
+  .navbar-default .navbar-toggle {
+      border-color: transparent;
+      color: #fff !important;
+  }
+  footer .glyphicon {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #f4511e;
+  }
+  .slideanim {visibility:hidden;}
+  .slide {
+      animation-name: slide;
+      -webkit-animation-name: slide;
+      animation-duration: 1s;
+      -webkit-animation-duration: 1s;
+      visibility: visible;
+  }
+  @keyframes slide {
+    0% {
+      opacity: 0;
+      transform: translateY(70%);
+    } 
+    100% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+  @-webkit-keyframes slide {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateY(70%);
+    } 
+    100% {
+      opacity: 1;
+      -webkit-transform: translateY(0%);
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .col-sm-4 {
+      text-align: center;
+      margin: 25px 0;
+    }
+    .btn-lg {
+        width: 100%;
+        margin-bottom: 35px;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .logo {
+        font-size: 150px;
+    }
+  }
+  </style>
 </head>
-<body class="hold-transition skin-blue layout-top-nav">
+<body id="myPage">
 
-<div class="wrapper">
-
-  <header class="main-header">
-    <?php
-    NavBar::begin([
-        'brandLabel' => Yii::$app->name,
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
-        ],
-    ]);
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => [
-            ['label' => 'Home', 'url' => Yii::$app->homeUrl],
-            ['label' => 'Stoks', 'items'=>[
-                ['label' => 'All', 'url' => ['/emiten/all']],
-                ['label' => 'Indexed', 'url' => ['/emiten/indexed']],
-                ['label' => 'Under Value', 'url' => ['/emiten/under-value']],
-            ]],          
-            ['label' => 'Blog'],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
-            Yii::$app->user->isGuest ? (
-            ''
-            ):( ['label' => 'Dashboard', 'url' => ['/user/dashboard']]   ),        
-            Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
-            ) : (                
-                ''
-            )
-        ],
-    ]);
-    NavBar::end();
-    ?>
-  </header>
-    
-   
-  <!-- Full Width Column -->
-  <div class="content-wrapper">
-    <br><br><br> 
-    <div class="container">
-
-      <!-- Main content -->
-      <section class="content">
-          
-          <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= Alert::widget() ?>
-        <?= $content ?>
-
-      </section>
-      <!-- /.content -->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="<?=Yii::$app->homeUrl;?>">shariainvestor.com</a>
     </div>
-    <!-- /.container -->
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="<?=Yii::$app->homeUrl;?>">HOME</a></li>
+        <li><a href="<?=Yii::$app->homeUrl;?>emiten/all">STOCK</a></li>
+        <li><a href="#">BLOG</a></li>
+        <li><a href="<?=Yii::$app->homeUrl;?>site/contact">CONTACT</a></li>
+      </ul>
+    </div>
   </div>
-  <!-- /.content-wrapper -->
-  <footer class="main-footer" style="background:#bae1ff">
-    <div class="container">
-      <div class="pull-right hidden-xs">
-        <b>Version</b> 2.2
-      </div>
-      <strong>Copyright &copy; <?= date('Y') ?>.</strong> All rights
-      reserved.
-    </div>
-    <!-- /.container -->
-  </footer>
+</nav>
+
+<div class="jumbotron text-center" style="background-image: url('<?=Yii::$app->homeUrl;?>img/home-bg.jpg'); background-size:cover">
+  <h1>Sharia Investor</h1> 
+  <p>Sakinah Berinvestasi Saham.</p> 
+  
 </div>
-<!-- ./wrapper -->
-<div class="se-pre-con"></div>
-<!-- jQuery 3 -->
-<script src="<?= BaseUrl::base();?>/bower_components/jquery/dist/jquery.min.js"></script>
-<!-- Bootstrap 3.3.7 -->
-<script src="<?= BaseUrl::base();?>/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<?=$content;?>
+
+<footer class="container-fluid text-center">
+  <a href="#myPage" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a>
+  <p>Copyright © 2019. All rights reserved. <a href="<?=Yii::$app->homeUrl;?>" title="Visit Sharia Investor">www.shariainvestor.com</a></p>
+</footer>
+    
 <!-- DataTables -->
 <script src="<?= BaseUrl::base();?>/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="<?= BaseUrl::base();?>/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-<script src="<?= BaseUrl::base();?>/bower_components/datatables.net/js/dataTables.select.min.js"></script>
-<!-- SlimScroll -->
-<script src="<?= BaseUrl::base();?>/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-<!-- FastClick -->
-<script src="<?= BaseUrl::base();?>/bower_components/fastclick/lib/fastclick.js"></script>
-<!-- AdminLTE App -->
-<script src="<?= BaseUrl::base();?>/dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="<?= BaseUrl::base();?>/dist/js/demo.js"></script>
-<!-- page script -->
-<script>
-  $(function () {
+<script src="<?= BaseUrl::base();?>/bower_components/datatables.net/js/dataTables.select.min.js"></script>    
 
+<script>
+$(document).ready(function(){
+    
     $("#table1").DataTable({
-        "paging"      : false,
-        "lengthChange": false,
-        "searching"   : false,
-        "ordering"    : false,
-        "info"        : false,
+        "paging"      : true,
+        "lengthChange": true,
+        "searching"   : true,
+        "ordering"    : true,
+        "info"        : true,
         "autoWidth"   : false,
         "scrollX"     : "200px",
         "scrollCollapse": true,
@@ -207,27 +289,11 @@ AppAsset::register($this);
     });
     
     $("#table3").DataTable({
-        "paging"      : true,
-        "lengthChange": true,
-        "searching"   : true,
-        "ordering"    : true,
-        "info"        : true,
-        "autoWidth"   : true,
-        "scrollX"     : "200px",
-        "scrollCollapse": true,
-        "select": {
-            style:    'single',
-            
-        }
-        
-    });
-    
-    $("#table4").DataTable({
-        "paging"      : true,
-        "lengthChange": true,
-        "searching"   : true,
+        "paging"      : false,
+        "lengthChange": false,
+        "searching"   : false,
         "ordering"    : false,
-        "info"        : true,
+        "info"        : false,
         "autoWidth"   : false,
         "scrollX"     : "200px",
         "scrollCollapse": true,
@@ -244,9 +310,9 @@ AppAsset::register($this);
         // Animate loader off screen
 	$(".se-pre-con").show();
     });
-    
-  })
+  
+})
 </script>
+
 </body>
 </html>
-
