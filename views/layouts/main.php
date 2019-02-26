@@ -37,6 +37,13 @@ $this->title = 'Home';
       font-weight: 600;
       margin-bottom: 30px;
   }
+  h3 {
+      font-size: 21px;
+      text-transform: uppercase;
+      color: #303030;
+      font-weight: 600;
+      margin-bottom: 20px;
+  }
   h4 {
       font-size: 19px;
       line-height: 1.375em;

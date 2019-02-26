@@ -15,21 +15,27 @@ $this->title = 'Blog';
 <!-- Container (About Section) -->
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-8 " style="text-align:justify;">
+        <div class="col-sm-9 " style="text-align:justify;">
           <?php foreach($posts as $index => $value){ ?>
             <div class="card">
                 <div class="card-body">
-                    <h2><?= $value['title']; ?></h2>
+                    <h3><?= $value['title']; ?></h3>
                     <p class="text-muted">Posted on <?= $formatter->asDate($value['date_created'], 'long'); ?>, by <?= $value['author']; ?></p>
+                    
+                    <?php if($title ===''){ ?>
                     <p class="card-text"><?= BaseStringHelper::explode($value['body'],'</p>')[0].'</p>'; ?></p>
-                    <a href="#" class="btn btn-primary">Read More &rarr;</a>
+                    <a href="<?= Url::to(['site/blog', 'title' => $value['title']]); ?>" class="btn btn-primary">Read More &rarr;</a>
+                    <hr>
+                    <?php }else{?>
+                    <p class="card-text"><?= $value['body']; ?></p>
+                    <?php } ?>
                 </div>
-                <hr>
+                
             </div>
           <?php } ?>  
             
         </div>
-    <div class="col-sm-4">
+    <div class="col-sm-3">
         <div class="row">
           <div class="panel panel-success">
             <div class="panel-heading">Top Gainers</div>

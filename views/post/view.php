@@ -1,4 +1,5 @@
 <?php
+use yii\helpers\BaseUrl;
 $this->title='View';
 ?>
 

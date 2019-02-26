@@ -14,7 +14,7 @@ $this->title = 'Home';
 </div>
 
 <div class="container-fluid bg-grey" style="text-align:justify;margin-bottom:10px;">
-            <h2>Tentang Kami</h2>
+            <h3>Tentang Kami</h3>
             <p><strong>Sakinah Berinvestasi Saham</strong> itulah moto kami.</p> 
             <p>Anda tidak perlu lagi dipusingkan dengan membaca laporan keuangan perusahaan. Anda dapat menanam saham dengan tenang (sakinah) karena <strong><?= Html::a('shariainvestor.com','http://shariainvestor.com',['style'=>'text-decoration:none']) ?></strong> menyajikan data fundamental saham berdasarkan laporan keuangan terkini yang dibuat oleh masing-masing emiten..</p> 
             <p>Ikuti terus <strong><?= Html::a('shariainvestor.com','http://shariainvestor.com',['style'=>'text-decoration:none']) ?></strong> untuk mengetahui data fundamental saham-saham syariah terkini. Sehingga Anda tidak melakukan kesalahan dalam berinvestasi saham. Bersama <strong><?= Html::a('shariainvestor.com','http://shariainvestor.com',['style'=>'text-decoration:none']) ?></strong> menanam saham tidak lagi menjadi hal yang memusingkan bahkan menguntungkan dan menenangkan.  <strong>Selamat berinvestasi saham syariah ! </strong></p>
@@ -27,10 +27,10 @@ $this->title = 'Home';
             <?php foreach($posts as $index => $value){ ?>
             <div class="card">
                 <div class="card-body">
-                    <h2><?= $value['title']; ?></h2>
+                    <h3><?= $value['title']; ?></h3>
                     <p class="text-muted">Posted on <?= $formatter->asDate($value['date_created'], 'long'); ?>, by <?= $value['author']; ?></p>
                     <p class="card-text"><?= BaseStringHelper::explode($value['body'],'</p>')[0].'</p>'; ?></p>
-                    <a href="#" class="btn btn-primary">Read More &rarr;</a>
+                    <a href="<?= Url::to(['site/blog', 'title' => $value['title']]); ?>" class="btn btn-primary">Read More &rarr;</a>
                 </div>
                 <hr>
             </div>

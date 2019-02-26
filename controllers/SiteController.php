@@ -114,13 +114,21 @@ class SiteController extends Controller
     {
         Yii::$app->view->params['selected'][2]='active';
         
+        $title = trim(Yii::$app->request->get("title"));
+        
         $gainers = MuvtiEmiten::find()->limit(5)->orderBy(["margin"=> SORT_DESC] )->all();
         
         $losers = MuvtiEmiten::find()->limit(5)->orderBy("margin")->all();
         
-        $posts = MuvtiPost::find()->limit(5)->orderBy("date_created")->orderBy(["date_created"=> SORT_DESC])->all();
-        
-        return $this->render('blog',['gainers'=>$gainers,'losers'=>$losers, 'posts'=>$posts]);
+        if($title !=''){
+            
+            $posts = MuvtiPost::find()->where(["title"=>$title])->all();
+            
+        }else{
+            
+            $posts = MuvtiPost::find()->limit(5)->orderBy(["date_created"=> SORT_DESC])->all();
+        }
+        return $this->render('blog',['gainers'=>$gainers,'losers'=>$losers, 'posts'=>$posts, 'title'=>$title]);
         
     }
     
