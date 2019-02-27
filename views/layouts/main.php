@@ -282,7 +282,7 @@ $(document).ready(function(){
         "searching"   : true,
         "ordering"    : true,
         "info"        : true,
-        "autoWidth"   : true,
+        "autoWidth"   : false,
         "scrollX"     : "100%",
         "scrollCollapse": true,
         "select": {
@@ -298,7 +298,7 @@ $(document).ready(function(){
         "searching"   : true,
         "ordering"    : false,
         "info"        : true,
-        "autoWidth"   : true,
+        "autoWidth"   : false,
         "scrollX"     : "100%",
         "scrollCollapse": true,
         "select": {
