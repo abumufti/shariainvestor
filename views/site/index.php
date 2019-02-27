@@ -8,16 +8,12 @@ $this->title = 'Home';
 
 
 ?>
-<div class="jumbotron text-center" style="background-image: url('<?=Yii::$app->homeUrl;?>img/home-bg.jpg'); background-size:cover;margin-bottom:0;">
-    <h1>Sharia Investor</h1> 
-    <p>Sakinah Berinvestasi Saham.</p> <br><br><br>
-</div>
 
 <div class="container-fluid bg-grey" style="text-align:justify;margin-bottom:10px;">
             <h3>Tentang Kami</h3>
             <p><strong>Sakinah Berinvestasi Saham</strong> itulah moto kami.</p> 
-            <p>Anda tidak perlu lagi dipusingkan dengan membaca laporan keuangan perusahaan. Anda dapat menanam saham dengan tenang (sakinah) karena <strong><?= Html::a('shariainvestor.com','http://shariainvestor.com',['style'=>'text-decoration:none']) ?></strong> menyajikan data fundamental saham berdasarkan laporan keuangan terkini yang dibuat oleh masing-masing emiten..</p> 
-            <p>Ikuti terus <strong><?= Html::a('shariainvestor.com','http://shariainvestor.com',['style'=>'text-decoration:none']) ?></strong> untuk mengetahui data fundamental saham-saham syariah terkini. Sehingga Anda tidak melakukan kesalahan dalam berinvestasi saham. Bersama <strong><?= Html::a('shariainvestor.com','http://shariainvestor.com',['style'=>'text-decoration:none']) ?></strong> menanam saham tidak lagi menjadi hal yang memusingkan bahkan menguntungkan dan menenangkan.  <strong>Selamat berinvestasi saham syariah ! </strong></p>
+            <p>Anda tidak perlu lagi dipusingkan dengan membaca laporan keuangan perusahaan. Anda dapat menanam saham dengan tenang (sakinah) karena <strong><?= Html::a('shariainvestor.com','http://shariainvestor.com',['style'=>'text-decoration:none']) ?></strong> menyajikan data fundamental saham berdasarkan laporan keuangan terkini yang dibuat oleh masing-masing emiten sehingga Anda tidak melakukan kesalahan dalam berinvestasi saham.</p> 
+            <p>Bersama <strong><?= Html::a('shariainvestor.com','http://shariainvestor.com',['style'=>'text-decoration:none']) ?></strong> menanam saham tidak lagi menjadi hal yang memusingkan bahkan menguntungkan dan menenangkan.  <strong>Selamat berinvestasi saham syariah ! </strong></p>
 </div>
 <!-- Container (About Section) -->
 <div class="container-fluid">
@@ -42,7 +38,7 @@ $this->title = 'Home';
           <div class="panel panel-success">
             <div class="panel-heading">Top Gainers</div>
                 <div class="panel-body">
-            <table id="table3" class="table table-bordered table-striped">
+            <table class="table table-bordered table-striped">
             <thead>
             <tr>
                 <th>Code</th>
@@ -76,7 +72,7 @@ $this->title = 'Home';
                 <div class="panel panel-danger">
                     <div class="panel-heading">Top Losers</div>
             <div class="panel-body">
-            <table id="table2" class="table table-bordered table-striped">
+            <table class="table table-bordered table-striped">
             <thead>
             <tr>
                 <th>Code</th>

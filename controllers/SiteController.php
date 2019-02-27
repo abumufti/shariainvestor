@@ -91,13 +91,17 @@ class SiteController extends Controller
     public function actionIssi()
     {
         Yii::$app->view->params['selected'][1]='active';
+        Yii::$app->view->params['issi']=['','',''];
         
         $table='table2';
         if(Yii::$app->request->get("order") ==="desc"){
+            Yii::$app->view->params['issi'][1]='active';
             $data = MuvtiFundamental::find()->joinWith('emiten')->where("muvti_emiten.margin > 0")->orderBy(["muvti_emiten.margin"=> SORT_DESC])->all();
         }elseif(Yii::$app->request->get("order") ==="asc"){
+            Yii::$app->view->params['issi'][2]='active';
             $data = MuvtiFundamental::find()->joinWith('emiten')->where("muvti_emiten.margin < 0")->orderBy(["muvti_emiten.margin"=> SORT_ASC])->all();
         }else{
+            Yii::$app->view->params['issi'][0]='active';
             $data = MuvtiFundamental::find()->all();
             $table='table1';
         }

@@ -247,7 +247,10 @@ $this->title = 'Home';
   </div>
 </nav>
 
-
+<div class="jumbotron text-center" style="background-image: url('<?=Yii::$app->homeUrl;?>img/home-bg.jpg'); background-size:cover;margin-bottom:0">
+  <h1>Sharia Investor</h1> 
+  <p>Sakinah Berinvestasi Saham.</p><br><br>
+</div>
 
 <?=$content;?>
 
@@ -266,14 +269,21 @@ $this->title = 'Home';
 <script>
 $(document).ready(function(){
     
+    $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myList .card-body").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+    
     $("#table1").DataTable({
         "paging"      : true,
         "lengthChange": true,
         "searching"   : true,
         "ordering"    : true,
         "info"        : true,
-        "autoWidth"   : false,
-        "scrollX"     : "200px",
+        "autoWidth"   : true,
+        "scrollX"     : "100%",
         "scrollCollapse": true,
         "select": {
             style:    'single',
@@ -283,13 +293,13 @@ $(document).ready(function(){
     });
     
     $("#table2").DataTable({
-        "paging"      : false,
-        "lengthChange": false,
-        "searching"   : false,
+        "paging"      : true,
+        "lengthChange": true,
+        "searching"   : true,
         "ordering"    : false,
-        "info"        : false,
-        "autoWidth"   : false,
-        "scrollX"     : "200px",
+        "info"        : true,
+        "autoWidth"   : true,
+        "scrollX"     : "100%",
         "scrollCollapse": true,
         "select": {
             style:    'single',
@@ -309,7 +319,6 @@ $(document).ready(function(){
         "scrollCollapse": true,
         "select": {
             style:    'single',
-            
         }
         
     });

@@ -8,11 +8,6 @@ $this->title = 'Index Saham Syariah Indonesia ( ISSI )';
 
 ?>
 
-<div class="jumbotron text-center" style="background-image: url('<?=Yii::$app->homeUrl;?>img/home-bg.jpg'); background-size:cover;margin-bottom:0">
-  <h1>Sharia Investor</h1> 
-  <p>Sakinah Berinvestasi Saham.</p> <br><br><br>
-</div>
-
 <div class="container-fluid bg-grey" style="text-align:justify;margin-bottom:20px;">
     <h2><?= Html::encode($this->title) ?></h2>
     <p>Di bawah ini adalah data rasio fundamental saham-saham syariah yang tercatat di BEI (ISSI) yang selalu diseleksi ulang setiap bulan Mei dan November. 
@@ -22,7 +17,13 @@ $this->title = 'Index Saham Syariah Indonesia ( ISSI )';
 </div>
 
 <div class="container-fluid" style="text-align:justify;">
-  <div class="row">
+    
+    <ul class="nav nav-tabs">
+        <li class="<?=Yii::$app->view->params['issi'][0];?>"><a href="<?=Yii::$app->homeUrl;?>site/issi">All</a></li>
+        <li class="<?=Yii::$app->view->params['issi'][1];?>"><a href="<?=Yii::$app->homeUrl;?>site/issi?order=desc">Top Gainers</a></li>
+        <li class="<?=Yii::$app->view->params['issi'][2];?>"><a href="<?=Yii::$app->homeUrl;?>site/issi?order=asc">Top Losers</a></li>
+    </ul>
+    <br>
         <table id="<?=$table;?>" class="table table-bordered table-striped">
             <thead>
             <tr>
@@ -60,6 +61,6 @@ $this->title = 'Index Saham Syariah Indonesia ( ISSI )';
                 <?php $no++; } ?>  
             </tbody>
         </table>
-    </div>
+    
 </div>
 
