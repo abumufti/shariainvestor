@@ -1,12 +1,13 @@
 <?php 
 use yii\widgets\ActiveForm;
 use yii\helpers\Html;
-$this->title='Compose';
+$this->title='Edit';
+
 ?>
 
 <div class="row">
-        <div class="col-md-12">
-          <div class="box box-info">
+    <div class="col-md-12">
+        <div class="box box-info">
             <div class="box-header">
               <h3 class="box-title">Compose</h3>
               <!-- tools box -->
@@ -24,14 +25,17 @@ $this->title='Compose';
             <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]) ?> 
             <div class="box-body pad">
                 <div class="form-group">
-                    <?= $form->field($model, 'title')->textInput(); ?>
+                    <?= $form->field($model,'id')->hiddenInput(['value'=>$post->id])->label(false) ?>
                 </div>
                 <div class="form-group">
-                    <?= $form->field($model, 'body')->textarea(['id'=>'editor1', 'rows' => '6','cols'=>'80']) ?>
+                    <?= $form->field($model, 'title')->textInput(['value'=>$post->title]); ?>
+                </div>
+                <div class="form-group">
+                    <?= $form->field($model, 'body')->textarea(['id'=>'editor1', 'rows' => '6','cols'=>'80','value'=>$post->body]) ?>
                 </div>  
                 <div class="form-group">
                     <div class="col-sm-6">
-                        <?= $form->field($model, 'youtube')->textInput(); ?>
+                        <?= $form->field($model, 'youtube')->textInput(['value'=>$post->youtube]); ?>
                     </div>
                     <div class="col-sm-3">
                          <?= $form->field($model, 'file')->fileInput(); ?>  
@@ -47,10 +51,9 @@ $this->title='Compose';
             </div>
             
             <?php ActiveForm::end() ?>
-          </div>
-          <!-- /.box -->
-
         </div>
-        <!-- /.col-->
-      </div>
+        <!-- /.box -->
+    </div>
+    <!-- /.col-->
+</div>
     

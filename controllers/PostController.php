@@ -28,7 +28,7 @@ class PostController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['logout','compose','view'],
+                        'actions' => ['logout','compose','view','edit'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -73,18 +73,50 @@ class PostController extends Controller
         Yii::$app->view->params['page'] ='Post';
         Yii::$app->view->params['subpage'] ='Insert';
         Yii::$app->view->params['selected'] = ['','','','','','active','','','','','','',];
-        
+        $id = trim(Yii::$app->request->get("id"));
+         
         $model = new PostForm();
         
         if ($model->load(Yii::$app->request->post()) && $model->upload()) {
             
             $model->image = UploadedFile::getInstance($model, 'image');
             $model->file = UploadedFile::getInstance($model, 'file');
-            // file is uploaded successfully
+            
             return $this->refresh();
             
         }
+        
         return $this->render('compose',['model'=>$model]);
+    }
+    
+    /**
+     * Displays homepage.
+     *
+     * @return string
+     */
+    public function actionEdit()
+    {
+        Yii::$app->view->params['header'] =$this->getHeader();
+        Yii::$app->view->params['footer'] =$this->getFooter();
+        Yii::$app->view->params['page'] ='Post';
+        Yii::$app->view->params['subpage'] ='Insert';
+        Yii::$app->view->params['selected'] = ['','','','','','active','','','','','','',];
+        $id = trim(Yii::$app->request->get("id"));
+         
+        $model = new PostForm();
+        
+        $post = MuvtiPost::findOne($id);
+        
+        if ($model->load(Yii::$app->request->post()) && $model->upload()) {
+            
+            $model->image = UploadedFile::getInstance($model, 'image');
+            $model->file = UploadedFile::getInstance($model, 'file');
+            
+            return $this->refresh();
+            
+        }
+        
+        return $this->render('edit',['model'=>$model,'post'=>$post]);
     }
     
     /**

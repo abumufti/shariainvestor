@@ -38,7 +38,7 @@ $this->title='View';
                   <td><?= $value['file']; ?></td>
                   <td><?= $value['image']; ?></td>
                   <td><?= $value['author']; ?></td>
-                  <td><a href="<?= BaseUrl::toRoute(['site/edit-post','id'=> $value['id']]);?>" class="label label-success">Edit</a>&nbsp;<a href="<?= BaseUrl::toRoute(['site/delete-post','id'=> $value['id']]);?>" class="label label-danger">Delete</a>&nbsp;<a href="<?= $value['status'] ==='Active' ? BaseUrl::toRoute(['site/draft-post','id'=> $value['id']]) : BaseUrl::toRoute(['site/active-post','id'=> $value['id']]); ?>" class="label label-warning"><?= $value['status'] === 'Inactive' ? 'Activate' : 'Draft' ?></a></td>
+                  <td><a href="<?= BaseUrl::toRoute(['post/edit','id'=> $value['id']]);?>" class="label label-success">Edit</a>&nbsp;<a href="<?= BaseUrl::toRoute(['site/delete-post','id'=> $value['id']]);?>" class="label label-danger">Delete</a>&nbsp;<a href="<?= $value['status'] ==='Active' ? BaseUrl::toRoute(['site/draft-post','id'=> $value['id']]) : BaseUrl::toRoute(['site/active-post','id'=> $value['id']]); ?>" class="label label-warning"><?= $value['status'] === 'Inactive' ? 'Activate' : 'Draft' ?></a></td>
                 </tr>
                 <?php $no++; } ?>   
             </tbody>
