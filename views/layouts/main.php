@@ -315,7 +315,7 @@ $(document).ready(function(){
         "ordering"    : false,
         "info"        : false,
         "autoWidth"   : false,
-        "scrollX"     : "200px",
+        "scrollX"     : "100%",
         "scrollCollapse": true,
         "select": {
             style:    'single',
