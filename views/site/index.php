@@ -19,7 +19,6 @@ $this->title = 'Home';
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-8 " style="text-align:justify;">
-            
             <?php foreach($posts as $index => $value){ ?>
             <div class="card">
                 <div class="card-body">
