@@ -1,10 +1,6 @@
 <?php
-use yii\helpers\Url;
 use yii\helpers\BaseUrl;
 use yii\helpers\Html;
-
-$this->title = 'Home';
-
 
 ?>
 
@@ -12,7 +8,7 @@ $this->title = 'Home';
 <html lang="en">
 <head>
   <!-- Theme Made By www.w3schools.com -->
-  <title>Sharia Investor</title>
+  <title>Sharia Investor-<?= Html::encode($this->title); ?></title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="<?= BaseUrl::base();?>/bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -60,7 +56,7 @@ $this->title = 'Home';
       margin-bottom:10px;
       
   }
-
+  
   .container-fluid {
       padding: 0px 50px;
       font-family: Montserrat, sans-serif;
@@ -149,6 +145,7 @@ $this->title = 'Home';
   .navbar {
       margin-bottom: 0;
       background-color: #f4511e;
+      opacity: 0.7;
       z-index: 9999;
       border: 0;
       font-size: 12px !important;
@@ -220,7 +217,7 @@ $this->title = 'Home';
 </head>
 <body id="myPage">
 
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">

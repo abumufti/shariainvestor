@@ -28,7 +28,7 @@ class PostController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['logout','compose','view','edit'],
+                        'actions' => ['logout','compose','view','edit','delete','activate','draft'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -87,6 +87,34 @@ class PostController extends Controller
         }
         
         return $this->render('compose',['model'=>$model]);
+    }
+    
+    public function actionDraft(){
+        
+         $id = trim(Yii::$app->request->get("id"));
+        $post = MuvtiPost::findOne($id);
+        $post->status = 'Inactive';
+        $post->update();
+        $this->redirect(['post/view']);
+        
+    }
+    
+    public function actionActivate(){
+        
+        $id = trim(Yii::$app->request->get("id"));
+        $post = MuvtiPost::findOne($id);
+        $post->status ='Active';
+        $post->update();
+        $this->redirect(['post/view']);
+        
+    }
+    
+    public function actionDelete(){
+        
+        $id = trim(Yii::$app->request->get("id"));
+        $post = MuvtiPost::findOne($id)->delete();
+        $this->redirect(['post/view']);
+        
     }
     
     /**
