@@ -186,6 +186,16 @@ class SiteController extends Controller
 
         return $this->goHome();
     }
+    
+    /**
+     * Logout action.
+     *
+     * @return Response
+     */
+    public function actionInfo()
+    {
+        return phpinfo();
+    }
 
     public function actionDownload()
     {
