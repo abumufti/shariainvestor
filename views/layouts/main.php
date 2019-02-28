@@ -8,7 +8,7 @@ use yii\helpers\Html;
 <html lang="en">
 <head>
   <!-- Theme Made By www.w3schools.com -->
-  <title>Sharia Investor-<?= Html::encode($this->title); ?></title>
+  <title><?= Html::encode($this->title); ?></title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="<?= BaseUrl::base();?>/bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -103,7 +103,7 @@ use yii\helpers\Html;
   .item span {
       font-style: normal;
   }
-  /*.panel {
+/*  .panel {
       border: 1px solid #f4511e; 
       border-radius:0 !important;
       transition: box-shadow 0.5s;
@@ -144,8 +144,7 @@ use yii\helpers\Html;
   
   .navbar {
       margin-bottom: 0;
-      background-color: #f4511e;
-      opacity: 0.7;
+      background-color: rgb(244,81,30,0.7);
       z-index: 9999;
       border: 0;
       font-size: 12px !important;
@@ -215,9 +214,9 @@ use yii\helpers\Html;
   }
   </style>
 </head>
-<body id="myPage">
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 
-<nav class="navbar navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
