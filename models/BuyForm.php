@@ -41,7 +41,7 @@ class BuyForm extends Model
     
      
     public function insert(){
-        var_dump($this->validate());die;
+        
         if ($this->validate()) {
             
             $latest = MuvtiHistory::find()->orderBy(['id' => SORT_DESC])->one();
