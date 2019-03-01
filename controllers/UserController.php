@@ -95,8 +95,6 @@ class UserController extends Controller
         
         $model2 = new SellForm();
         
-        
-        
         if ($model->load(Yii::$app->request->post()) && $model->insert()) {
             Yii::$app->session->setFlash('emitenFormSubmitted');
             return $this->refresh();

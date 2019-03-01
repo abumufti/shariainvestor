@@ -88,7 +88,7 @@ class AdministrationController extends Controller
         return $this->render('broker',['broker'=>$broker,'model'=>$model]);
     }
     
-    public function actionDeposit()
+    public function actionBank()
     {
         Yii::$app->view->params['selected'] = ['','','','','','','','','active','','','',];
         
@@ -109,7 +109,7 @@ class AdministrationController extends Controller
             return $this->refresh();            
         }
         
-        return $this->render('deposit',['deposit'=>$deposit,'model'=>$model,'model2'=>$model2,'emiten'=>$emiten,'dividen'=>$dividen]);
+        return $this->render('bank',['deposit'=>$deposit,'model'=>$model,'model2'=>$model2,'emiten'=>$emiten,'dividen'=>$dividen]);
     }
     
     public function actionDividen()

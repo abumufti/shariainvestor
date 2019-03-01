@@ -13,24 +13,25 @@ class BuyForm extends Model
     */
     public $emiten;
     public $broker;
+    public $budget;
     public $buyFee;
     public $sellFee;
-    public $buy;
     public $sell;
     public $dateBuy;
+    public $buy;
     public $lot;
     public $profitPercentage;
-    public $budget;
+    
     
     public function rules()
     {
         return [
             ['emiten', 'required', 'message' => 'Please choose an emiten.'],
             ['broker', 'required', 'message' => 'Please choose a broker.'],
-            ['budget', 'required'],
+            ['budget', 'required','message' => 'Please fill budget value.'],
             ['buyFee', 'required'],
             ['sellFee', 'required'],
-            ['sell', 'required'],
+            ['sell', 'required','message' => 'Please fill sell value.'],
             ['dateBuy', 'required', 'message' => 'Please fill Buy Fee.'],
             ['buy', 'required', 'message' => 'Please fill Buy value.'],
             ['lot', 'required', 'message' => 'Please fill Lot.'],
@@ -40,7 +41,7 @@ class BuyForm extends Model
     
      
     public function insert(){
-        
+        var_dump($this->validate());die;
         if ($this->validate()) {
             
             $latest = MuvtiHistory::find()->orderBy(['id' => SORT_DESC])->one();

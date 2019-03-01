@@ -294,7 +294,7 @@ use yii\helpers\Html;
           </a>
           <ul class="treeview-menu">
             <li class="<?= $this->params['selected'][7];?>" ><a href="<?= BaseUrl::toRoute(['administration/broker']);?>"><i class="fa fa-circle-o text-red"></i> Broker</a></li>
-            <li class="<?= $this->params['selected'][8];?>" ><a href="<?= BaseUrl::toRoute(['administration/deposit']);?>"><i class="fa fa-circle-o text-yellow"></i> Bank</a></li>
+            <li class="<?= $this->params['selected'][8];?>" ><a href="<?= BaseUrl::toRoute(['administration/bank']);?>"><i class="fa fa-circle-o text-yellow"></i> Bank</a></li>
             <li class="<?= $this->params['selected'][9];?>" ><a href="<?= BaseUrl::toRoute(['administration/dividen']);?>"><i class="fa fa-circle-o text-green"></i> Dividen</a></li>
           </ul>
         </li>   
