@@ -35,6 +35,7 @@ class SellForm extends Model
     
      
     public function insert(){
+        
         if ($this->validate()) {
             
             $latest = MuvtiHistory::find()->orderBy(['id' => SORT_DESC])->one();
