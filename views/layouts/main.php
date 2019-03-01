@@ -8,7 +8,7 @@ use yii\helpers\Html;
 <html lang="en">
 <head>
   <!-- Theme Made By www.w3schools.com -->
-  <title><?= Html::encode($this->title); ?></title>
+  <title><?= $this->title; ?></title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="<?= BaseUrl::base();?>/bower_components/bootstrap/dist/css/bootstrap.min.css">
