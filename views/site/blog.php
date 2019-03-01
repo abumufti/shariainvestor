@@ -13,7 +13,7 @@ $this->title = count($posts) === 1 ? $posts[0]['title'] : 'Blog';
     <p>Sakinah Berinvestasi Saham.</p><br><br>
   <?php }else{ ?>  
   <h1><?= $posts[0]['title']; ?></h1> 
-  <p>Posted on <?= $formatter->asDate($posts[0]['date_created'], 'long'); ?>, by <?= $posts[0]['author']; ?></p><br><br>
+  <p>Posted on <?= $formatter->asDate($posts[0]['date_created'], 'long'); ?> by <?= $posts[0]['author']; ?></p><br><br>
   <?php } ?>
 </div>
 <!-- Container (About Section) -->
