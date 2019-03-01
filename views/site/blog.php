@@ -7,6 +7,15 @@ $this->title = count($posts) === 1 ? $posts[0]['title'] : 'Blog';
 
 
 ?>
+<div class="jumbotron text-center" style="background-image: url('<?=Yii::$app->homeUrl;?>img/home-bg.jpg'); background-size:cover;margin-bottom:0">
+  <?php if($title ===''){ ?>
+    <h1>Sharia Investor</h1> 
+    <p>Sakinah Berinvestasi Saham.</p><br><br>
+  <?php }else{ ?>  
+  <h1><?= $posts[0]['title']; ?></h1> 
+  <p>Posted on <?= $formatter->asDate($posts[0]['date_created'], 'long'); ?>, by <?= $posts[0]['author']; ?></p><br><br>
+  <?php } ?>
+</div>
 <!-- Container (About Section) -->
 <div class="container-fluid">
     <div class="row">
@@ -14,14 +23,13 @@ $this->title = count($posts) === 1 ? $posts[0]['title'] : 'Blog';
           <?php foreach($posts as $index => $value){ ?>
             <div class="card" id="myList">
                 <div class="card-body">
+                    <?php if($title ===''){ ?>
                     <h3><?= $value['title']; ?></h3>
                     <p class="text-muted">Posted on <?= $formatter->asDate($value['date_created'], 'long'); ?>, by <?= $value['author']; ?></p>
-                    
-                    <?php if($title ===''){ ?>
                     <p class="card-text"><?= BaseStringHelper::explode($value['body'],'</p>')[0].'</p>'; ?></p>
                     <a href="<?= Url::to(['site/blog', 'title' => $value['title']]); ?>" class="btn btn-primary">Read More &rarr;</a>
                     <hr>
-                    <?php }else{?>
+                    <?php }else{?>                    
                     <p class="card-text"><?= $value['body']; ?></p>
                     <?php } ?>
                 </div>
