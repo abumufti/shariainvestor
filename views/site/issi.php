@@ -4,7 +4,7 @@
 
 
 use yii\helpers\Html;
-$this->title = 'Stock';
+$this->title = 'Index Saham Syaria Indonesia (ISSI)';
 
 ?>
 
