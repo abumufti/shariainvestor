@@ -26,22 +26,34 @@ $this->title="History";
                         <th>No.</th>
                         <th>Date</th>
                         <th>Code</th>
+                        <th>Buy</th>
                         <th>Sell</th>
                         <th>Lot</th>
                         <th>Fee</th>
                         <th>Total</th>
+                        <th>Margin</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <?php $no = 1; foreach($sell as $index => $value){?>
+                    <?php $no = 1; foreach($sell as $index => $value){
+                        
+                        $buyfee = floatval($value['buy_fee']/100);
+                        $sellfee = floatval($value['sell_fee']/100);
+                        $buy = floatval($value['buy']*(1+$buyfee));
+                        $sell = floatval($value['sell']*(1-$sellfee));
+                        $margin = floatval(($sell-$buy)*$value['share']);
+                        
+                    ?>
                     <tr>
                         <td><?= $no; ?></td>
                         <td style="text-align:center;"><?= $value['sell_date']; ?></td>
                         <td><?= $value['code']; ?></td>
+                        <td style="text-align:right;"><?= number_format($value['buy']); ?></td>
                         <td style="text-align:right;"><?= number_format($value['sell']); ?></td>
                         <td style="text-align:right;"><?= number_format($value['share']/100); ?></td>
                         <td style="text-align:right;"><?= number_format($value['sell_fee'],2,".",","); ?></td>
                         <td style="text-align:right;"><?= number_format($value['share']*$value['sell']*(1+($value['sell_fee']/100))); ?></td>
+                        <td style="text-align:right;"><?= number_format($margin,2,".",","); ?></td>
                     </tr>
                     <?php $no++; } ?>    
                     </tbody>

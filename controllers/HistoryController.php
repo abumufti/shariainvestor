@@ -121,6 +121,14 @@ class HistoryController extends Controller
         <script>
                 
             $("#example").DataTable({
+                "paging"      : true,
+                "lengthChange": true,
+                "searching"   : true,
+                "ordering"    : true,
+                "info"        : true,
+                "autoWidth"   : true,
+                "scrollX"     : "200px",
+                "scrollCollapse": true,
                 "select": {
                     style:"single",
                 },
