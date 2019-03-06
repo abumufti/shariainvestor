@@ -57,6 +57,14 @@ use yii\helpers\Html;
       
   }
   
+   .jumbotron h2 {
+      font-size: 24px;
+      text-transform: uppercase;
+      color: #fff;
+      font-weight: 600;
+      margin-bottom: 30px;
+  }
+  
   .container-fluid {
       padding: 0px 50px;
       font-family: Montserrat, sans-serif;

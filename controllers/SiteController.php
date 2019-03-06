@@ -93,6 +93,8 @@ class SiteController extends Controller
         Yii::$app->view->params['selected'][1]='active';
         Yii::$app->view->params['issi']=['','',''];
         
+        $preface = MuvtiPost::findOne(['title'=>'INDEX SAHAM SYARIAH INDONESIA (ISSI)']);
+        
         $table='table2';
         if(Yii::$app->request->get("order") ==="desc"){
             Yii::$app->view->params['issi'][1]='active';
@@ -106,7 +108,7 @@ class SiteController extends Controller
             $table='table1';
         }
         
-        return $this->render('issi',['data'=>$data,'table'=>$table]);
+        return $this->render('issi',['data'=>$data,'table'=>$table,'preface'=>$preface]);
     }
     
         /**

@@ -7,19 +7,11 @@ use yii\helpers\Html;
 $this->title = 'Index Saham Syaria Indonesia (ISSI)';
 
 ?>
-<div class="jumbotron text-center" style="background-image: url('<?=Yii::$app->homeUrl;?>img/home-bg.jpg'); background-size:cover;margin-bottom:0">
-  <h1>Sharia Investor</h1> 
-  <p>Sakinah Berinvestasi Saham.</p><br><br>
+<div class="jumbotron text-justify" style="background-image: url('<?=Yii::$app->homeUrl;?>img/home-bg.jpg'); background-size:cover;margin-bottom:0;">
+  <h2><?= $preface->title; ?></h2> 
+  <?= $preface->body; ?>
 </div>
-
-<div class="container-fluid bg-grey" style="text-align:justify;margin-bottom:20px;">
-    <h2>Index Saham Syaria Indonesia ( ISSI )</h2>
-    <p>Di bawah ini adalah data rasio fundamental saham-saham syariah yang tercatat di BEI (ISSI) yang selalu diseleksi ulang setiap bulan Mei dan November. 
-        Diantara <?= count($data); ?> saham syariah ini, ada diantaranya sudah terindex JII, LQ45, Pefindo25, Kompas 100, IDX30, Bisnis-27, Sri-Kehati, DBX, dan MBX. Saham-saham yang terindex merupakan saham-saham yang memiliki likuiditas yang tinggi, nilai kapitalisasi pasar yang besar, memiliki manajemen perusahaan yang baik, sehingga mudah diperjualbelikan.
-        Pilihlah saham syariah yang sudah terindex, berfundamental baik, dan berharga murah ( under value ).
-    </p>
-</div>
-
+<br>
 <div class="container-fluid" style="text-align:justify;">
     
     <ul class="nav nav-tabs">
