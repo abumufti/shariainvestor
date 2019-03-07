@@ -9,6 +9,7 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\IssiForm;
 use app\models\MuvtiEmiten;
 use yii\helpers\BaseUrl;
 use app\models\MuvtiFundamental;
@@ -94,6 +95,9 @@ class SiteController extends Controller
         Yii::$app->view->params['issi']=['','',''];
         
         $preface = MuvtiPost::findOne(['title'=>'INDEX SAHAM SYARIAH INDONESIA (ISSI)']);
+        
+        $issi = new IssiForm();
+        
         
         $table='table2';
         if(Yii::$app->request->get("order") ==="desc"){

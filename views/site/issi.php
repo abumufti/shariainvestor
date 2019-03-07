@@ -2,8 +2,9 @@
 
 /* @var $this yii\web\View */
 
-
+use yii\widgets\ActiveForm;
 use yii\helpers\Html;
+
 $this->title = 'Index Saham Syaria Indonesia (ISSI)';
 
 ?>
@@ -12,20 +13,47 @@ $this->title = 'Index Saham Syaria Indonesia (ISSI)';
   <?= $preface->body; ?>
 </div>
 <br>
+
 <div class="container-fluid" style="text-align:justify;">
+    
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog" style="margin-top:40px; ">
+        <div class="modal-dialog">
+    
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-dismiss="modal"><i class="fa fa-times"></i></button>
+                    </div>
+                    <h4 class="modal-title">Cari Saham Berdasarkan :</h4>
+                </div>
+                <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?> 
+                <div class="modal-body">
+                    
+                </div>
+                <div class="modal-footer">
+                    <?= Html::submitButton('Filter', ['class' => 'btn btn-primary pull-right']) ?>
+                </div>
+                <?php ActiveForm::end() ?>
+            </div>
+        </div>
+    </div>
     
     <ul class="nav nav-tabs">
         <li class="<?=Yii::$app->view->params['issi'][0];?>"><a href="<?=Yii::$app->homeUrl;?>site/issi">All</a></li>
         <li class="<?=Yii::$app->view->params['issi'][1];?>"><a href="<?=Yii::$app->homeUrl;?>site/issi?order=desc">Top Gainers</a></li>
         <li class="<?=Yii::$app->view->params['issi'][2];?>"><a href="<?=Yii::$app->homeUrl;?>site/issi?order=asc">Top Losers</a></li>
+        <li ><a href="#" data-toggle="modal" data-target="#myModal">Filter</a></li>
     </ul>
     <br>
-        <table id="<?=$table;?>" class="table table-bordered table-striped">
-            <thead>
+    <table id="<?=$table;?>" class="table table-bordered table-striped">
+        <thead>
             <tr>
                 <th>Code</th>
                 <th>Sector</th>
                 <th>Subsector</th>
+                <th>Index</th>
                 <th>M.Cap(B)</th>
                 <th>Price</th>
                 <th>Chg(%)</th>
@@ -36,13 +64,14 @@ $this->title = 'Index Saham Syaria Indonesia (ISSI)';
                 <th>DY(%)</th>
                 <th>DER</th>
             </tr>
-            </thead>
-            <tbody>
+        </thead>
+        <tbody>
                 <?php $no = 1; foreach($data as $index => $value){ ?>
                 <tr> 
                   <td><?= $value['code']; ?></td>
                   <td><?= $value['sector']['name']; ?></td>
                   <td><?= $value['subsector']['name']; ?></td>
+                  <td><?= $value['emiten']['idx']; ?></td>
                   <td style="text-align:right;"><?= number_format(($value['emiten']['price']*$value['emiten']['share'])/1000000000,2,'.',','); ?></td>
                   <td style="text-align:right;"><?= number_format($value['emiten']['price']); ?></td>
                   <td style="text-align:right;"><?= number_format($value['emiten']['margin'],2,'.',','); ?></td>
@@ -55,8 +84,11 @@ $this->title = 'Index Saham Syaria Indonesia (ISSI)';
                   
                 </tr>
                 <?php $no++; } ?>  
-            </tbody>
-        </table>
-    
+        </tbody>
+    </table>
 </div>
+
+
+
+
 

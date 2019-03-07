@@ -1,6 +1,5 @@
 <?php
 use yii\helpers\BaseUrl;
-use yii\helpers\Html;
 
 ?>
 
@@ -11,14 +10,17 @@ use yii\helpers\Html;
   <title><?= $this->title; ?></title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="<?= BaseUrl::base();?>/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <!-- Bootstrap 3.3.7 -->
+  <link rel="stylesheet" href="<?= BaseUrl::base() ?>/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="<?= BaseUrl::base() ?>/bower_components/font-awesome/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="<?= BaseUrl::base() ?>/bower_components/Ionicons/css/ionicons.min.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <!-- DataTables -->
-    <link rel="stylesheet" href="<?= BaseUrl::base();?>/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
-    <link rel="stylesheet" href="<?= BaseUrl::base();?>/bower_components/datatables.net-bs/css/select.dataTables.min.css">
+  <link rel="stylesheet" href="<?= BaseUrl::base();?>/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+  <link rel="stylesheet" href="<?= BaseUrl::base();?>/bower_components/datatables.net-bs/css/select.dataTables.min.css">
     
   <style>
   body {
@@ -259,7 +261,9 @@ use yii\helpers\Html;
   </a>
   <p>Copyright © 2019. All rights reserved. <a href="<?=Yii::$app->homeUrl;?>" title="Visit Sharia Investor">www.shariainvestor.com</a></p>
 </footer>
+<script src="<?= BaseUrl::base();?>/bower_components/jquery/dist/jquery.min.js"></script>
 <script src="<?= BaseUrl::base();?>/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
 <!-- DataTables -->
 <script src="<?= BaseUrl::base();?>/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="<?= BaseUrl::base();?>/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
@@ -269,11 +273,11 @@ use yii\helpers\Html;
 $(document).ready(function(){
     
     $("#myInput").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#myList .card-body").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        var value = $(this).val().toLowerCase();
+        $("#myList .card-body").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
     });
-  });
     
     $("#table1").DataTable({
         "paging"      : true,
