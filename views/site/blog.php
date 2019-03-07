@@ -45,7 +45,7 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
                     <div class="card-text"><?= $value['body']; ?></div>
                     
                     <div class="row">
-                        <hr>
+                        <hr/>
                         <div class="fb-comments" data-href="<?= $actual_link; ?>" data-numposts="5"></div>
                     </div>
                     <?php } ?>
