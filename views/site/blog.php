@@ -1,12 +1,19 @@
 <?php
 use yii\helpers\Url;
 use yii\helpers\BaseStringHelper;
+
 $formatter = \Yii::$app->formatter;
 
 $this->title = count($posts) === 1 ? $posts[0]['title'] : 'Blog';
 
 
 ?>
+
+
+
+<div id="fb-root"></div>
+<script async defer src="https://connect.facebook.net/id_ID/sdk.js#xfbml=1&version=v3.2&appId=458278107551122&autoLogAppEvents=1"></script>
+
 <div class="jumbotron text-center" style="background-image: url('<?=Yii::$app->homeUrl;?>img/home-bg.jpg'); background-size:cover;margin-bottom:0">
   <?php if($title ===''){ ?>
     <h1>Sharia Investor</h1> 
@@ -15,7 +22,10 @@ $this->title = count($posts) === 1 ? $posts[0]['title'] : 'Blog';
   <h1><?= $posts[0]['title']; ?></h1> 
   <p>Posted on <?= $formatter->asDate($posts[0]['date_created'], 'long'); ?> by <?= $posts[0]['author']; ?></p><br><br>
   <?php } ?>
+  
 </div>
+
+
 <!-- Container (About Section) -->
 <div class="container-fluid">
     <div class="row">
@@ -110,3 +120,12 @@ $this->title = count($posts) === 1 ? $posts[0]['title'] : 'Blog';
         </div>
   </div>
 </div>
+
+<!-- Container (About Section) -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="fb-comments" data-href="<?= Url::current(); ?>" data-numposts="5"></div>
+    </div>
+</div>
+
+
