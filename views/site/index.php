@@ -14,10 +14,11 @@ $this->title = 'Home';
 </div>
 
 <div class="container-fluid bg-grey" style="text-align:justify;margin-bottom:10px;">
-            <h3>Tentang Kami</h3>
-            <p><strong>Sakinah Berinvestasi Saham</strong> itulah moto kami.</p> 
-            <p>Anda tidak perlu lagi dipusingkan dengan membaca laporan keuangan perusahaan. Anda dapat menanam saham dengan tenang (sakinah) karena <strong><?= Html::a('shariainvestor.com','http://shariainvestor.com',['style'=>'text-decoration:none']) ?></strong> menyajikan data fundamental saham berdasarkan laporan keuangan terkini yang dibuat oleh masing-masing emiten sehingga Anda tidak melakukan kesalahan dalam berinvestasi saham.</p> 
-            <p>Bersama <strong><?= Html::a('shariainvestor.com','http://shariainvestor.com',['style'=>'text-decoration:none']) ?></strong> menanam saham tidak lagi menjadi hal yang memusingkan bahkan menguntungkan dan menenangkan.  <strong>Selamat berinvestasi saham syariah ! </strong></p>
+           
+ 
+            <h3><?= $preface->title; ?></h3>
+             <?= $preface->body; ?>
+            
 </div>
 <!-- Container (About Section) -->
 <div class="container-fluid">

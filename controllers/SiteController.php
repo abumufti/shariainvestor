@@ -70,13 +70,15 @@ class SiteController extends Controller
     {
         Yii::$app->view->params['selected'][0]='active';
         
+        $preface = MuvtiPost::findOne(['title'=>'TENTANG KAMI']);
+        
         $gainers = MuvtiEmiten::find()->limit(5)->orderBy(["margin"=> SORT_DESC] )->all();
         
         $losers = MuvtiEmiten::find()->limit(5)->orderBy("margin")->all();
         
         $posts = MuvtiPost::find()->where(['status'=>'Active'])->limit(3)->orderBy(["date_created"=> SORT_DESC])->all();
         
-        return $this->render('index',['gainers'=>$gainers,'losers'=>$losers,'posts'=>$posts]);
+        return $this->render('index',['gainers'=>$gainers,'losers'=>$losers,'posts'=>$posts, 'preface'=>$preface]);
     }
 
     /**
