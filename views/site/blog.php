@@ -6,6 +6,8 @@ $formatter = \Yii::$app->formatter;
 
 $this->title = count($posts) === 1 ? $posts[0]['title'] : 'Blog';
 
+$actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
 
 ?>
 
@@ -38,10 +40,10 @@ $this->title = count($posts) === 1 ? $posts[0]['title'] : 'Blog';
                     <p class="text-muted">Posted on <?= $formatter->asDate($value['date_created'], 'long'); ?>, by <?= $value['author']; ?></p>
                     <p class="card-text"><?= BaseStringHelper::explode($value['body'],'</p>')[0].'</p>'; ?></p>
                     <a href="<?= Url::to(['site/blog', 'title' => $value['title']]); ?>" class="btn btn-primary">Read More &rarr;</a>
-                    <hr>
                     <?php }else{?>                    
-                    <p class="card-text"><?= $value['body']; ?></p>
+                    <div class="card-text"><?= $value['body']; ?></div>
                     <?php } ?>
+                    <hr>
                 </div>
                 
             </div>
@@ -121,11 +123,14 @@ $this->title = count($posts) === 1 ? $posts[0]['title'] : 'Blog';
   </div>
 </div>
 
-<!-- Container (About Section) -->
+<?php if($title !==''){ ?>
+
 <div class="container-fluid">
+    
     <div class="row">
-        <div class="fb-comments" data-href="<?= Url::current(); ?>" data-numposts="5"></div>
+        <div class="fb-comments" data-href="<?= $actual_link; ?>" data-numposts="5"></div>
     </div>
 </div>
+<?php } ?>
 
 
