@@ -66,12 +66,31 @@ class EmitenForm extends Model
         
         $this->backup();
         
-        foreach($data as $index => $value){
+        $db = Yii::$app->db;
+        $transaction = $db->beginTransaction();
+            
+        try {
+            
+            foreach($data as $index => $value){
 
-            $emiten = new MuvtiEmiten();
-            $emiten->code = $value['Stock'];
-            $emiten->name = $value['Name'];
-            $emiten->save();
+                $emiten = new MuvtiEmiten();
+                $emiten->code = $value['Stock'];
+                $emiten->name = $value['Name'];
+                $emiten->save();
+                
+            }
+            
+            $transaction->commit();
+                
+        }catch(\Exception $e) {
+               
+            $transaction->rollBack();
+            throw $e;
+                
+        }catch(\Throwable $e) {
+                
+            $transaction->rollBack();
+            throw $e;
         }
         
         $this->updateTemp();
@@ -248,7 +267,7 @@ class EmitenForm extends Model
         # update new emiten data
         $sql2 ="UPDATE muvti_emiten AS e 
                 INNER JOIN  muvti_emiten_temp AS et ON  (e.code = et.code)
-                SET  e.quarter=et.quarter,e.sector_id=et.sector_id,e.subsector_id=et.subsector_id,e.idx=et.idx,e.price=et.price,e.currency=et.currency,e.margin=et.margin,e.liability=et.liability,e.equity=et.equity,e.dividen=et.dividen,e.profit=et.profit,e.share=et.share,e.file=et.file
+                SET  e.quarter=et.quarter,e.sector_id=et.sector_id,e.subsector_id=et.subsector_id,e.price=et.price,e.currency=et.currency,e.margin=et.margin,e.liability=et.liability,e.equity=et.equity,e.dividen=et.dividen,e.profit=et.profit,e.share=et.share,e.file=et.file
                 ";
         $db->createCommand($sql2)->execute();
         
