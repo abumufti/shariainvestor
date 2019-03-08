@@ -157,7 +157,7 @@ class SiteController extends Controller
             
         }else{
             
-            $posts = MuvtiPost::find()->where(['status'=>'Active'])->limit(5)->orderBy(["date_created"=> SORT_DESC])->all();
+            $posts = MuvtiPost::find()->where(['status'=>'Active'])->orderBy(["date_created"=> SORT_DESC])->all();
         }
         return $this->render('blog',['gainers'=>$gainers,'losers'=>$losers, 'posts'=>$posts,'articles'=>$articles, 'title'=>$title]);
         
