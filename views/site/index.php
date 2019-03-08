@@ -1,6 +1,5 @@
 <?php
 use yii\helpers\Url;
-use yii\helpers\Html;
 use yii\helpers\BaseStringHelper;
 $formatter = \Yii::$app->formatter;
 

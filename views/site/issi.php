@@ -7,6 +7,16 @@ use yii\helpers\Html;
 
 $this->title = 'Index Saham Syaria Indonesia (ISSI)';
 
+$list = array();
+foreach($sector as $i => $value){
+    $list[$value->id] = $value->name;
+}
+
+$list3 = array();
+foreach($index as $i => $value){
+    $list3[$value->name] = $value->name;
+}
+
 ?>
 <div class="jumbotron text-justify" style="background-image: url('<?=Yii::$app->homeUrl;?>img/home-bg.jpg'); background-size:cover;margin-bottom:0;">
   <h2><?= $preface->title; ?></h2> 
@@ -30,7 +40,29 @@ $this->title = 'Index Saham Syaria Indonesia (ISSI)';
                 </div>
                 <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?> 
                 <div class="modal-body">
-                    
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                            <?php echo $form->field($model, 'sector')->dropdownList($list,
+                                ['prompt'=>'All','class'=>'form-control select2']
+                            ); ?>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                            <?php echo $form->field($model, 'subsector')->dropdownList(array(),
+                                ['prompt'=>'All','class'=>'form-control select2']
+                            ); ?>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                            <?php echo $form->field($model, 'index')->dropdownList($list3,
+                                ['prompt'=>'All','class'=>'form-control select2']
+                            ); ?>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <?= Html::submitButton('Filter', ['class' => 'btn btn-primary pull-right']) ?>
@@ -57,7 +89,6 @@ $this->title = 'Index Saham Syaria Indonesia (ISSI)';
                 <th>M.Cap(B)</th>
                 <th>Price</th>
                 <th>Chg(%)</th>
-                <th>Kuartal</th>
                 <th>PER</th>
                 <th>PBV</th>
                 <th>ROE(%)</th>
@@ -75,7 +106,6 @@ $this->title = 'Index Saham Syaria Indonesia (ISSI)';
                   <td style="text-align:right;"><?= number_format(($value['emiten']['price']*$value['emiten']['share'])/1000000000,2,'.',','); ?></td>
                   <td style="text-align:right;"><?= number_format($value['emiten']['price']); ?></td>
                   <td style="text-align:right;"><?= number_format($value['emiten']['margin'],2,'.',','); ?></td>
-                  <td style="text-align:center;"><?= $value['periode']['name']; ?></td>
                   <td style="text-align:right;"><?= number_format($value['per'],2,'.',','); ?></td>
                   <td style="text-align:right;"><?= number_format($value['pbv'],2,'.',','); ?></td>
                   <td style="text-align:right;"><?= number_format($value['roe'],2,'.',','); ?></td>

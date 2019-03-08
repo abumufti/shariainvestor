@@ -21,12 +21,14 @@ use yii\helpers\BaseUrl;
   <!-- DataTables -->
   <link rel="stylesheet" href="<?= BaseUrl::base();?>/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <link rel="stylesheet" href="<?= BaseUrl::base();?>/bower_components/datatables.net-bs/css/select.dataTables.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="'. BaseUrl::base().'/bower_components/select2/dist/css/select2.min.css">
     
   <style>
   body {
       font: 400 15px Lato, sans-serif;
       line-height: 1.8;
-      color: #818181;
+      color: #303030;
   }
   h2 {
       font-size: 24px;
@@ -73,7 +75,7 @@ use yii\helpers\BaseUrl;
       font-size: 18px;
   }
   .bg-grey {
-      background-color: #f6f6f6;
+      background-color: #F9F9F9;
   }
   .logo-small {
       color: #f4511e;
@@ -154,7 +156,7 @@ use yii\helpers\BaseUrl;
   
   .navbar {
       margin-bottom: 0;
-      background-color: rgb(244,81,30,0.7);
+      background-color: rgb(60, 141, 188,0.7);
       z-index: 9999;
       border: 0;
       font-size: 12px !important;
@@ -238,10 +240,10 @@ use yii\helpers\BaseUrl;
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li class="<?=Yii::$app->view->params['selected'][0];?>"><a href="<?=Yii::$app->homeUrl;?>">HOME</a></li>
-        <li class="<?=Yii::$app->view->params['selected'][1];?>"><a href="<?=Yii::$app->homeUrl;?>site/issi">STOCK</a></li>
+        <li class="<?=Yii::$app->view->params['selected'][0];?>"><a href="<?=Yii::$app->homeUrl;?>">BERANDA</a></li>
+        <li class="<?=Yii::$app->view->params['selected'][1];?>"><a href="<?=Yii::$app->homeUrl;?>site/issi">SAHAM</a></li>
         <li class="<?=Yii::$app->view->params['selected'][2];?>"><a href="<?=Yii::$app->homeUrl;?>site/blog">BLOG</a></li>
-        <li class="<?=Yii::$app->view->params['selected'][3];?>"><a href="<?=Yii::$app->homeUrl;?>site/contact">CONTACT</a></li>
+        <li class="<?=Yii::$app->view->params['selected'][3];?>"><a href="<?=Yii::$app->homeUrl;?>site/contact">HUBUNGI</a></li>
         <?php if(Yii::$app->user->isGuest){ ?>
         <li class="<?=Yii::$app->view->params['selected'][4];?>"><a href="<?=Yii::$app->homeUrl;?>site/login">LOGIN</a></li>
         <?php }else{ ?>
@@ -263,7 +265,8 @@ use yii\helpers\BaseUrl;
 </footer>
 <script src="<?= BaseUrl::base();?>/bower_components/jquery/dist/jquery.min.js"></script>
 <script src="<?= BaseUrl::base();?>/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-
+<!-- Select2 -->
+<script src="<?= BaseUrl::base(); ?>/bower_components/select2/dist/js/select2.full.min.js"></script>
 <!-- DataTables -->
 <script src="<?= BaseUrl::base();?>/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="<?= BaseUrl::base();?>/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
@@ -271,6 +274,30 @@ use yii\helpers\BaseUrl;
 
 <script>
 $(document).ready(function(){
+    
+    $("#issiform-sector").on('change', function() {
+        var level = $(this).val();
+        $('#issiform-subsector').empty();
+        $('#issiform-subsector').append('<option value="">All</option>');
+        if(level){
+            $.ajax ({
+                type: 'GET',
+                url: '<?=Yii::$app->homeUrl;?>subsectors',
+                data: { sector_id: level  },
+                success : function(data) {
+                    
+                    $.each(data, function(index,value) {
+                        $('#issiform-subsector').append('<option value="'+value.id+'">'+value.name+'</option>');
+                    });
+                    
+                },
+                error:function(e){
+                    
+                    console.log(e);
+                }
+            });
+        }
+    });
     
     $("#myInput").on("keyup", function() {
         var value = $(this).val().toLowerCase();

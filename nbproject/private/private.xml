@@ -3,11 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp64/www/shariainvestor/views/layouts/dashboard.php</file>
-            <file>file:/C:/wamp64/www/shariainvestor/views/user/dashboard.php</file>
-            <file>file:/C:/wamp64/www/shariainvestor/controllers/HistoryController.php</file>
-            <file>file:/C:/wamp64/www/shariainvestor/views/history/sell.php</file>
-            <file>file:/C:/wamp64/www/shariainvestor/controllers/UserController.php</file>
+            <file>file:/C:/wamp64/www/shariainvestor/models/MuvtiFundamental.php</file>
+            <file>file:/C:/wamp64/www/shariainvestor/config/web.php</file>
+            <file>file:/C:/wamp64/www/shariainvestor/views/admin/financial.php</file>
+            <file>file:/C:/wamp64/www/shariainvestor/views/layouts/main.php</file>
+            <file>file:/C:/wamp64/www/shariainvestor/controllers/SubsectorController.php</file>
+            <file>file:/C:/wamp64/www/shariainvestor/controllers/AdminController.php</file>
+            <file>file:/C:/wamp64/www/shariainvestor/models/MuvtiSubsector.php</file>
         </group>
     </open-files>
 </project-private>

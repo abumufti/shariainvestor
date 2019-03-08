@@ -255,7 +255,7 @@ class AdminController extends Controller
         <script>
         
             $(function () {
-                
+            
                 $("#financialform-emiten").change(function(){ 
                     $.get("'.BaseUrl::base().'/emitens/"+this.value,function(data, status){
                         $("#financialform-quarter").val(data.quarter).change();

@@ -56,6 +56,14 @@ class MuvtiSubsector extends \yii\db\ActiveRecord
             'is_deleted' => 'Is Deleted',
         ];
     }
+    
+     /**
+     * @inheritdoc
+     */
+    public static function primaryKey()
+    {
+        return ['id'];
+    }
 
     /**
      * @return \yii\db\ActiveQuery

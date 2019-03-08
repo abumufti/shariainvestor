@@ -14,6 +14,9 @@ use app\models\MuvtiEmiten;
 use yii\helpers\BaseUrl;
 use app\models\MuvtiFundamental;
 use app\models\MuvtiPost;
+use app\models\MuvtiSector;
+use app\models\MuvtiSubsector;
+use app\models\MuvtiCategory;
 
 class SiteController extends Controller
 {
@@ -97,8 +100,11 @@ class SiteController extends Controller
         Yii::$app->view->params['issi']=['','',''];
         
         $preface = MuvtiPost::findOne(['title'=>'INDEX SAHAM SYARIAH INDONESIA (ISSI)']);
+        $sector = MuvtiSector::find()->all();
+        $subsector = MuvtiSubsector::find()->all();
+        $index = MuvtiCategory::find()->where("name !='ISSI' AND name !='Price'")->all();
         
-        $issi = new IssiForm();
+        $model = new IssiForm();
         
         
         $table='table2';
@@ -110,11 +116,21 @@ class SiteController extends Controller
             $data = MuvtiFundamental::find()->joinWith('emiten')->where("muvti_emiten.margin < 0")->orderBy(["muvti_emiten.margin"=> SORT_ASC])->all();
         }else{
             Yii::$app->view->params['issi'][0]='active';
-            $data = MuvtiFundamental::find()->all();
+            if(Yii::$app->request->isPost){
+                $model->load(Yii::$app->request->post());
+                $sector_id = $model->sector !='' ? ' AND muvti_emiten.sector_id='.$model->sector : '';
+                $subsector_id = $model->subsector !='' ? ' AND muvti_emiten.subsector_id='.$model->subsector : '';
+                $idx = $model->index !='' ? " AND muvti_emiten.idx LIKE '%".$model->index."%'" : '';
+                
+                $data = MuvtiFundamental::find()->joinWith('emiten')->where("1=1 ".$sector_id.$subsector_id.$idx)->all();
+                
+            }else{
+                $data = MuvtiFundamental::find()->all();
+            }
             $table='table1';
         }
         
-        return $this->render('issi',['data'=>$data,'table'=>$table,'preface'=>$preface]);
+        return $this->render('issi',['model'=>$model,'data'=>$data,'index'=>$index,'sector'=>$sector, 'subsector'=>$subsector,'table'=>$table,'preface'=>$preface]);
     }
     
         /**
@@ -132,6 +148,8 @@ class SiteController extends Controller
         
         $losers = MuvtiEmiten::find()->limit(5)->orderBy("margin")->all();
         
+        $articles = MuvtiPost::find()->where(['status'=>'Active'])->limit(5)->orderBy(["date_created"=> SORT_DESC])->all();
+        
         if($title !=''){
             
             $posts = MuvtiPost::find()->where(["title"=>$title,'status'=>'Active'])->all();
@@ -140,7 +158,7 @@ class SiteController extends Controller
             
             $posts = MuvtiPost::find()->where(['status'=>'Active'])->limit(5)->orderBy(["date_created"=> SORT_DESC])->all();
         }
-        return $this->render('blog',['gainers'=>$gainers,'losers'=>$losers, 'posts'=>$posts, 'title'=>$title]);
+        return $this->render('blog',['gainers'=>$gainers,'losers'=>$losers, 'posts'=>$posts,'articles'=>$articles, 'title'=>$title]);
         
     }
     

@@ -27,7 +27,7 @@ class IssiForm extends Model
  
     public function rules() {
         return [
-            [['sector_id', 'subsector_id'], 'integer'],
+            [['sector', 'subsector'], 'integer'],
             [['cap','price', 'per', 'pbv', 'roe', 'dy', 'der'], 'number'],
             [['index','capFilter','priceFilter', 'perFilter', 'pbvFilter', 'roeFilter', 'dyFilter', 'derFilter'], 'string']
         ];
