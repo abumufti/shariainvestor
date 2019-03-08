@@ -89,6 +89,9 @@ foreach($index as $i => $value){
                 <th>M.Cap(B)</th>
                 <th>Price</th>
                 <th>Chg(%)</th>
+                <?php if(!Yii::$app->user->isGuest){ ?>
+                <th>Kuartal</th>
+                <?php } ?>
                 <th>PER</th>
                 <th>PBV</th>
                 <th>ROE(%)</th>
@@ -106,6 +109,9 @@ foreach($index as $i => $value){
                   <td style="text-align:right;"><?= number_format(($value['emiten']['price']*$value['emiten']['share'])/1000000000,2,'.',','); ?></td>
                   <td style="text-align:right;"><?= number_format($value['emiten']['price']); ?></td>
                   <td style="text-align:right;"><?= number_format($value['emiten']['margin'],2,'.',','); ?></td>
+                  <?php if(!Yii::$app->user->isGuest){ ?>
+                  <td style="text-align:center;"><?= $value['periode']['name']; ?></td>
+                  <?php } ?>
                   <td style="text-align:right;"><?= number_format($value['per'],2,'.',','); ?></td>
                   <td style="text-align:right;"><?= number_format($value['pbv'],2,'.',','); ?></td>
                   <td style="text-align:right;"><?= number_format($value['roe'],2,'.',','); ?></td>
