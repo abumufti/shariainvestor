@@ -117,6 +117,7 @@ class SiteController extends Controller
         }else{
             Yii::$app->view->params['issi'][0]='active';
             if(Yii::$app->request->isPost){
+                
                 $model->load(Yii::$app->request->post());
                 $sector_id = $model->sector !='' ? ' AND muvti_emiten.sector_id='.$model->sector : '';
                 $subsector_id = $model->subsector !='' ? ' AND muvti_emiten.subsector_id='.$model->subsector : '';
