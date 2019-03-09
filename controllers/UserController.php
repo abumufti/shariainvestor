@@ -197,10 +197,14 @@ class UserController extends Controller
                     $("#buyform-buyfee").val(data.buy);
                     $("#buyform-sellfee").val(data.sell);
                 });
+                
+                $("#buyform-buy").attr("readonly", false);
+                $("#buyform-lot").attr("readonly", false);
+                $("#buyform-profitpercentage").attr("readonly", false);
             
             });
 
-            $("#buyform-buy").mouseleave(function(){
+            $("#buyform-buy").on("keyup keypress blur change mouseleave",function(){
 
                 var budget = Math.floor(parseFloat($("#buyform-budget").val().replace(/,/g, "")));   
                 var buyfee = parseFloat($("#buyform-buyfee").val()/100);
@@ -216,7 +220,7 @@ class UserController extends Controller
                 
             });
             
-            $("#sellform-sell").mouseleave(function(){
+            $("#sellform-sell").on("keyup keypress blur change mouseleave",function(){
             
                 var buyfee = parseFloat($("#sellform-buyfee").val()/100);
                 var sellfee = parseFloat($("#sellform-sellfee").val()/100);
@@ -231,7 +235,7 @@ class UserController extends Controller
               
             });
             
-            $("#sellform-lot").mouseleave(function(){
+            $("#sellform-lot").on("keyup keypress blur change mouseleave",function(){
 
                 var buyfee = parseFloat($("#sellform-buyfee").val()/100);
                 var sellfee = parseFloat($("#sellform-sellfee").val()/100);
@@ -246,7 +250,7 @@ class UserController extends Controller
                 
             });
             
-            $("#buyform-budget").mouseleave(function(){
+            $("#buyform-budget").on("keyup keypress blur change mouseleave",function(){
                                     
                 var budget = Math.floor(parseFloat($("#buyform-budget").val().replace(/,/g, "")));   
                 var buyfee = parseFloat($("#buyform-buyfee").val()/100);
@@ -261,7 +265,7 @@ class UserController extends Controller
                                
             });
             
-            $("#buyform-profitpercentage").mouseleave(function(){
+            $("#buyform-profitpercentage").on("keyup keypress blur change mouseleave",function(){
                                     
                 var budget = Math.floor(parseFloat($("#buyform-budget").val().replace(/,/g, "")));   
                 var buyfee = parseFloat($("#buyform-buyfee").val()/100);

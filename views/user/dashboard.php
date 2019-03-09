@@ -208,20 +208,20 @@ $buyTotal =0;
                 
                     <div class="col-md-3">
                     <div class="form-group">
-                        <?= $form->field($model, 'buy')->textInput(['value'=>0]) ?>
+                        <?= $form->field($model, 'buy')->textInput(['value'=>0,'readonly'=>true]) ?>
                     </div>
                     </div>
                     
                     <div class="col-md-3">
                     <div class="form-group">
-                        <?= $form->field($model, 'lot')->textInput(['value'=>0]) ?>
+                        <?= $form->field($model, 'lot')->textInput(['value'=>0,'readonly'=>true]) ?>
                     </div>
                     <!-- /.form-group -->
                     </div>
             
                     <div class="col-md-3">
                     <div class="form-group">
-                        <?= $form->field($model, 'profitPercentage')->textInput(['value'=>2]) ?>
+                        <?= $form->field($model, 'profitPercentage')->textInput(['value'=>2,'readOnly'=>true]) ?>
                     </div>
                     <!-- /.form-group -->
                     </div>

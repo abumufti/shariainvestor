@@ -10,6 +10,7 @@ use yii\helpers\BaseUrl;
   <title><?= $this->title; ?></title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="<?= BaseUrl::base();?>/bower_components/jquery/dist/jquery.min.js"></script>
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="<?= BaseUrl::base() ?>/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
@@ -22,36 +23,47 @@ use yii\helpers\BaseUrl;
   <link rel="stylesheet" href="<?= BaseUrl::base();?>/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <link rel="stylesheet" href="<?= BaseUrl::base();?>/bower_components/datatables.net-bs/css/select.dataTables.min.css">
   <!-- Select2 -->
-  <link rel="stylesheet" href="'. BaseUrl::base().'/bower_components/select2/dist/css/select2.min.css">
+  <link rel="stylesheet" href="<?= BaseUrl::base();?>/bower_components/select2/dist/css/select2.min.css">
     
   <style>
-  body {
-      font: 400 15px Lato, sans-serif;
-      line-height: 1.8;
-      color: #303030;
-  }
-  h2 {
+    .se-pre-con {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background: url(<?= BaseUrl::base();?>/img/Preloader.gif) center no-repeat #fff;
+        opacity: 0.5;
+        filter: alpha(opacity=50); /* For IE8 and earlier */
+    }
+    body {
+        font: 400 15px Lato, sans-serif;
+        line-height: 1.8;
+        color: #303030;
+    }
+    h2 {
       font-size: 24px;
       text-transform: uppercase;
       color: #303030;
       font-weight: 600;
       margin-bottom: 30px;
-  }
-  h3 {
+    }
+    h3 {
       font-size: 21px;
       text-transform: uppercase;
       color: #303030;
       font-weight: 600;
       margin-bottom: 20px;
-  }
-  h4 {
+    }
+    h4 {
       font-size: 19px;
       line-height: 1.375em;
       color: #303030;
       font-weight: 400;
       margin-bottom: 30px;
-  }  
-  .jumbotron {
+    }  
+    .jumbotron {
       background-color: #f4511e;
       color: #fff;
       padding: 100px 25px;
@@ -59,7 +71,7 @@ use yii\helpers\BaseUrl;
       height:100%;
       margin-bottom:10px;
       
-  }
+    }
   
    .jumbotron h2 {
       font-size: 24px;
@@ -67,54 +79,61 @@ use yii\helpers\BaseUrl;
       color: #fff;
       font-weight: 600;
       margin-bottom: 30px;
-  }
+    }
   
-  .container-fluid {
+    .center{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top : 15%;
+    }
+  
+    .container-fluid {
       padding: 0px 50px;
       font-family: Montserrat, sans-serif;
       font-size: 18px;
-  }
-  .bg-grey {
+    }
+    .bg-grey {
       background-color: #F9F9F9;
-  }
-  .logo-small {
+    }
+    .logo-small {
       color: #f4511e;
       font-size: 50px;
-  }
-  .logo {
+    }
+    .logo {
       color: #f4511e;
       font-size: 200px;
-  }
-  .thumbnail {
+    }
+    .thumbnail {
       padding: 0 0 15px 0;
       border: none;
       border-radius: 0;
-  }
-  .thumbnail img {
+    }
+    .thumbnail img {
       width: 100%;
       height: 100%;
       margin-bottom: 10px;
-  }
-  .carousel-control.right, .carousel-control.left {
+    }
+    .carousel-control.right, .carousel-control.left {
       background-image: none;
       color: #f4511e;
-  }
-  .carousel-indicators li {
+    }
+    .carousel-indicators li {
       border-color: #f4511e;
-  }
-  .carousel-indicators li.active {
+    }
+    .carousel-indicators li.active {
       background-color: #f4511e;
-  }
-  .item h4 {
+    }
+    .item h4 {
       font-size: 19px;
       line-height: 1.375em;
       font-weight: 400;
       font-style: italic;
       margin: 70px 0;
-  }
-  .item span {
+    }
+    .item span {
       font-style: normal;
-  }
+    }
 /*  .panel {
       border: 1px solid #f4511e; 
       border-radius:0 !important;
@@ -227,6 +246,8 @@ use yii\helpers\BaseUrl;
   </style>
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+    
+<div class="se-pre-con"></div>
 
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
@@ -243,11 +264,12 @@ use yii\helpers\BaseUrl;
         <li class="<?=Yii::$app->view->params['selected'][0];?>"><a href="<?=Yii::$app->homeUrl;?>">BERANDA</a></li>
         <li class="<?=Yii::$app->view->params['selected'][1];?>"><a href="<?=Yii::$app->homeUrl;?>site/issi">SAHAM</a></li>
         <li class="<?=Yii::$app->view->params['selected'][2];?>"><a href="<?=Yii::$app->homeUrl;?>site/blog">BLOG</a></li>
-        <li class="<?=Yii::$app->view->params['selected'][3];?>"><a href="<?=Yii::$app->homeUrl;?>site/contact">HUBUNGI</a></li>
+        <li class="<?=Yii::$app->view->params['selected'][3];?>"><a href="<?=Yii::$app->homeUrl;?>site/apps">APPS</a></li>
+        <li class="<?=Yii::$app->view->params['selected'][4];?>"><a href="<?=Yii::$app->homeUrl;?>site/contact">HUBUNGI</a></li>
         <?php if(Yii::$app->user->isGuest){ ?>
-        <li class="<?=Yii::$app->view->params['selected'][4];?>"><a href="<?=Yii::$app->homeUrl;?>site/login">LOGIN</a></li>
+        <li class="<?=Yii::$app->view->params['selected'][5];?>"><a href="<?=Yii::$app->homeUrl;?>site/login">LOGIN</a></li>
         <?php }else{ ?>
-        <li class="<?=Yii::$app->view->params['selected'][4];?>"><a href="<?=Yii::$app->homeUrl;?>user/dashboard">DASHBOARD</a></li>
+        <li class="<?=Yii::$app->view->params['selected'][5];?>"><a href="<?=Yii::$app->homeUrl;?>user/dashboard">DASHBOARD</a></li>
         
         <?php } ?>
       </ul>
@@ -263,7 +285,10 @@ use yii\helpers\BaseUrl;
   </a>
   <p>Copyright © 2019. All rights reserved. <a href="<?=Yii::$app->homeUrl;?>" title="Visit Sharia Investor">www.shariainvestor.com</a></p>
 </footer>
-<script src="<?= BaseUrl::base();?>/bower_components/jquery/dist/jquery.min.js"></script>
+    
+
+
+
 <script src="<?= BaseUrl::base();?>/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- Select2 -->
 <script src="<?= BaseUrl::base(); ?>/bower_components/select2/dist/js/select2.full.min.js"></script>
@@ -274,6 +299,8 @@ use yii\helpers\BaseUrl;
 
 <script>
 $(document).ready(function(){
+           
+    $(".se-pre-con").hide();
     
     $("#issiform-sector").on('change', function() {
         var level = $(this).val();
@@ -353,12 +380,88 @@ $(document).ready(function(){
         
     });
     
-    $(".se-pre-con").hide();
-    
-    $(window).load(function() {
-        // Animate loader off screen
-	$(".se-pre-con").show();
+    $("#stockcalculator-capital").on('keyup keypress blur change mouseleave',function(){
+                                    
+        var capital = Math.floor(parseFloat($("#stockcalculator-capital").val().replace(/,/g, "")));   
+        var buyfee = parseFloat($("#stockcalculator-buyfee").val()/100);
+        var sellfee = parseFloat($("#stockcalculator-sellfee").val()/100);
+        var buy = parseFloat($("#stockcalculator-buy").val()*(1+buyfee));
+        var profit = parseFloat($("#stockcalculator-profitpercentage").val()/100);
+        var sell = Math.ceil(parseFloat(buy*(1+sellfee+profit)));
+        var lot = buy === 0 ? 0 : Math.floor(parseFloat(capital/(buy*100)));
+        
+        if(buyfee > 0 && sellfee > 0 && buy > 0  && profit > 0){
+            $("#stockcalculator-sell").val(sell);
+        }
+        if(capital > 0 && buyfee > 0 && sellfee > 0 && buy > 0){
+            $("#stockcalculator-lot").val(lot);
+        }
+                               
     });
+            
+    $("#stockcalculator-buy").on('keyup keypress blur change mouseleave',function(){
+
+        var capital = Math.floor(parseFloat($("#stockcalculator-capital").val().replace(/,/g, "")));   
+        var buyfee = parseFloat($("#stockcalculator-buyfee").val()/100);
+        var sellfee = parseFloat($("#stockcalculator-sellfee").val()/100);
+        var buy = parseFloat($("#stockcalculator-buy").val()*(1+buyfee));
+        var profit = parseFloat($("#stockcalculator-profitpercentage").val()/100);
+        var sell = Math.ceil(parseFloat(buy*(1+sellfee+profit)));
+        var lot = buy === 0 ? 0 : Math.floor(parseFloat(capital/(buy*100)));
+        
+        if(buyfee > 0 && sellfee > 0 && buy > 0 && profit > 0){
+            $("#stockcalculator-sell").val(sell);
+        }
+        if(capital > 0 && buyfee > 0 && sellfee > 0 && buy > 0){
+            $("#stockcalculator-lot").val(lot);
+        }        
+    });
+            
+    $("#stockcalculator-profitpercentage").on('keyup keypress blur change mouseleave',function(){
+                                    
+        var capital = Math.floor(parseFloat($("#stockcalculator-capital").val().replace(/,/g, "")));   
+        var buyfee = parseFloat($("#stockcalculator-buyfee").val()/100);
+        var sellfee = parseFloat($("#stockcalculator-sellfee").val()/100);
+        var buy = parseFloat($("#stockcalculator-buy").val()*(1+buyfee));
+        var profit = parseFloat($("#stockcalculator-profitpercentage").val()/100);
+        var sell = Math.ceil(parseFloat(buy*(1+sellfee+profit)));
+        var lot = buy === 0 ? 0 : Math.floor(parseFloat(capital/(buy*100)));
+        var margin = (sell - buy)*lot*100;
+        
+        if(buyfee > 0 && sellfee > 0 && buy > 0 && profit > 0){
+            $("#stockcalculator-sell").val(sell);
+        }
+        if(capital > 0 && buyfee > 0 && sellfee > 0 && buy > 0){
+            $("#stockcalculator-lot").val(lot);
+        }
+        if(buyfee > 0 && sellfee > 0 && buy > 0 && profit >0 && sell > 0){
+            $("#stockcalculator-margin").val(margin.toFixed(2));
+        }
+                
+    });
+    
+    $("#stockcalculator-sell").on('keyup keypress blur change mouseleave',function(){
+                                    
+        var capital = Math.floor(parseFloat($("#stockcalculator-capital").val().replace(/,/g, "")));   
+        var buyfee = parseFloat($("#stockcalculator-buyfee").val()/100);
+        var sellfee = parseFloat($("#stockcalculator-sellfee").val()/100);
+        var buy = parseFloat($("#stockcalculator-buy").val()*(1+buyfee));        
+        var sell = parseFloat($("#stockcalculator-sell").val()*(1-sellfee));
+        var lot = buy === 0 ? 0 : Math.floor(parseFloat(capital/(buy*100)));
+        var margin = (sell - buy)*lot*100;
+        var profit = parseFloat(((sell - buy)/buy)*100);
+        
+        if(buyfee > 0 && sellfee > 0 && buy > 0 && sell > 0){
+            $("#stockcalculator-profitpercentage").val(profit.toFixed(2));
+        }
+
+        if(buyfee > 0 && sellfee > 0 && buy > 0 && profit >0 && sell > 0){
+            $("#stockcalculator-margin").val(margin.toFixed(2));
+        }
+                
+    });
+    
+    
   
 })
 </script>

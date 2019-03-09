@@ -25,7 +25,7 @@ class SiteController extends Controller
      */
     public function behaviors()
     {
-        Yii::$app->view->params['selected'] = ['','','','',''];
+        Yii::$app->view->params['selected'] = ['','','','','',''];
         
         return [
             'access' => [
@@ -159,8 +159,16 @@ class SiteController extends Controller
             
             $posts = MuvtiPost::find()->where(['status'=>'Active'])->orderBy(["date_created"=> SORT_DESC])->all();
         }
+        
         return $this->render('blog',['gainers'=>$gainers,'losers'=>$losers, 'posts'=>$posts,'articles'=>$articles, 'title'=>$title]);
         
+    }
+    
+    public function actionApps()
+    {
+        Yii::$app->view->params['selected'][3]='active';
+        
+        return $this->render('apps');
     }
     
     /**
@@ -170,7 +178,7 @@ class SiteController extends Controller
      */
     public function actionContact()
     {
-        Yii::$app->view->params['selected'][3]='active';
+        Yii::$app->view->params['selected'][4]='active';
         $model = new ContactForm();
         if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
             Yii::$app->session->setFlash('contactFormSubmitted');
@@ -187,7 +195,7 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
-        Yii::$app->view->params['selected'][4]='active';
+        Yii::$app->view->params['selected'][5]='active';
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
