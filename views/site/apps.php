@@ -5,7 +5,7 @@ $this->title = "Apps";
 <!-- App Stock Calculator -->
 <div class="jumbotron" style="color: black;background-image: url('<?=Yii::$app->homeUrl;?>img/home-bg.jpg'); background-size:cover;margin-bottom:0">
     <div class="row ">
-    <div class="col-sm-4 centering">
+    <div class="">
     <div class="panel panel-success" style="padding:10px">
         <div class="panel-heading text-center">Stock Calculator</div>
         <form class="form-horizontal" action="Post" id="StockCalculator">

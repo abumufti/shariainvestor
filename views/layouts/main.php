@@ -72,12 +72,12 @@ use yii\helpers\BaseUrl;
       margin-bottom:10px;
       
     }
-    
+ @media only screen and (max-width: 769px){   
     .centering{
         float: none;
         margin: 0 auto;
     }
-  
+ }
    .jumbotron h2 {
       font-size: 24px;
       text-transform: uppercase;
