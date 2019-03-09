@@ -66,11 +66,16 @@ use yii\helpers\BaseUrl;
     .jumbotron {
       background-color: #f4511e;
       color: #fff;
-      padding: 100px 25px;
+      padding: 100px;
       font-family: Montserrat, sans-serif;
       height:100%;
       margin-bottom:10px;
       
+    }
+    
+    .centering{
+        float: none;
+        margin: 0 auto;
     }
   
    .jumbotron h2 {
@@ -79,13 +84,6 @@ use yii\helpers\BaseUrl;
       color: #fff;
       font-weight: 600;
       margin-bottom: 30px;
-    }
-  
-    .center{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        margin-top : 15%;
     }
   
     .container-fluid {
