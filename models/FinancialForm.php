@@ -66,6 +66,7 @@ class FinancialForm extends Model
                 $fundamental->quarter = $this->quarter;
                 $fundamental->sector_id = $this->sector;
                 $fundamental->subsector_id = $this->subsector;
+                $fundamental->eps = $emiten->profit == 0 ? 0 : (($emiten->profit*$emiten->currency*$this->multiply($this->quarter))/$emiten->share);
                 $fundamental->per = $emiten->profit == 0 ? 0 : ($emiten->price/((($emiten->profit*$emiten->currency*$this->multiply($this->quarter))/$emiten->share)));
                 $fundamental->pbv = $emiten->price/(($emiten->equity*$emiten->currency)/$emiten->share);
                 $fundamental->dy = (($emiten->dividen*$emiten->currency)/$emiten->price)*100;

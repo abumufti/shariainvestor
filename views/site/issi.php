@@ -85,13 +85,13 @@ foreach($index as $i => $value){
                 <th>Code</th>
                 <th>Sector</th>
                 <th>Subsector</th>
-                <th>Index</th>
                 <th>M.Cap(B)</th>
                 <th>Price</th>
                 <th>Chg(%)</th>
                 <?php if(!Yii::$app->user->isGuest){ ?>
                 <th>Kuartal</th>
                 <?php } ?>
+                <th>EPS</th>
                 <th>PER</th>
                 <th>PBV</th>
                 <th>ROE(%)</th>
@@ -105,13 +105,13 @@ foreach($index as $i => $value){
                   <td><?= $value['code']; ?></td>
                   <td><?= $value['sector']['name']; ?></td>
                   <td><?= $value['subsector']['name']; ?></td>
-                  <td><?= $value['emiten']['idx']; ?></td>
                   <td style="text-align:right;"><?= number_format(($value['emiten']['price']*$value['emiten']['share'])/1000000000,2,'.',','); ?></td>
                   <td style="text-align:right;"><?= number_format($value['emiten']['price']); ?></td>
                   <td style="text-align:right;"><?= number_format($value['emiten']['margin'],2,'.',','); ?></td>
                   <?php if(!Yii::$app->user->isGuest){ ?>
                   <td style="text-align:center;"><?= $value['periode']['name']; ?></td>
                   <?php } ?>
+                  <td style="text-align:right;"><?= number_format($value['eps'],2,'.',','); ?></td>
                   <td style="text-align:right;"><?= number_format($value['per'],2,'.',','); ?></td>
                   <td style="text-align:right;"><?= number_format($value['pbv'],2,'.',','); ?></td>
                   <td style="text-align:right;"><?= number_format($value['roe'],2,'.',','); ?></td>

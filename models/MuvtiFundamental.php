@@ -12,6 +12,7 @@ use Yii;
  * @property int $sector_id
  * @property int $subsector_id
  * @property int $quarter
+ * @property double $eps
  * @property double $per
  * @property double $pbv
  * @property double $roe
@@ -41,7 +42,7 @@ class MuvtiFundamental extends \yii\db\ActiveRecord
         return [
             [['code'], 'required'],
             [['sector_id', 'subsector_id', 'quarter'], 'integer'],
-            [['per', 'pbv', 'roe', 'dy', 'der'], 'number'],
+            [['eps','per', 'pbv', 'roe', 'dy', 'der'], 'number'],
             [['watched', 'is_deleted'], 'boolean'],
             [['date_created', 'date_updated'], 'safe'],
             [['code'], 'string', 'max' => 4],
@@ -60,6 +61,7 @@ class MuvtiFundamental extends \yii\db\ActiveRecord
             'sector_id' => 'Sector ID',
             'subsector_id' => 'Subsector ID',
             'quarter' => 'Quarter',
+            'eps' => 'Eps',
             'per' => 'Per',
             'pbv' => 'Pbv',
             'roe' => 'Roe',

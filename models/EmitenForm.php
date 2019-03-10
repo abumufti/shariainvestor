@@ -176,6 +176,7 @@ class EmitenForm extends Model
         
         $price = floatval($value['Last']);
         $margin = intval($value['Last']) <= 0 ? 0 : floatval($value['+/-']/$value['Last'])*100;
+        $eps = $emiten->profit <=0 ? 0 : (($emiten->profit*$emiten->currency*$this->multiply($emiten->quarter))/$emiten->share);
         $per = $emiten->profit <=0 ? 0 : ($emiten->price/((($emiten->profit*$emiten->currency*$this->multiply($emiten->quarter))/$emiten->share)));
         $pbv = $emiten->equity == 0 ? 0 : floatval($price/(($emiten->equity*$emiten->currency)/$emiten->share));
         $dy = $price == 0 ? 0 : floatval((($emiten->dividen*$emiten->currency)/$price)*100);
@@ -197,7 +198,7 @@ class EmitenForm extends Model
         try {
                 
             $sql1 = "UPDATE muvti_emiten SET price=$price,margin=$margin,trend=$trend  WHERE code='$code'";
-            $sql2 = "UPDATE muvti_fundamental SET per=$per,pbv=$pbv, dy=$dy WHERE code='$code'";
+            $sql2 = "UPDATE muvti_fundamental SET per=$per,eps=$eps,pbv=$pbv, dy=$dy WHERE code='$code'";
                 
             $db->createCommand($sql1)->execute();
             $db->createCommand($sql2)->execute();

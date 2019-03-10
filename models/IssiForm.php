@@ -13,6 +13,8 @@ class IssiForm extends Model
     public $capFilter;
     public $price;
     public $priceFilter;
+    public $eps;
+    public $epsFilter;
     public $per;
     public $perFilter;
     public $pbv;
@@ -28,8 +30,8 @@ class IssiForm extends Model
     public function rules() {
         return [
             [['sector', 'subsector'], 'integer'],
-            [['cap','price', 'per', 'pbv', 'roe', 'dy', 'der'], 'number'],
-            [['index','capFilter','priceFilter', 'perFilter', 'pbvFilter', 'roeFilter', 'dyFilter', 'derFilter'], 'string']
+            [['cap','price', 'eps','per', 'pbv', 'roe', 'dy', 'der'], 'number'],
+            [['index','capFilter','priceFilter', 'epsFilter','perFilter', 'pbvFilter', 'roeFilter', 'dyFilter', 'derFilter'], 'string']
         ];
     }
     
