@@ -72,12 +72,12 @@ use yii\helpers\BaseUrl;
       margin-bottom:10px;
       
     }
- @media only screen and (max-width: 769px){   
+    
     .centering{
         float: none;
         margin: 0 auto;
     }
- }
+  
    .jumbotron h2 {
       font-size: 24px;
       text-transform: uppercase;
@@ -378,86 +378,154 @@ $(document).ready(function(){
         
     });
     
-    $("#stockcalculator-capital").on('keyup keypress blur change mouseleave',function(){
-                                    
-        var capital = Math.floor(parseFloat($("#stockcalculator-capital").val().replace(/,/g, "")));   
-        var buyfee = parseFloat($("#stockcalculator-buyfee").val()/100);
-        var sellfee = parseFloat($("#stockcalculator-sellfee").val()/100);
-        var buy = parseFloat($("#stockcalculator-buy").val()*(1+buyfee));
-        var profit = parseFloat($("#stockcalculator-profitpercentage").val()/100);
-        var sell = Math.ceil(parseFloat(buy*(1+sellfee+profit)));
-        var lot = buy === 0 ? 0 : Math.floor(parseFloat(capital/(buy*100)));
+    $("#stockcalculator-type").change(function(){
         
-        if(buyfee > 0 && sellfee > 0 && buy > 0  && profit > 0){
-            $("#stockcalculator-sell").val(sell);
-        }
-        if(capital > 0 && buyfee > 0 && sellfee > 0 && buy > 0){
-            $("#stockcalculator-lot").val(lot);
-        }
-                               
-    });
+        $("#stockcalculator-capital").val(0);
+            $("#stockcalculator-buyfee").val(0);
+            $("#stockcalculator-sellfee").val(0);
+            $("#stockcalculator-buy").val(0);
+            $("#stockcalculator-lot").val(0);
+            $("#stockcalculator-profitpercentage").val(0);
+            $("#stockcalculator-sell").val(0);
+            $("#stockcalculator-margin").val(0);
+        
+        if(this.value === "buy"){
+            $("#stockcalculator-capital").attr("readonly", false);
+            $("#stockcalculator-buyfee").attr("readonly", false);
+            $("#stockcalculator-sellfee").attr("readonly", false);
+            $("#stockcalculator-buy").attr("readonly", false);
+            $("#stockcalculator-lot").attr("readonly", true);
+            $("#stockcalculator-profitpercentage").attr("readonly", false);
+            $("#stockcalculator-sell").attr("readonly", true);
+            $("#stockcalculator-margin").attr("readonly", true);
             
-    $("#stockcalculator-buy").on('keyup keypress blur change mouseleave',function(){
-
-        var capital = Math.floor(parseFloat($("#stockcalculator-capital").val().replace(/,/g, "")));   
-        var buyfee = parseFloat($("#stockcalculator-buyfee").val()/100);
-        var sellfee = parseFloat($("#stockcalculator-sellfee").val()/100);
-        var buy = parseFloat($("#stockcalculator-buy").val()*(1+buyfee));
-        var profit = parseFloat($("#stockcalculator-profitpercentage").val()/100);
-        var sell = Math.ceil(parseFloat(buy*(1+sellfee+profit)));
-        var lot = buy === 0 ? 0 : Math.floor(parseFloat(capital/(buy*100)));
-        
-        if(buyfee > 0 && sellfee > 0 && buy > 0 && profit > 0){
-            $("#stockcalculator-sell").val(sell);
-        }
-        if(capital > 0 && buyfee > 0 && sellfee > 0 && buy > 0){
-            $("#stockcalculator-lot").val(lot);
-        }        
-    });
+        }else if(this.value === "sell"){
+            $("#stockcalculator-capital").attr("readonly", true);
+            $("#stockcalculator-buyfee").attr("readonly",false);
+            $("#stockcalculator-sellfee").attr("readonly",false);
+            $("#stockcalculator-buy").attr("readonly", false);
+            $("#stockcalculator-lot").attr("readonly", false);
+            $("#stockcalculator-profitpercentage").attr("readonly", false);
+            $("#stockcalculator-sell").attr("readonly", false);
+            $("#stockcalculator-margin").attr("readonly", true);
             
-    $("#stockcalculator-profitpercentage").on('keyup keypress blur change mouseleave',function(){
-                                    
-        var capital = Math.floor(parseFloat($("#stockcalculator-capital").val().replace(/,/g, "")));   
-        var buyfee = parseFloat($("#stockcalculator-buyfee").val()/100);
-        var sellfee = parseFloat($("#stockcalculator-sellfee").val()/100);
-        var buy = parseFloat($("#stockcalculator-buy").val()*(1+buyfee));
-        var profit = parseFloat($("#stockcalculator-profitpercentage").val()/100);
-        var sell = Math.ceil(parseFloat(buy*(1+sellfee+profit)));
-        var lot = buy === 0 ? 0 : Math.floor(parseFloat(capital/(buy*100)));
-        var margin = (sell - buy)*lot*100;
+        }else{
+            $("#stockcalculator-capital").attr("readonly", true);
+            $("#stockcalculator-buyfee").attr("readonly",true);
+            $("#stockcalculator-sellfee").attr("readonly",true);
+            $("#stockcalculator-buy").attr("readonly", true);
+            $("#stockcalculator-lot").attr("readonly", true);
+            $("#stockcalculator-profitpercentage").attr("readonly", true);
+            $("#stockcalculator-sell").attr("readonly", true);
+            $("#stockcalculator-margin").attr("readonly", true);
+        }
         
-        if(buyfee > 0 && sellfee > 0 && buy > 0 && profit > 0){
-            $("#stockcalculator-sell").val(sell);
-        }
-        if(capital > 0 && buyfee > 0 && sellfee > 0 && buy > 0){
-            $("#stockcalculator-lot").val(lot);
-        }
-        if(buyfee > 0 && sellfee > 0 && buy > 0 && profit >0 && sell > 0){
-            $("#stockcalculator-margin").val(margin.toFixed(2));
-        }
-                
     });
     
-    $("#stockcalculator-sell").on('keyup keypress blur change mouseleave',function(){
-                                    
-        var capital = Math.floor(parseFloat($("#stockcalculator-capital").val().replace(/,/g, "")));   
-        var buyfee = parseFloat($("#stockcalculator-buyfee").val()/100);
-        var sellfee = parseFloat($("#stockcalculator-sellfee").val()/100);
-        var buy = parseFloat($("#stockcalculator-buy").val()*(1+buyfee));        
-        var sell = parseFloat($("#stockcalculator-sell").val()*(1-sellfee));
-        var lot = buy === 0 ? 0 : Math.floor(parseFloat(capital/(buy*100)));
-        var margin = (sell - buy)*lot*100;
-        var profit = parseFloat(((sell - buy)/buy)*100);
-        
-        if(buyfee > 0 && sellfee > 0 && buy > 0 && sell > 0){
-            $("#stockcalculator-profitpercentage").val(profit.toFixed(2));
-        }
-
-        if(buyfee > 0 && sellfee > 0 && buy > 0 && profit >0 && sell > 0){
-            $("#stockcalculator-margin").val(margin.toFixed(2));
-        }
-                
+    $("#stockcalculator-capital").on('keyup keypress blur change',function(){
+        $(this).val(function(index, value) {
+            return value.replace(/[^0-9]/g, '').replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        });                            
     });
+            
+    $("#stockcalculator-buy").on('keyup keypress blur change',function(){
+        $(this).val(function(index, value) {
+            return value.replace(/[^0-9]/g, '').replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        });
+    });
+            
+    $("#stockcalculator-sellfee").on('keyup keypress blur change',function(){
+       $(this).val(function(index, value) {
+            return value.replace(/[^0-9.,]/g, '').replace(/,/g, ".");
+       });         
+    });
+    
+    $("#stockcalculator-buyfee").on('keyup keypress blur change',function(){
+        $(this).val(function(index, value) {
+            return value.replace(/[^0-9.,]/g, '').replace(/,/g, ".");
+        });        
+    });
+    
+    $("#stockcalculator-profitpercentage").on('keyup keypress blur change',function(){
+        $("#stockcalculator-sell").attr("readonly", true);
+        $(this).val(function(index, value) {
+            return value.replace(/[^0-9.,]/g, '').replace(/,/g, ".");
+        });       
+    });
+    
+    $("#stockcalculator-sell").on('keyup keypress blur change',function(){
+        $("#stockcalculator-profitpercentage").attr("readonly", true);
+        $(this).val(function(index, value) {
+            return value.replace(/[^0-9]/g, '').replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        });   
+        
+    });
+    
+    $("#stockcalculator-calculate").click(function(e){
+        
+        var type = $("#stockcalculator-type").val();
+        
+        if(type === "buy"){
+            
+            var capital = Math.floor(parseFloat($("#stockcalculator-capital").val().replace(/,/g, "")));   
+            var buyfee = parseFloat($("#stockcalculator-buyfee").val()/100);
+            var sellfee = parseFloat($("#stockcalculator-sellfee").val()/100);
+            var buy = parseFloat($("#stockcalculator-buy").val().replace(/,/g, "")*(1+buyfee));
+            var profit = parseFloat($("#stockcalculator-profitpercentage").val()/100);
+            var sell = Math.ceil(parseFloat(buy*(1+sellfee+profit)));
+            var lot = buy === 0 ? 0 : Math.floor(parseFloat(capital/(buy*100)));
+            var margin = (sell - buy)*lot*100;
+
+            if(buyfee > 0 && sellfee > 0 && buy > 0 && profit > 0){
+                $("#stockcalculator-sell").val(sell.toFixed(2));
+            }
+            
+            if(capital > 0 && buyfee > 0 && sellfee > 0 && buy > 0){
+                $("#stockcalculator-lot").val(lot);
+            }
+            
+            if(buyfee > 0 && sellfee > 0 && buy > 0 && profit >0 && sell > 0){
+                $("#stockcalculator-margin").val(margin.toFixed(2));
+            }
+            
+        }else if(type === "sell"){
+            
+            var buyfee = parseFloat($("#stockcalculator-buyfee").val()/100);
+            var sellfee = parseFloat($("#stockcalculator-sellfee").val()/100);
+            var buy = parseFloat($("#stockcalculator-buy").val().replace(/,/g, "")*(1+buyfee));        
+            
+            if($("#stockcalculator-sell").val() === 0){
+                
+                var profit = parseFloat($("#stockcalculator-profitpercentage").val()/100);
+                var sell = Math.ceil(parseFloat(buy*(1+sellfee+profit)));
+                
+                if(buyfee > 0 && sellfee > 0 && buy > 0 && profit > 0){
+                    $("#stockcalculator-sell").val(sell.toFixed(2));
+                }
+                
+            }else{
+                
+                var sell = parseFloat($("#stockcalculator-sell").val().replace(/,/g, "")*(1-sellfee));
+                var profit = parseFloat(((sell - buy)/buy)*100);
+                
+                if(buyfee > 0 && sellfee > 0 && buy > 0 && sell > 0){
+                    $("#stockcalculator-profitpercentage").val(profit.toFixed(2));
+                }
+                
+            }
+            
+            var lot = $("#stockcalculator-lot").val();
+            var margin = (sell - buy)*lot*100;
+
+            if(buyfee > 0 && sellfee > 0 && buy > 0 && profit >0 && sell > 0){
+                $("#stockcalculator-margin").val(margin.toFixed(2));
+            }
+            
+            
+        }
+        
+        e.preventDefault();
+    })
     
     
   
