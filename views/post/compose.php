@@ -2,6 +2,7 @@
 use yii\widgets\ActiveForm;
 use yii\helpers\Html;
 $this->title='Compose';
+$text ='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
 ?>
 
 <div class="row">
@@ -27,7 +28,7 @@ $this->title='Compose';
                     <?= $form->field($model, 'title')->textInput(); ?>
                 </div>
                 <div class="form-group">
-                    <?= $form->field($model, 'body')->textarea(['id'=>'editor1', 'rows' => '6','cols'=>'80']) ?>
+                    <?= $form->field($model, 'body')->textarea(['id'=>'editor1', 'rows' => '6','cols'=>'80','value'=>$text]) ?>
                 </div>  
                 <div class="form-group">
                     <div class="col-sm-6">

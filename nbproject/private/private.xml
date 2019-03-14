@@ -5,7 +5,8 @@
         <group>
             <file>file:/C:/wamp64/www/shariainvestor/views/site/apps.php</file>
             <file>file:/C:/wamp64/www/shariainvestor/views/layouts/main.php</file>
-            <file>file:/C:/wamp64/www/shariainvestor/controllers/UserController.php</file>
+            <file>file:/C:/wamp64/www/shariainvestor/views/apps/stockcalculator.php</file>
+            <file>file:/C:/wamp64/www/shariainvestor/controllers/AdminController.php</file>
         </group>
     </open-files>
 </project-private>
