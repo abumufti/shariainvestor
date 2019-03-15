@@ -38,6 +38,25 @@ $this->title = 'Home';
         </div>
     <div class="col-sm-4">
         <div class="row">
+                <div class="panel panel-default" style="margin-top:10px;">
+                    <div class="panel-heading">Search</div>
+                    <div class="panel-body">
+                        <script>
+  (function() {
+    var cx = 'partner-pub-3744700612400365:6807239632';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:searchbox-only></gcse:searchbox-only>
+                    </div>
+                </div>
+            </div>
+        <div class="row">
           <div class="panel panel-success">
             <div class="panel-heading">Top Gainers</div>
                 <div class="panel-body">
