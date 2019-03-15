@@ -24,6 +24,17 @@ $this->title = 'Home';
         <div class="col-sm-8 " style="text-align:justify;">
             <div class="card" style="height: 1000px; overflow-y: scroll;">
             <?php foreach($posts as $index => $value){ ?>
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout-key="-fb+5w+4e-db+86"
+     data-ad-client="ca-pub-3744700612400365"
+     data-ad-slot="8606394704"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr>
                 <div class="card-body" >
                     <h3><?= $value['title']; ?></h3>
                     <p class="text-muted">Posted on <?= $formatter->asDate($value['date_created'], 'long'); ?>, by <?= $value['author']; ?></p>
