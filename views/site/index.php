@@ -23,17 +23,17 @@ $this->title = 'Home';
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-8 " style="text-align:justify;">
+            <div class="card" style="height: 350px; overflow-y: scroll;">
             <?php foreach($posts as $index => $value){ ?>
-            <div class="card">
-                <div class="card-body">
+                <div class="card-body" >
                     <h3><?= $value['title']; ?></h3>
                     <p class="text-muted">Posted on <?= $formatter->asDate($value['date_created'], 'long'); ?>, by <?= $value['author']; ?></p>
                     <p class="card-text"><?= BaseStringHelper::explode($value['body'],'</p>')[0].'</p>'; ?></p>
                     <a href="<?= Url::to(['site/blog', 'title' => $value['title']]); ?>" class="btn btn-primary">Read More &rarr;</a>
                 </div>
                 <hr>
-            </div>
           <?php } ?>  
+            </div>
     
         </div>
     <div class="col-sm-4">
