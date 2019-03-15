@@ -79,7 +79,7 @@ class SiteController extends Controller
         
         $losers = MuvtiEmiten::find()->limit(5)->orderBy("margin")->all();
         
-        $posts = MuvtiPost::find()->where(['status'=>'Active'])->limit(3)->orderBy(["date_created"=> SORT_DESC])->all();
+        $posts = MuvtiPost::find()->where(['status'=>'Active'])->orderBy(["date_created"=> SORT_DESC])->all();
         
         return $this->render('index',['gainers'=>$gainers,'losers'=>$losers,'posts'=>$posts, 'preface'=>$preface]);
     }
@@ -149,7 +149,7 @@ class SiteController extends Controller
         
         $losers = MuvtiEmiten::find()->limit(5)->orderBy("margin")->all();
         
-        $articles = MuvtiPost::find()->where(['status'=>'Active'])->limit(5)->orderBy(["date_created"=> SORT_DESC])->all();
+        $articles = MuvtiPost::find()->where(['status'=>'Active'])->orderBy(["date_created"=> SORT_DESC])->all();
         
         if($title !=''){
             
