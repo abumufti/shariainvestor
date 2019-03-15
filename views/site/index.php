@@ -12,7 +12,6 @@ $this->title = 'Home';
   <p>Sakinah Berinvestasi Saham.</p><br><br>
 </div>
 
-<div class="row">   
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- Homepage Leaderboard -->
     <ins class="adsbygoogle"
@@ -22,7 +21,6 @@ $this->title = 'Home';
     <script>
     (adsbygoogle = window.adsbygoogle || []).push({});
     </script>    
-</div>  
 
 <div class="container-fluid bg-grey" style="text-align:justify;margin-bottom:10px;">
     <h3><?= $preface->title; ?></h3>
