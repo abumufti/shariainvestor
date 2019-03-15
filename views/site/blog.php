@@ -91,6 +91,16 @@ cite=""data-ad-slot="1234567890"></ins>
                             </li>
                             <?php } ?>  
                         </ul>
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout-key="-fb+5w+4e-db+86"
+     data-ad-client="ca-pub-3744700612400365"
+     data-ad-slot="8606394704"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
                     </div>
                     <div class="panel-footer text-center">
                         <a href="<?= Url::to(['site/blog']); ?>" class="uppercase">More</a>

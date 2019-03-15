@@ -16,7 +16,7 @@ $this->title = 'Contact';
   <p>Sakinah Berinvestasi Saham.</p><br><br>
 </div>
 
-<div class="container-fluid" style="text-align:justify;">
+<div class="container-fluid bg-grey" style="text-align:justify;">  
 
     <?php if (Yii::$app->session->hasFlash('contactFormSubmitted')): ?>
 
