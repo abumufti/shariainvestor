@@ -87,6 +87,7 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
                     <div class="panel-body">
                         <ul class="list-unstyled mb-0">
                             <?php foreach($articles as $index => $value){ ?> 
+                            <?php if($index%2 ===0){ ?>
                             <li>
                                 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <ins class="adsbygoogle"
@@ -100,6 +101,7 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
 </script>
                                 <hr>
                             </li>
+                            <?php } ?>
                             <li>
                                 <a href="<?= Url::to(['site/blog', 'title' => $value['title']]); ?>"><?= $value['title']; ?></a>
                                 <hr>
