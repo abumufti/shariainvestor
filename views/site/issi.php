@@ -26,6 +26,18 @@ foreach($index as $i => $value){
 
 <div class="container-fluid" style="text-align:justify;">
     
+    <div class="row ">    
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- Homepage Leaderboard -->
+    <ins class="adsbygoogle"
+        accesskey=""style="display:inline-block;width:728px;height:90px"
+        data-ad-client="ca-pub-1234567890123456"
+        cite=""data-ad-slot="1234567890"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>    
+    </div>  
+    
     <!-- Modal -->
     <div class="modal fade" id="myModal" role="dialog" style="margin-top:40px; ">
         <div class="modal-dialog">
