@@ -29,7 +29,7 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
           <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- Homepage Leaderboard -->
 <ins class="adsbygoogle"
-accesskey=""style="display:block;width:728px;height:90px"
+accesskey=""style="display:inline;width:100%;height:100%"
 data-ad-client="ca-pub-1234567890123456"
 cite=""data-ad-slot="1234567890"></ins>
 <script>
