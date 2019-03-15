@@ -3,21 +3,22 @@ $this->title = "Apps";
 ?>
 
 <!-- App Stock Calculator -->
-<div class="jumbotron" style="color: black;background-image: url('<?=Yii::$app->homeUrl;?>img/home-bg.jpg'); background-size:cover;margin-bottom:0">
+<div class="jumbotron text-center" style="background-image: url('<?=Yii::$app->homeUrl;?>img/home-bg.jpg'); background-size:cover;margin-bottom:0">
+  <h1>Sharia Investor</h1> 
+  <p>Sakinah Berinvestasi Saham.</p><br><br>
+</div>
     
-    <div class="row">   
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- Homepage Leaderboard -->
-    <ins class="adsbygoogle"
-        accesskey=""style="display:inline-block;width:728px;height:90px"
-        data-ad-client="ca-pub-1234567890123456"
-        cite=""data-ad-slot="1234567890"></ins>
-    <script>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Homepage Leaderboard -->
+<ins class="adsbygoogle"
+accesskey=""style="display:inline-block;width:728px;height:90px"
+data-ad-client="ca-pub-1234567890123456"
+cite=""data-ad-slot="1234567890"></ins>
+<script>
     (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>    
-    </div> 
+</script> 
     
-    
+<div class="container-fluid" style="text-align:justify;">    
     <div class="col-sm-4 centering">
         <div class="panel panel-success" style="padding:10px">
             <div class="panel-heading text-center">Stock Calculator</div>
