@@ -24,7 +24,14 @@ $this->title = 'Home';
         <div class="col-sm-8 " style="text-align:justify;">
             <div class="card">
             <?php foreach($posts as $index => $value){ ?>
-                 <?php if($index%2 !==0){ ?>
+                <div class="card-body" >
+                    <h3><?= $value['title']; ?></h3>
+                    <p class="text-muted">Posted on <?= $formatter->asDate($value['date_created'], 'long'); ?>, by <?= $value['author']; ?></p>
+                    <p class="card-text"><?= BaseStringHelper::explode($value['body'],'</p>')[0].'</p>'; ?></p>
+                    <a href="<?= Url::to(['site/blog', 'title' => $value['title']]); ?>" class="btn btn-primary">Read More &rarr;</a>
+                </div>
+                <hr>
+                <?php if($index <= 1){ ?>
                 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <ins class="adsbygoogle"
      style="display:block"
@@ -37,13 +44,6 @@ $this->title = 'Home';
 </script>
 <hr>
 <?php } ?>  
-                <div class="card-body" >
-                    <h3><?= $value['title']; ?></h3>
-                    <p class="text-muted">Posted on <?= $formatter->asDate($value['date_created'], 'long'); ?>, by <?= $value['author']; ?></p>
-                    <p class="card-text"><?= BaseStringHelper::explode($value['body'],'</p>')[0].'</p>'; ?></p>
-                    <a href="<?= Url::to(['site/blog', 'title' => $value['title']]); ?>" class="btn btn-primary">Read More &rarr;</a>
-                </div>
-                <hr>
           <?php } ?>  
             </div>
     
