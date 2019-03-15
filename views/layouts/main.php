@@ -6,10 +6,18 @@ use yii\helpers\BaseUrl;
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-3744700612400365",
+          enable_page_level_ads: true
+     });
+  </script>
   <!-- Theme Made By www.w3schools.com -->
   <title><?= $this->title; ?></title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  
   <script src="<?= BaseUrl::base();?>/bower_components/jquery/dist/jquery.min.js"></script>
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="<?= BaseUrl::base() ?>/bower_components/bootstrap/dist/css/bootstrap.min.css">
