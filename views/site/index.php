@@ -12,14 +12,6 @@ $this->title = 'Home';
   <p>Sakinah Berinvestasi Saham.</p><br><br>
 </div>
 
-<div class="container-fluid bg-grey" style="text-align:justify;margin-bottom:10px;">
-           
- 
-            <h3><?= $preface->title; ?></h3>
-             <?= $preface->body; ?>
-            
-</div>
-
 <div class="container-fluid">   
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- Homepage Leaderboard -->
@@ -31,6 +23,11 @@ $this->title = 'Home';
     (adsbygoogle = window.adsbygoogle || []).push({});
     </script>    
 </div>  
+
+<div class="container-fluid bg-grey" style="text-align:justify;margin-bottom:10px;">
+    <h3><?= $preface->title; ?></h3>
+    <?= $preface->body; ?>
+</div>
 
 <!-- Container (About Section) -->
 <div class="container-fluid">
