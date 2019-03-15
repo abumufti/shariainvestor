@@ -11,7 +11,6 @@ $this->title = "Apps";
         <div class="panel-heading text-center">Stock Calculator</div>
         <form class="form-horizontal" action="#" id="StockCalculator">
             <div class="panel-body">
-                <p>Kalkulator ini membantu kamu menentukan target profit, sell, dan lot.</p>
                 <div class="form-group">
                     <label for="type">Type:</label>
                     <select class="form-control" id="stockcalculator-type" >
