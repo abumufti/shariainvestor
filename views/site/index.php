@@ -22,7 +22,7 @@ $this->title = 'Home';
 <!-- Container (About Section) -->
 <div class="container-fluid">
         <div class="col-sm-8 " style="text-align:justify;">
-            <div class="card" style="height: 1000px; overflow-y: scroll;">
+            <div class="card">
             <?php foreach($posts as $index => $value){ ?>
                 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <ins class="adsbygoogle"
