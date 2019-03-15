@@ -82,9 +82,9 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
             </div>
         
             <div class="row">
-                <div class="panel panel-success" style="margin-top:10px;height: 250px; overflow-y: scroll;">
+                <div class="panel panel-success" style="margin-top:10px;">
                     <div class="panel-heading">Top Articles</div>
-                    <div class="panel-body">
+                    <div class="panel-body" style="height: 350px; overflow-y: scroll;">
                         <ul class="list-unstyled mb-0">
                             <?php foreach($articles as $index => $value){ ?> 
                             <li>
