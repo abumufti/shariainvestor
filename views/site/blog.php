@@ -28,6 +28,21 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
         <div class="col-sm-9 " style="text-align:justify;">
           <?php foreach($posts as $index => $value){ ?>
             <div class="card" id="myList">
+                
+                                 <?php if($index%2 !==0){ ?>
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout-key="-fb+5w+4e-db+86"
+     data-ad-client="ca-pub-3744700612400365"
+     data-ad-slot="8606394704"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr>
+<?php } ?>  
+                
                 <div class="card-body">
                     <?php if($title ===''){ ?>
                     <h3><?= $value['title']; ?></h3>
@@ -87,7 +102,7 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
                     <div class="panel-body">
                         <ul class="list-unstyled mb-0">
                             <?php foreach($articles as $index => $value){ ?> 
-                            <?php if($index%2 ===0){ ?>
+                            <?php if($index%2 !==0){ ?>
                             <li>
                                 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <ins class="adsbygoogle"
