@@ -71,12 +71,18 @@ cite=""data-ad-slot="1234567890"></ins>
             </div>
             -->
             <div class="row">
-                <div class="panel panel-default" style="margin-top:10px;">
-                    <div class="panel-heading">Search</div>
-                    <div class="panel-body">
-                        <input type="text" id="myInput" class="form-control" placeholder="Search for...">
-                    </div>
-                </div>
+                <script>
+  (function() {
+    var cx = 'partner-pub-3744700612400365:6807239632';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:searchbox-only></gcse:searchbox-only>
             </div>
         
             <div class="row">
