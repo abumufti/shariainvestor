@@ -26,22 +26,11 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-9 " style="text-align:justify;">
+             <div class="card" id="myList">
           <?php foreach($posts as $index => $value){ ?>
-            <div class="card" id="myList">
+           
                 
-                                 <?php if($index <=1){ ?>
-                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-format="fluid"
-     data-ad-layout-key="-fb+5w+4e-db+86"
-     data-ad-client="ca-pub-3744700612400365"
-     data-ad-slot="8606394704"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-<hr>
-<?php } ?>  
+                                   
                 
                 <div class="card-body">
                     <?php if($title ===''){ ?>
@@ -59,12 +48,28 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
                         <hr/>
                         <div class="fb-comments" data-href="<?= $actual_link; ?>" data-numposts="15"></div>
                     </div>
-                    <?php } ?>
-                    
+                    <?php } ?>                  
                 </div>
                 
-            </div>
+                <?php if($index <=1){ ?>
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout-key="-fb+5w+4e-db+86"
+     data-ad-client="ca-pub-3744700612400365"
+     data-ad-slot="8606394704"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr>
+<?php } ?>
+                
+                
+                
+            
           <?php } ?>  
+</div>
         </div>
         <div class="col-sm-3">
             <!--
@@ -102,6 +107,11 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
                     <div class="panel-body">
                         <ul class="list-unstyled mb-0">
                             <?php foreach($articles as $index => $value){ ?> 
+                            
+                            <li>
+                                <a href="<?= Url::to(['site/blog', 'title' => $value['title']]); ?>"><?= $value['title']; ?></a>
+                                <hr>
+                            </li>
                             <?php if($index <=1){ ?>
                             <li>
                                 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -117,10 +127,6 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
                                 <hr>
                             </li>
                             <?php } ?>
-                            <li>
-                                <a href="<?= Url::to(['site/blog', 'title' => $value['title']]); ?>"><?= $value['title']; ?></a>
-                                <hr>
-                            </li>
                             <?php } ?>  
                         </ul>
                     </div>
