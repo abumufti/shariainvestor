@@ -18,7 +18,7 @@ cite=""data-ad-slot="1234567890"></ins>
     (adsbygoogle = window.adsbygoogle || []).push({});
 </script> 
     
-<div class="container-fluid" style="text-align:justify;">    
+<div class="container-fluid bg-grey" style="text-align:justify;">    
     <div class="col-sm-4 centering">
         <div class="panel panel-success" style="padding:10px">
             <div class="panel-heading text-center">Stock Calculator</div>
