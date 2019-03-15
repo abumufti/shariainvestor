@@ -82,7 +82,7 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
             </div>
         
             <div class="row">
-                <div class="panel panel-success" style="margin-top:10px;">
+                <div class="panel panel-success" style="margin-top:10px;height: 250px; overflow-y: scroll;">
                     <div class="panel-heading">Top Articles</div>
                     <div class="panel-body">
                         <ul class="list-unstyled mb-0">
