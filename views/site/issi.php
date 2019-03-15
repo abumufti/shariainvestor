@@ -18,26 +18,11 @@ foreach($index as $i => $value){
 }
 
 ?>
-<div class="jumbotron text-center" style="background-image: url('<?=Yii::$app->homeUrl;?>img/home-bg.jpg'); background-size:cover;margin-bottom:0">
-  <h1>Sharia Investor</h1> 
-  <p>Sakinah Berinvestasi Saham.</p><br><br>
+<div class="jumbotron text-justify" style="background-image: url('<?=Yii::$app->homeUrl;?>img/home-bg.jpg'); background-size:cover;margin-bottom:0;">
+  <h2><?= $preface->title; ?></h2> 
+  <?= $preface->body; ?>
 </div>
-
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- Homepage Leaderboard -->
-<ins class="adsbygoogle"
-accesskey=""style="display:inline;width:100%;height:100%"
-data-ad-client="ca-pub-1234567890123456"
-cite=""data-ad-slot="1234567890"></ins>
-<script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-</script>  
-
-<div class="container-fluid bg-grey" style="text-align:justify;margin-bottom:10px;">
-    <h3><?= $preface->title; ?></h3>
-    <?= $preface->body; ?>
-</div>
-
+<br>
 
 <div class="container-fluid" style="text-align:justify;">
     
