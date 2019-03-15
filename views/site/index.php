@@ -23,7 +23,7 @@ $this->title = 'Home';
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-8 " style="text-align:justify;">
-            <div class="card" style="height: 350px; overflow-y: scroll;">
+            <div class="card" style="height: 1000px; overflow-y: scroll;">
             <?php foreach($posts as $index => $value){ ?>
                 <div class="card-body" >
                     <h3><?= $value['title']; ?></h3>
