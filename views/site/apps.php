@@ -5,8 +5,7 @@ $this->title = "Apps";
 <!-- App Stock Calculator -->
 <div class="jumbotron" style="color: black;background-image: url('<?=Yii::$app->homeUrl;?>img/home-bg.jpg'); background-size:cover;margin-bottom:0">
     
-    <div class="col-sm-4 centering">
-    <div class="row ">    
+    <div class="container-fluid">   
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- Homepage Leaderboard -->
     <ins class="adsbygoogle"
@@ -16,12 +15,13 @@ $this->title = "Apps";
     <script>
     (adsbygoogle = window.adsbygoogle || []).push({});
     </script>    
-    </div>  
+    </div> 
     
-    <div class="row ">
-    <div class="panel panel-success" style="padding:10px">
-        <div class="panel-heading text-center">Stock Calculator</div>
-        <form class="form-horizontal" action="#" id="StockCalculator">
+    
+    <div class="col-sm-4 centering">
+        <div class="panel panel-success" style="padding:10px">
+            <div class="panel-heading text-center">Stock Calculator</div>
+            <form class="form-horizontal" action="#" id="StockCalculator">
             <div class="panel-body">
                 <div class="form-group">
                     <label for="type">Type:</label>
@@ -67,8 +67,8 @@ $this->title = "Apps";
                     <button class="btn btn-success btn-block" id="stockcalculator-calculate" > Calculate </button>
                 </div> 
             </div>
-        </form>
-    </div>   
+            </form>
+        </div>   
     </div>
-    </div>                 
+    
 </div>  

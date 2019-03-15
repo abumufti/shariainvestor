@@ -24,9 +24,7 @@ foreach($index as $i => $value){
 </div>
 <br>
 
-<div class="container-fluid" style="text-align:justify;">
-    
-    <div class="row ">    
+<div class="container-fluid">   
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- Homepage Leaderboard -->
     <ins class="adsbygoogle"
@@ -36,7 +34,9 @@ foreach($index as $i => $value){
     <script>
     (adsbygoogle = window.adsbygoogle || []).push({});
     </script>    
-    </div>  
+</div>  
+
+<div class="container-fluid" style="text-align:justify;">
     
     <!-- Modal -->
     <div class="modal fade" id="myModal" role="dialog" style="margin-top:40px; ">

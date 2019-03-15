@@ -21,7 +21,7 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
     <p>Sakinah Berinvestasi Saham.</p><br><br>
 </div>
 
-<div class="row ">    
+<div class="container-fluid">    
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- Homepage Leaderboard -->
     <ins class="adsbygoogle"
@@ -31,7 +31,7 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
     <script>
     (adsbygoogle = window.adsbygoogle || []).push({});
     </script>    
-    </div>  
+</div>  
 
 <!-- Container (About Section) -->
 <div class="container-fluid">
