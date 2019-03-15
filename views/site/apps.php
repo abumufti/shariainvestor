@@ -5,7 +5,7 @@ $this->title = "Apps";
 <!-- App Stock Calculator -->
 <div class="jumbotron" style="color: black;background-image: url('<?=Yii::$app->homeUrl;?>img/home-bg.jpg'); background-size:cover;margin-bottom:0">
     
-    <div class="container-fluid">   
+    <div class="row">   
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- Homepage Leaderboard -->
     <ins class="adsbygoogle"

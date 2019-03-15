@@ -12,7 +12,7 @@ $this->title = 'Home';
   <p>Sakinah Berinvestasi Saham.</p><br><br>
 </div>
 
-<div class="container-fluid">   
+<div class="row">   
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- Homepage Leaderboard -->
     <ins class="adsbygoogle"
