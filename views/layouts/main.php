@@ -29,7 +29,19 @@ use yii\helpers\BaseUrl;
   <link rel="stylesheet" href="<?= BaseUrl::base();?>/bower_components/select2/dist/css/select2.min.css">
     
   <style>
-    
+    body {
+        font: 400 15px Lato, sans-serif;
+        line-height: 1.8;
+        color: #303030;
+    }
+    .logo-small {
+      color: #f4511e;
+      font-size: 50px;
+    }
+    .logo {
+      color: #f4511e;
+      font-size: 200px;
+    }
     .navbar {
       margin-bottom: 0;
       background-color: rgb(60, 141, 188,0.7);
