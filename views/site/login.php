@@ -15,7 +15,7 @@ $this->title = 'Login';
   <p>Sakinah Berinvestasi Saham.</p><br><br>
 </div>
 
-<div class="container-fluid" style="text-align:justify;">
+<div class="container-fluid bg-grey" style="text-align:justify;">
     
     <div class="row">
             <div class="col-lg-6 col-lg-offset-3">

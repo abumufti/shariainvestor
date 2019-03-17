@@ -21,6 +21,7 @@ $this->title = 'Home';
 </div>
 <!-- Container (About Section) -->
 <div class="container-fluid">
+    <div class="row">
         <div class="col-sm-8 " style="text-align:justify;">
             <div class="card">
             <?php foreach($posts as $index => $value){ ?>
@@ -48,7 +49,7 @@ $this->title = 'Home';
             </div>
     
         </div>
-    <div class="col-sm-4">
+        <div class="col-sm-4">
                 <div class="panel panel-default" style="margin-top:10px;">
                     <div class="panel-heading">Search</div>
                     <div class="panel-body">
@@ -126,5 +127,6 @@ $this->title = 'Home';
                     </div>
 
            
+    </div>
     </div>
 </div>

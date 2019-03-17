@@ -25,7 +25,7 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
 <!-- Container (About Section) -->
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-9 " style="text-align:justify;">
+        <div class="col-sm-8 " style="text-align:justify;">
              <div class="card" id="myList">
           <?php foreach($posts as $index => $value){ ?>
            
@@ -71,7 +71,7 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
           <?php } ?>  
 </div>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-4">
             <!--
             <div class="row">
                 <div class="panel panel-default" style="margin-top:10px;">
@@ -81,7 +81,6 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
                 </div>
             </div>
             -->
-            <div class="row">
                 <div class="panel panel-default" style="margin-top:10px;">
                     <div class="panel-heading">Search</div>
                     <div class="panel-body">
@@ -99,9 +98,7 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
 <gcse:searchbox-only></gcse:searchbox-only>
                     </div>
                 </div>
-            </div>
         
-            <div class="row">
                 <div class="panel panel-success" style="margin-top:10px;">
                     <div class="panel-heading">Top Articles</div>
                     <div class="panel-body">
@@ -121,15 +118,7 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
                     </div>
                     <!-- /.box-footer -->
                 </div>
-            </div>
         </div>
   </div>
 </div>
-
-<?php if($title !==''){ ?>
-
-    
-    
-<?php } ?>
-
 
