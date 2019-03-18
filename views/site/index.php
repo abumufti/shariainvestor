@@ -17,7 +17,7 @@ $this->title = 'Home';
     <div class="row">
         <div class="col-sm-8 " style="text-align:justify;">
             <div class="card">
-                <div class="card-body " style="border-bottom: 3px solid #5A93B5;">
+                <div class="card-body " style="border-bottom: 2px solid #5A93B5;">
                     <h3><?= $preface->title; ?></h3>
                     <?= $preface->body; ?>
                 </div> 

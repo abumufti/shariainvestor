@@ -28,21 +28,23 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
         <div class="col-sm-8 " style="text-align:justify;">
              <div class="card" id="myList">
           <?php foreach($posts as $index => $value){ ?>
-           
-                
-                                   
                 
                 <div class="card-body">
                     <?php if($title ===''){ ?>
                     <h3><?= $value['title']; ?></h3>
                     <p class="text-muted">Posted on <?= $formatter->asDate($value['date_created'], 'long'); ?>, by <?= $value['author']; ?></p>
-                    <div class="card-text"><?= BaseStringHelper::explode($value['body'],'</p>')[0].'</p>'; ?></div>
+                    <div class="card-text">                    
+                    <?= BaseStringHelper::explode($value['body'],'</p>')[0].'</p>'; ?>
+                    </div>
                     <a href="<?= Url::to(['site/blog', 'title' => $value['title']]); ?>" class="btn btn-primary">Read More &rarr;</a>
                     <hr>
                     <?php }else{?>    
                     <h3><?= $value['title']; ?></h3>
                     <p class="text-muted">Posted on <?= $formatter->asDate($value['date_created'], 'long'); ?>, by <?= $value['author']; ?></p>
-                    <div class="card-text"><?= $value['body']; ?></div>
+                    <div class="card-text">
+                        <img class="img-thumbnail" src="<?=Yii::$app->homeUrl;?>img/main.png" alt="">
+                    <?= $value['body']; ?>
+                    </div>
                     
                     <div class="row">
                         <hr/>
