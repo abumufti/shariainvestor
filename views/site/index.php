@@ -12,19 +12,17 @@ $this->title = 'Home';
   <p>Sakinah Berinvestasi Saham.</p><br><br>
 </div>
 
-<div class="container-fluid bg-grey" style="text-align:justify;margin-bottom:10px;">
-           
- 
-            <h3><?= $preface->title; ?></h3>
-             <?= $preface->body; ?>
-            
-</div>
 <!-- Container (About Section) -->
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-8 " style="text-align:justify;">
             <div class="card">
-            <?php foreach($posts as $index => $value){ ?>
+                <div class="card-body " style="border-bottom: 3px solid #5A93B5;">
+                    <h3><?= $preface->title; ?></h3>
+                    <?= $preface->body; ?>
+                </div> 
+                
+                <?php foreach($posts as $index => $value){ ?>
                 <div class="card-body" >
                     <h3><?= $value['title']; ?></h3>
                     <p class="text-muted">Posted on <?= $formatter->asDate($value['date_created'], 'long'); ?>, by <?= $value['author']; ?></p>
