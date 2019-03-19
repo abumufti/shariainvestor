@@ -149,7 +149,7 @@ class SiteController extends Controller
         
         $losers = MuvtiEmiten::find()->limit(5)->orderBy("margin")->all();
         
-        $articles = MuvtiPost::find()->where("status='Active' AND id != 10")->limit(5)->orderBy(["date_created"=> SORT_DESC])->all();
+        $articles = MuvtiPost::find()->where("status='Active' AND id != 10")->limit(10)->orderBy(["date_created"=> SORT_DESC])->all();
         
         if($title !=''){
             
