@@ -42,7 +42,6 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
                     <h3><?= $value['title']; ?></h3>
                     <p class="text-muted">Posted on <?= $formatter->asDate($value['date_created'], 'long'); ?>, by <?= $value['author']; ?></p>
                     <div class="card-text">
-                        <img class="img-thumbnail" width="100%" src="<?=Yii::$app->homeUrl;?>img/main.png" alt="">
                     <?= $value['body']; ?>
                     </div>
                     

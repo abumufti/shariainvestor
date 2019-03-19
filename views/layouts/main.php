@@ -6,13 +6,38 @@ use yii\helpers\BaseUrl;
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google Adsense -->  
   <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> 
   <script> (adsbygoogle = window.adsbygoogle || []).push({ google_ad_client: "ca-pub-3744700612400365", enable_page_level_ads: true }); </script>
-  <!-- Theme Made By www.w3schools.com -->
+  <!-- Responsive -->
   <title><?= $this->title; ?></title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
+  <!-- SEO -->
+  <meta name="description" content="">
+  <meta name="title" content="">
+  <meta name="image_src" content="<?=Yii::$app->homeUrl;?>img/home-bg.jpg">
+  <meta property="og:title" content="">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="<?=Yii::$app->homeUrl;?>img/home-bg.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="620">
+  <meta property="og:image:height" content="413">
+  <meta property="og:description" content="">
+  <meta property="og:site_name" content="shariainvestor.com">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="">
+  <meta name="twitter:creator" content="">
+  <meta name="twitter:title" content="">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:image" content="<?=Yii::$app->homeUrl;?>img/home-bg.jpg"> 
+  <link rel="canonical" href=""> 
+  <link rel="amphtml" href=""> 
+  <link rel="manifest" href=""> 
+  <meta property="fb:app_id" content=""> 
+  <meta property="fb:pages" content=""> 
+  <!-- main -->  
   <script src="<?= BaseUrl::base();?>/bower_components/jquery/dist/jquery.min.js"></script>
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="<?= BaseUrl::base() ?>/bower_components/bootstrap/dist/css/bootstrap.min.css">
