@@ -6,6 +6,7 @@ $formatter = \Yii::$app->formatter;
 $this->title = 'Home';
 
 
+
 ?>
 <div class="jumbotron text-center" style="background-image: url('<?=Yii::$app->homeUrl;?>img/home-bg.jpg'); background-size:cover;margin-bottom:0">
   <h1>Sharia Investor</h1> 
