@@ -16,11 +16,11 @@ use yii\helpers\BaseUrl;
   <!-- SEO -->
   <meta name="description" content="">
   <meta name="title" content="">
-  <meta name="image_src" content="<?=Yii::$app->homeUrl;?>img/home-bg.jpg">
+  <meta name="image_src" content="https://shariainvestor.com/img/main.png">
   <meta property="og:title" content="">
   <meta property="og:type" content="article">
   <meta property="og:url" content="">
-  <meta property="og:image" content="<?=Yii::$app->homeUrl;?>img/home-bg.jpg">
+  <meta property="og:image" content="https://shariainvestor.com/img/main.png">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="620">
   <meta property="og:image:height" content="413">
@@ -31,7 +31,7 @@ use yii\helpers\BaseUrl;
   <meta name="twitter:creator" content="">
   <meta name="twitter:title" content="">
   <meta name="twitter:description" content="">
-  <meta name="twitter:image" content="<?=Yii::$app->homeUrl;?>img/home-bg.jpg"> 
+  <meta name="twitter:image" content="https://shariainvestor.com/img/main.png"> 
   <link rel="canonical" href=""> 
   <link rel="amphtml" href=""> 
   <link rel="manifest" href=""> 
