@@ -14,23 +14,23 @@ use yii\helpers\BaseUrl;
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- SEO -->
-  <meta name="description" content="">
-  <meta name="title" content="">
+  <meta name="description" content="<?= $this->content; ?>">
+  <meta name="title" content="<?= $this->title; ?>">
   <meta name="image_src" content="https://shariainvestor.com/img/main.png">
-  <meta property="og:title" content="">
+  <meta property="og:title" content="<?= $this->title; ?>">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="">
+  <meta property="og:url" content="<?= $this->content; ?>">
   <meta property="og:image" content="https://shariainvestor.com/img/main.png">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="620">
   <meta property="og:image:height" content="413">
-  <meta property="og:description" content="">
+  <meta property="og:description" content="<?= $this->content; ?>">
   <meta property="og:site_name" content="shariainvestor.com">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="">
-  <meta name="twitter:creator" content="">
-  <meta name="twitter:title" content="">
-  <meta name="twitter:description" content="">
+  <meta name="twitter:site" content="<?= $this->content; ?>">
+  <meta name="twitter:creator" content="Sharia Investor">
+  <meta name="twitter:title" content="<?= $this->title; ?>">
+  <meta name="twitter:description" content="<?= $this->content; ?>">
   <meta name="twitter:image" content="https://shariainvestor.com/img/main.png"> 
   <link rel="canonical" href=""> 
   <link rel="amphtml" href=""> 

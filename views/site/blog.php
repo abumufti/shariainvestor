@@ -5,6 +5,7 @@ use yii\helpers\BaseStringHelper;
 $formatter = \Yii::$app->formatter;
 
 $this->title = count($posts) === 1 ? $posts[0]['title'] : 'Blog';
+$this->content = count($posts) === 1 ? BaseStringHelper::explode($posts[0]['body'],'</p>')[0] : 'Sakinah Berinvestasi Saham.';
 
 $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
