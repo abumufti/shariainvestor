@@ -21,7 +21,18 @@ $this->title = 'Home';
                     <h3><?= $preface->title; ?></h3>
                     <?= $preface->body; ?>
                 </div> 
-                
+                <div class="card-body" >
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-format="fluid"
+                    data-ad-layout-key="-fb+5w+4e-db+86"
+                    data-ad-client="ca-pub-3744700612400365"
+                    data-ad-slot="8606394704"></ins>
+                    <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
                 <?php foreach($posts as $index => $value){ ?>
                 <div class="card-body" >
                     <h3><?= $value['title']; ?></h3>
@@ -30,19 +41,19 @@ $this->title = 'Home';
                     <a href="<?= Url::to(['site/blog', 'title' => $value['title']]); ?>" class="btn btn-primary">Read More &rarr;</a>
                 </div>
                 <hr>
-                <?php if($index <= 1){ ?>
+                <?php if($index <= 0){ ?>
                 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-format="fluid"
-     data-ad-layout-key="-fb+5w+4e-db+86"
-     data-ad-client="ca-pub-3744700612400365"
-     data-ad-slot="8606394704"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-<hr>
-<?php } ?>  
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-format="fluid"
+                    data-ad-layout-key="-fb+5w+4e-db+86"
+                    data-ad-client="ca-pub-3744700612400365"
+                    data-ad-slot="8606394704"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+                <hr>
+                <?php } ?>  
           <?php } ?>  
             </div>
     
