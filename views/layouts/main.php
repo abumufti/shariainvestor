@@ -156,6 +156,8 @@ use yii\helpers\BaseUrl;
   </div>
 </nav>
 
+<amp-auto-ads type="adsense" data-ad-client="ca-pub-3744700612400365"></amp-auto-ads>
+
 <?=$content;?>
 
 <footer class="container-fluid text-center">
