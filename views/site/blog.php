@@ -25,37 +25,28 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-8 " style="text-align:justify;">
-             <div class="card" id="myList">
-          <?php foreach($posts as $index => $value){ ?>
+            <div class="card" id="myList">
+            <?php foreach($posts as $index => $value){ ?>
                 
                 <div class="card-body">
                     <?php if($title ===''){ ?>
-                    <h3><?= $value['title']; ?></h3>
-                    <p class="text-muted">Posted on <?= $formatter->asDate($value['date_created'], 'long'); ?>, by <?= $value['author']; ?></p>
-                    <div class="card-text">                    
-                    <?= BaseStringHelper::explode($value['body'],'</p>')[0].'</p>'; ?>
-                    </div>
-                    <a href="<?= Url::to(['site/blog', 'title' => $value['title']]); ?>" class="btn btn-primary">Read More &rarr;</a>
-                    <hr>
-                    <?php if($index%2 ===0){ ?>
-                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-format="fluid"
-     data-ad-layout-key="-fb+5w+4e-db+86"
-     data-ad-client="ca-pub-3744700612400365"
-     data-ad-slot="8606394704"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-<hr>
-<?php } ?>
+                        <h3><?= $value['title']; ?></h3>
+                        <p class="text-muted">Posted on <?= $formatter->asDate($value['date_created'], 'long'); ?>, by <?= $value['author']; ?></p>
+                        <div class="card-text">                    
+                        <?= BaseStringHelper::explode($value['body'],'</p>')[0].'</p>'; ?>
+                        </div>
+                        <a href="<?= Url::to(['site/blog', 'title' => $value['title']]); ?>" class="btn btn-primary">Read More &rarr;</a>
+                        <hr>
+                        <?php if($index%2 ===0){ ?>
+                            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                            <ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-fb+5w+4e-db+86"  data-ad-client="ca-pub-3744700612400365"  data-ad-slot="8606394704"></ins>
+                            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                            <hr>
+                        <?php } ?>
                     <?php }else{?>    
-                    <h3><?= $value['title']; ?></h3>
-                    <p class="text-muted">Posted on <?= $formatter->asDate($value['date_created'], 'long'); ?>, by <?= $value['author']; ?></p>
-                    <div class="card-text">
-                    <?= $value['body']; ?>
-                    </div>
+                        <h3><?= $value['title']; ?></h3>
+                        <p class="text-muted">Posted on <?= $formatter->asDate($value['date_created'], 'long'); ?>, by <?= $value['author']; ?></p>
+                        <div class="card-text"><?= $value['body']; ?></div>
                     
                     <div class="row">
                         <hr/>
@@ -63,14 +54,9 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
                     </div>
                     <?php } ?>                  
                 </div>
-                
-                
-                
-                
-                
             
-          <?php } ?>  
-</div>
+            <?php } ?>  
+            </div>
         </div>
         <div class="col-sm-4">
             <!--
