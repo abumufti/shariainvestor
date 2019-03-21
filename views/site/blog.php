@@ -51,7 +51,7 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
                     <?php } ?>                  
                 </div>
                 
-                <?php if($index <=1){ ?>
+                <?php if($index%2 ===0){ ?>
                 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <ins class="adsbygoogle"
      style="display:block"
