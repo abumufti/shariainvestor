@@ -28,8 +28,9 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
             <div class="card" id="myList">
             <?php foreach($posts as $index => $value){ ?>
                 
-                <div class="card-body">
+                
                     <?php if($title ===''){ ?>
+                    <div class="card-body">
                         <h3><?= $value['title']; ?></h3>
                         <p class="text-muted">Posted on <?= $formatter->asDate($value['date_created'], 'long'); ?>, by <?= $value['author']; ?></p>
                         <div class="card-text">                    
@@ -37,23 +38,27 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
                         </div>
                         <a href="<?= Url::to(['site/blog', 'title' => $value['title']]); ?>" class="btn btn-primary">Read More &rarr;</a>
                         <hr>
+                    </div>    
                         <?php if($index%2 ===0){ ?>
-                            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                            <ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-fb+5w+4e-db+86"  data-ad-client="ca-pub-3744700612400365"  data-ad-slot="8606394704"></ins>
-                            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-                            <hr>
+                    <div class="card-body">
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                        <ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-fb+5w+4e-db+86"  data-ad-client="ca-pub-3744700612400365"  data-ad-slot="8606394704"></ins>
+                        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                        <hr>
+                    </div>
                         <?php } ?>
-                    <?php }else{?>    
+                    <?php }else{?>
+                    <div class="card-body">
                         <h3><?= $value['title']; ?></h3>
                         <p class="text-muted">Posted on <?= $formatter->asDate($value['date_created'], 'long'); ?>, by <?= $value['author']; ?></p>
                         <div class="card-text"><?= $value['body']; ?></div>
-                    
-                    <div class="row">
                         <hr/>
+                    </div>
+                    <div class="card-body">                        
                         <div class="fb-comments" data-href="<?= $actual_link; ?>" data-numposts="15"></div>
                     </div>
                     <?php } ?>                  
-                </div>
+               
             
             <?php } ?>  
             </div>
