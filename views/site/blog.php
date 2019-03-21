@@ -21,7 +21,7 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
     <p>Sakinah Berinvestasi Saham.</p><br><br>
 </div>
 
-
+<amp-auto-ads type="adsense" data-ad-client="ca-pub-3744700612400365"></amp-auto-ads>
 <!-- Container (About Section) -->
 <div class="container-fluid">
     <div class="row">
