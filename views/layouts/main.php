@@ -11,6 +11,16 @@ use yii\helpers\BaseUrl;
   <script> (adsbygoogle = window.adsbygoogle || []).push({ google_ad_client: "ca-pub-3744700612400365", enable_page_level_ads: true }); </script>
   <!-- Google Adsense AMP --> 
   <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121955327-1"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-121955327-1');
+  </script>
+
   <!-- Responsive -->
   <title><?= $this->title; ?></title>
   <meta charset="utf-8">
