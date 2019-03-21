@@ -123,3 +123,8 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
   </div>
 </div>
 
+<script>
+$(document).ready(function(){
+    $("table").addClass("table table-bordered table-striped");
+})
+</script>

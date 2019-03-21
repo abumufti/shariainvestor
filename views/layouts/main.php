@@ -19,7 +19,7 @@ use yii\helpers\BaseUrl;
   <meta name="image_src" content="https://shariainvestor.com/img/main.png">
   <meta property="og:title" content="<?= $this->title; ?>">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="">
+  <meta property="og:url" content="https://shariainvestor.com">
   <meta property="og:image" content="https://shariainvestor.com/img/main.png">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="620">
@@ -27,7 +27,7 @@ use yii\helpers\BaseUrl;
   <meta property="og:description" content="">
   <meta property="og:site_name" content="shariainvestor.com">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="">
+  <meta name="twitter:site" content="https://shariainvestor.com">
   <meta name="twitter:creator" content="Sharia Investor">
   <meta name="twitter:title" content="<?= $this->title; ?>">
   <meta name="twitter:description" content="">
