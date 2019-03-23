@@ -47,6 +47,8 @@ use yii\helpers\BaseStringHelper;
   <link rel="canonical" href=""> 
   <link rel="amphtml" href=""> 
   <link rel="manifest" href=""> 
+  <meta property="fb:app_id" content="458278107551122"> 
+  <meta property="fb:pages" content="https://www.facebook.com/shariainvestorcom"> 
     <!-- main -->  
   <script src="<?= BaseUrl::base();?>/bower_components/jquery/dist/jquery.min.js"></script>
   <!-- Bootstrap 3.3.7 -->

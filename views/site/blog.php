@@ -22,8 +22,6 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
         <div class="col-sm-8 " style="text-align:justify;">
             <div class="card" id="myList">
             <?php foreach($posts as $index => $value){ ?>
-                
-                
                     <?php if($title ===''){ ?>
                     <div class="card-body">
                         <h3><?= $value['title']; ?></h3>
