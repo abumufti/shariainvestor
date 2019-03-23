@@ -74,7 +74,7 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
             
                 <div class="panel panel-default" style="margin-top:10px;">
                     <div class="panel-body">
-                        <div class="fb-group" data-href="https://www.facebook.com/groups/2179476645634934/" data-width="280" data-show-social-context="true" data-show-metadata="false"></div>
+                        <div class="fb-group" data-href="https://www.facebook.com/groups/2179476645634934/" data-width="100%" data-show-social-context="true" data-show-metadata="false"></div>
                     </div>
                 </div>
             
