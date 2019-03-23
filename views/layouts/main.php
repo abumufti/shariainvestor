@@ -1,5 +1,6 @@
 <?php
 use yii\helpers\BaseUrl;
+use yii\helpers\BaseStringHelper;
 
 ?>
 
@@ -25,7 +26,7 @@ use yii\helpers\BaseUrl;
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- SEO -->
-  <meta name="description" content="">
+  <meta name="description" content="<?= strip_tags(BaseStringHelper::explode(Yii::$app->view->params['description'],'</p>')[0].'</p>'); ?>">
   <meta name="title" content="<?= $this->title; ?>">
   <meta name="image_src" content="https://shariainvestor.com/img/main.png">
   <meta property="og:title" content="<?= $this->title; ?>">
@@ -35,13 +36,13 @@ use yii\helpers\BaseUrl;
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="620">
   <meta property="og:image:height" content="413">
-  <meta property="og:description" content="">
+  <meta property="og:description" content="<?= strip_tags(BaseStringHelper::explode(Yii::$app->view->params['description'],'</p>')[0].'</p>'); ?>">
   <meta property="og:site_name" content="shariainvestor.com">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="https://shariainvestor.com">
   <meta name="twitter:creator" content="Sharia Investor">
   <meta name="twitter:title" content="<?= $this->title; ?>">
-  <meta name="twitter:description" content="">
+  <meta name="twitter:description" content="<?= strip_tags(BaseStringHelper::explode(Yii::$app->view->params['description'],'</p>')[0].'</p>'); ?>">
   <meta name="twitter:image" content="https://shariainvestor.com/img/main.png"> 
   <link rel="canonical" href=""> 
   <link rel="amphtml" href=""> 
