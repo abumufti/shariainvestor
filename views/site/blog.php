@@ -68,7 +68,7 @@ $this->title = count($posts) === 1 ? $posts[0]['title'] : 'Sharia Investor - Blo
                 </div>
             </div>
             
-            <div class="panel">
+            <div class="panel panel-default">
             <div class="fb-page" data-href="https://www.facebook.com/shariainvestorcom" data-width="450" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
                 <blockquote cite="https://www.facebook.com/shariainvestorcom" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/shariainvestorcom">Sharia Investor</a></blockquote>
             </div>

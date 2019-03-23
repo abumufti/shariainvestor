@@ -58,8 +58,12 @@ $this->title = 'Sharia Investor - Beranda';
     
         </div>
         <div class="col-sm-4">
-                
-          <div class="panel panel-success" style="margin-top:10px">
+          <div class="panel panel-default"  style="margin-top:10px">
+            <div class="fb-page" data-href="https://www.facebook.com/shariainvestorcom" data-width="450" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                <blockquote cite="https://www.facebook.com/shariainvestorcom" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/shariainvestorcom">Sharia Investor</a></blockquote>
+            </div>
+          </div>       
+          <div class="panel panel-success">
             <div class="panel-heading">Top Gainers</div>
                 <div class="panel-body">
             <table class="table table-bordered table-striped">
