@@ -11,7 +11,7 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
 
 ?>
 
-<div style="margin-top:10px" class="jumbotron text-center" style="background-image: url('<?=Yii::$app->homeUrl;?>img/home-bg.jpg'); background-size:cover;margin-bottom:0">
+<div class="jumbotron text-center" style="background-image: url('<?=Yii::$app->homeUrl;?>img/home-bg.jpg'); background-size:cover;margin-bottom:0">
     <h1>Sharia Investor</h1> 
     <p>Sakinah Berinvestasi Saham.</p><br><br>
 </div>
@@ -67,7 +67,7 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
         <div class="col-sm-4">
 
                 
-                <div class="fb-page" data-href="https://www.facebook.com/shariainvestorcom" data-width="410" data-small-header="false" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="false">
+                <div style="margin-top:10px;"class="fb-page" data-href="https://www.facebook.com/shariainvestorcom" data-width="410" data-small-header="false" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="false">
                     <blockquote cite="https://www.facebook.com/shariainvestorcom" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/shariainvestorcom">Sharia Investor</a></blockquote>
                 </div>
                 
