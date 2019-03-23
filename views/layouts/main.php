@@ -44,11 +44,11 @@ use yii\helpers\BaseStringHelper;
   <meta name="twitter:title" content="<?= $this->title; ?>">
   <meta name="twitter:description" content="<?= strip_tags(BaseStringHelper::explode(Yii::$app->view->params['description'],'</p>')[0].'</p>'); ?>">
   <meta name="twitter:image" content="https://shariainvestor.com/img/main.png"> 
-  <link rel="canonical" href=""> 
-  <link rel="amphtml" href=""> 
-  <link rel="manifest" href=""> 
+  <link rel="canonical" href="<?= (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>"> 
+  <link rel="amphtml" href="<?= (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>"> 
+  <link rel="manifest" href="<?= (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>"> 
   <meta property="fb:app_id" content="458278107551122"> 
-  <meta property="fb:pages" content="https://www.facebook.com/shariainvestorcom"> 
+  <meta property="fb:pages" content="942699125901506"> 
     <!-- main -->  
   <script src="<?= BaseUrl::base();?>/bower_components/jquery/dist/jquery.min.js"></script>
   <!-- Bootstrap 3.3.7 -->
