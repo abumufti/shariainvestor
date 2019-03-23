@@ -3,7 +3,7 @@ use yii\helpers\Url;
 use yii\helpers\BaseStringHelper;
 $formatter = \Yii::$app->formatter;
 
-$this->title = 'Home';
+$this->title = 'Sharia Investor - Beranda';
 
 ?>
 <div class="jumbotron text-center" style="background-image: url('<?=Yii::$app->homeUrl;?>img/home-bg.jpg'); background-size:cover;margin-bottom:0">

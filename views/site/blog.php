@@ -4,7 +4,7 @@ use yii\helpers\BaseStringHelper;
 
 $formatter = \Yii::$app->formatter;
 
-$this->title = count($posts) === 1 ? $posts[0]['title'] : 'Blog';
+$this->title = count($posts) === 1 ? $posts[0]['title'] : 'Sharia Investor - Blog';
 
 ?>
 

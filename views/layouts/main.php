@@ -27,8 +27,8 @@ use yii\helpers\BaseStringHelper;
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="<?= strip_tags(BaseStringHelper::explode(Yii::$app->view->params['description'],'</p>')[0].'</p>'); ?>" />
   <meta name="image_src" content="https://shariainvestor.com/img/display.png">
+
   <!-- FB -->
-  
   <meta property="og:title" content="<?= $this->title; ?>" />
   <meta property="og:url" content="<?= (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>" />
   <meta property="og:type" content="article" />

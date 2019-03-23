@@ -5,7 +5,7 @@
 use yii\widgets\ActiveForm;
 use yii\helpers\Html;
 
-$this->title = 'Index Saham Syaria Indonesia (ISSI)';
+$this->title = 'Sharia Investor - Index Saham Syaria Indonesia (ISSI)';
 
 $list = array();
 foreach($sector as $i => $value){

@@ -1,5 +1,5 @@
 <?php
-$this->title = "Apps";
+$this->title = "Sharia Investor - Apps";
 ?>
 
 <!-- App Stock Calculator -->
