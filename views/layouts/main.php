@@ -36,6 +36,7 @@ use yii\helpers\BaseStringHelper;
   <meta property="og:image" content="https://shariainvestor.com/img/display.png" />
   <meta property="og:site_name" content="Sharia Investor">
   <meta property="fb:app_id" content="458278107551122">  
+  <meta property="fb:pages" content="942699125901506"> 
   
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
@@ -48,7 +49,7 @@ use yii\helpers\BaseStringHelper;
   <link rel="amphtml" href="<?= (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>"> 
   <link rel="manifest" href="<?= (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>"> 
   
-  <meta property="fb:pages" content="942699125901506"> 
+  
     <!-- main -->  
   <script src="<?= BaseUrl::base();?>/bower_components/jquery/dist/jquery.min.js"></script>
   <!-- Bootstrap 3.3.7 -->
