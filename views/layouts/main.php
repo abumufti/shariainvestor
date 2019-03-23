@@ -17,7 +17,6 @@ use yii\helpers\BaseUrl;
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-121955327-1');
   </script>
 
@@ -47,9 +46,7 @@ use yii\helpers\BaseUrl;
   <link rel="canonical" href=""> 
   <link rel="amphtml" href=""> 
   <link rel="manifest" href=""> 
-  <meta property="fb:app_id" content=""> 
-  <meta property="fb:pages" content=""> 
-  <!-- main -->  
+    <!-- main -->  
   <script src="<?= BaseUrl::base();?>/bower_components/jquery/dist/jquery.min.js"></script>
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="<?= BaseUrl::base() ?>/bower_components/bootstrap/dist/css/bootstrap.min.css">

@@ -54,6 +54,12 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
                         <div class="card-text"><?= $value['body']; ?></div>
                         <hr/>
                     </div>
+                    <div class="card-body">
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                        <ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-fb+5w+4e-db+86"  data-ad-client="ca-pub-3744700612400365"  data-ad-slot="8606394704"></ins>
+                        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                        <hr>
+                    </div>
                     <div class="card-body">                        
                         <div class="fb-comments" data-href="<?= $actual_link; ?>" data-numposts="15"></div>
                     </div>
