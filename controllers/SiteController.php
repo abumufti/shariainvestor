@@ -156,7 +156,8 @@ class SiteController extends Controller
         if($title !=''){
             
             $posts = MuvtiPost::find()->where(["title"=>$title,'status'=>'Active'])->all();
-            Yii::$app->view->params['description'] = $posts->body;
+            Yii::$app->view->params['description'] = $posts[0]['body'];
+           
         }else{
             
             $posts = MuvtiPost::find()->where("status='Active' AND id != 10")->orderBy(["date_created"=> SORT_DESC])->all();
