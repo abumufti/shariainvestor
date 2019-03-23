@@ -6,9 +6,6 @@ $formatter = \Yii::$app->formatter;
 
 $this->title = count($posts) === 1 ? $posts[0]['title'] : 'Blog';
 
-$actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-
-
 ?>
 
 <div class="jumbotron text-center" style="background-image: url('<?=Yii::$app->homeUrl;?>img/home-bg.jpg'); background-size:cover;margin-bottom:0">

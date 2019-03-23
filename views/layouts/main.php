@@ -25,25 +25,24 @@ use yii\helpers\BaseStringHelper;
   <title><?= $this->title; ?></title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- SEO -->
-  <meta name="description" content="<?= strip_tags(BaseStringHelper::explode(Yii::$app->view->params['description'],'</p>')[0].'</p>'); ?>">
-  <meta name="title" content="<?= $this->title; ?>">
-  <meta name="image_src" content="https://shariainvestor.com/img/main.png">
-  <meta property="og:title" content="<?= $this->title; ?>">
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://shariainvestor.com">
-  <meta property="og:image" content="https://shariainvestor.com/img/main.png">
-  <meta property="og:image:type" content="image/jpeg">
-  <meta property="og:image:width" content="620">
-  <meta property="og:image:height" content="413">
-  <meta property="og:description" content="<?= strip_tags(BaseStringHelper::explode(Yii::$app->view->params['description'],'</p>')[0].'</p>'); ?>">
-  <meta property="og:site_name" content="shariainvestor.com">
+  
+  <!-- FB -->
+  <meta name="description" content="<?= strip_tags(BaseStringHelper::explode(Yii::$app->view->params['description'],'</p>')[0].'</p>'); ?>" />
+  <meta property="og:title" content="<?= $this->title; ?>" />
+  <meta name="image_src" content="https://shariainvestor.com/img/display.png">
+  <meta property="og:url" content="<?= (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>" />
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="<?= strip_tags(BaseStringHelper::explode(Yii::$app->view->params['description'],'</p>')[0].'</p>'); ?>" />
+  <meta property="og:image" content="https://shariainvestor.com/img/display.png" />
+  <meta property="og:site_name" content="Sharia Investor">
+   
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="https://shariainvestor.com">
   <meta name="twitter:creator" content="Sharia Investor">
   <meta name="twitter:title" content="<?= $this->title; ?>">
   <meta name="twitter:description" content="<?= strip_tags(BaseStringHelper::explode(Yii::$app->view->params['description'],'</p>')[0].'</p>'); ?>">
-  <meta name="twitter:image" content="https://shariainvestor.com/img/main.png"> 
+  <meta name="twitter:image" content="https://shariainvestor.com/img/display.png"> 
   <link rel="canonical" href="<?= (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>"> 
   <link rel="amphtml" href="<?= (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>"> 
   <link rel="manifest" href="<?= (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>"> 
