@@ -64,40 +64,39 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
             <?php } ?>  
             </div>
         </div>
-        <div class="col-sm-4">
-
+        <div class="col-sm-4">      
                 
-                <div style="margin-top:10px;"class="fb-page" data-href="https://www.facebook.com/shariainvestorcom" data-width="410" data-small-header="false" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="false">
-                    <blockquote cite="https://www.facebook.com/shariainvestorcom" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/shariainvestorcom">Sharia Investor</a></blockquote>
+            <div class="panel panel-default" style="margin-top:10px;">
+                <div class="panel-heading">Search</div>
+                <div class="panel-body">
+                    <input type="text" id="myInput" class="form-control" placeholder="Search for...">
                 </div>
-                
+            </div>
             
-                <div class="panel panel-default" style="margin-top:10px;">
-                    <div class="panel-heading">Search</div>
-                    <div class="panel-body">
-                        <input type="text" id="myInput" class="form-control" placeholder="Search for...">
-                    </div>
-                </div>
+            <div style="margin-top:10px;" class="fb-page" data-href="https://www.facebook.com/shariainvestorcom" data-width="410" data-small-header="false" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="false">
+                <blockquote cite="https://www.facebook.com/shariainvestorcom" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/shariainvestorcom">Sharia Investor</a></blockquote>
+            </div>
+                
         
-                <div class="panel panel-success" style="margin-top:10px;">
-                    <div class="panel-heading">Top Articles</div>
-                    <div class="panel-body">
-                        <ul class="list-unstyled mb-0">
-                            <?php foreach($articles as $index => $value){ ?> 
+            <div class="panel panel-success" style="margin-top:10px;">
+                <div class="panel-heading">Top Articles</div>
+                <div class="panel-body">
+                    <ul class="list-unstyled mb-0">
+                        <?php foreach($articles as $index => $value){ ?> 
                             
-                            <li>
-                                <a href="<?= Url::to(['site/blog', 'title' => $value['title']]); ?>"><?= $value['title']; ?></a>
-                                <hr>
-                            </li>
+                        <li>
+                            <a href="<?= Url::to(['site/blog', 'title' => $value['title']]); ?>"><?= $value['title']; ?></a>
+                            <hr>
+                        </li>
                            
-                            <?php } ?>  
-                        </ul>
-                    </div>
-                    <div class="panel-footer text-center">
-                        <a href="<?= Url::to(['site/blog']); ?>" class="uppercase">More</a>
-                    </div>
-                    <!-- /.box-footer -->
+                        <?php } ?>  
+                    </ul>
                 </div>
+                <div class="panel-footer text-center">
+                    <a href="<?= Url::to(['site/blog']); ?>" class="uppercase">More</a>
+                </div>
+                    <!-- /.box-footer -->
+            </div>
         </div>
   </div>
 </div>
