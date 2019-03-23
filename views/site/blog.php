@@ -70,7 +70,7 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
             </div>
         </div>
         <div class="col-sm-4">
-            <!--
+            
             <div class="row">
                 <div class="panel panel-default" style="margin-top:10px;">
                     <div class="panel-body">
@@ -78,7 +78,7 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
                     </div>
                 </div>
             </div>
-            -->
+            
                 <div class="panel panel-default" style="margin-top:10px;">
                     <div class="panel-heading">Search</div>
                     <div class="panel-body">
