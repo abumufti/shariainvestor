@@ -25,17 +25,18 @@ use yii\helpers\BaseStringHelper;
   <title><?= $this->title; ?></title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <!-- FB -->
   <meta name="description" content="<?= strip_tags(BaseStringHelper::explode(Yii::$app->view->params['description'],'</p>')[0].'</p>'); ?>" />
-  <meta property="og:title" content="<?= $this->title; ?>" />
   <meta name="image_src" content="https://shariainvestor.com/img/display.png">
+  <!-- FB -->
+  
+  <meta property="og:title" content="<?= $this->title; ?>" />
   <meta property="og:url" content="<?= (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>" />
   <meta property="og:type" content="article" />
   <meta property="og:description" content="<?= strip_tags(BaseStringHelper::explode(Yii::$app->view->params['description'],'</p>')[0].'</p>'); ?>" />
   <meta property="og:image" content="https://shariainvestor.com/img/display.png" />
   <meta property="og:site_name" content="Sharia Investor">
-   
+  <meta property="fb:app_id" content="458278107551122">  
+  
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="https://shariainvestor.com">
@@ -46,7 +47,7 @@ use yii\helpers\BaseStringHelper;
   <link rel="canonical" href="<?= (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>"> 
   <link rel="amphtml" href="<?= (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>"> 
   <link rel="manifest" href="<?= (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>"> 
-  <meta property="fb:app_id" content="458278107551122"> 
+  
   <meta property="fb:pages" content="942699125901506"> 
     <!-- main -->  
   <script src="<?= BaseUrl::base();?>/bower_components/jquery/dist/jquery.min.js"></script>
