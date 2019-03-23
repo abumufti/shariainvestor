@@ -122,7 +122,11 @@ use yii\helpers\BaseUrl;
   </style>
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
-    
+ 
+<!-- facebook -->
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/id_ID/sdk.js#xfbml=1&version=v3.2&appId=458278107551122&autoLogAppEvents=1"></script>
+
 <div class="se-pre-con"></div>
 
 <nav class="navbar navbar-default navbar-fixed-top">
