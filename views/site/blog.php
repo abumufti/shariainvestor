@@ -73,11 +73,10 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
                 </div>
             </div>
             
-            <div style="margin-top:10px;" class="fb-page" data-href="https://www.facebook.com/shariainvestorcom" data-width="410" data-small-header="false" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="false">
+            <div class="fb-page" data-href="https://www.facebook.com/shariainvestorcom" data-width="430" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false">
                 <blockquote cite="https://www.facebook.com/shariainvestorcom" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/shariainvestorcom">Sharia Investor</a></blockquote>
             </div>
                 
-        
             <div class="panel panel-success" style="margin-top:10px;">
                 <div class="panel-heading">Top Articles</div>
                 <div class="panel-body">
