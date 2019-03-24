@@ -103,5 +103,7 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
 <script>
 $(document).ready(function(){
     $("table").addClass("table table-bordered table-striped");
+    
+    $( "<div style=\"overflow-x:auto;\">" ).insertBefore( $( "table" ) );
 })
 </script>
