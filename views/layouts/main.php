@@ -84,6 +84,12 @@ use yii\helpers\BaseStringHelper;
         font-weight: 400;
         line-height: 1.625;
     }
+    table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
     h3 {
         font-family: bree-serif,serif;
         font-weight: 600;
