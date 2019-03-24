@@ -66,10 +66,29 @@ use yii\helpers\BaseStringHelper;
   <link rel="stylesheet" href="<?= BaseUrl::base();?>/bower_components/select2/dist/css/select2.min.css">
     
   <style>
+      
+    @font-face {
+        font-family: bree-serif;
+        src: url(<?= BaseUrl::base();?>/fonts/BreeSerif-Regular.otf);
+    } 
+    @font-face {
+        font-family: pt-serif;
+        src: url(<?= BaseUrl::base();?>/fonts/PT-Serif-Regular.ttf);
+    } 
     body {
-        font: 400 18px Lato, sans-serif;
-        line-height: 1.8;
-        color: #303030;
+        color: #333;
+        font-family: pt-serif,serif;
+        font-size: 18px;
+        font-size: 1.8rem;
+        -webkit-font-smoothing: antialiased;
+        font-weight: 400;
+        line-height: 1.625;
+    }
+    h3 {
+        font-family: bree-serif,serif;
+        font-weight: 600;
+        line-height: 1.2;
+        margin: 10px 0 10px;
     }
     .logo-small {
       color: #f4511e;
