@@ -59,6 +59,7 @@ use yii\helpers\BaseStringHelper;
   <link rel="stylesheet" href="<?= BaseUrl::base() ?>/bower_components/Ionicons/css/ionicons.min.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   <!-- DataTables -->
   <link rel="stylesheet" href="<?= BaseUrl::base();?>/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <link rel="stylesheet" href="<?= BaseUrl::base();?>/bower_components/datatables.net-bs/css/select.dataTables.min.css">
@@ -77,7 +78,7 @@ use yii\helpers\BaseStringHelper;
     } 
     body {
         color: #333;
-        font-family: pt-serif,serif;
+        font-family: 'Open Sans', sans-serif;
         font-size: 18px;
         font-size: 1.8rem;
         -webkit-font-smoothing: antialiased;
