@@ -32,14 +32,14 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
                         <a href="<?= Url::to(['site/blog', 'title' => $value['title']]); ?>" class="btn btn-primary">Read More &rarr;</a>
                         <hr>
                     </div>    
-                        <?php if($index%2 ===0){ ?>
+                        <?php /*if($index%2 ===0){ ?>
                     <div class="card-body">
                         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                         <ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-fb+5w+4e-db+86"  data-ad-client="ca-pub-3744700612400365"  data-ad-slot="8606394704"></ins>
                         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
                         <hr>
                     </div>
-                        <?php } ?>
+                        <?php }*/ ?>
                     <?php }else{?>
                     <div class="card-body">
                         <h3><?= $value['title']; ?></h3>
@@ -47,12 +47,14 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
                         <div class="card-text"><?= $value['body']; ?></div>
                         <hr/>
                     </div>
+                    <!--
                     <div class="card-body">
                         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                         <ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-fb+5w+4e-db+86"  data-ad-client="ca-pub-3744700612400365"  data-ad-slot="8606394704"></ins>
                         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
                         <hr>
                     </div>
+                     -->
                     <div class="card-body">                        
                         <div class="fb-comments" data-href="<?= $actual_link; ?>" data-numposts="15"></div>
                     </div>
