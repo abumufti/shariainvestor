@@ -109,10 +109,9 @@ class EmitenForm extends Model
             $emiten = MuvtiEmiten::find()->where(['code' =>$code])->one();
               
             if(count($emiten)>0 && intval($value['Last'])>0){
-                $emiten->currency = $emiten->currency > 1 && floatval($this->currency) >1 ? floatval($this->currency) : $emiten->currency;
+                $emiten->currency = $emiten->currency > 1 ? floatval($this->currency) : $emiten->currency;
                 $emiten->update();
                 $this->updatePrice($value,$emiten, $code);
-            
             }
         }
         
@@ -175,7 +174,7 @@ class EmitenForm extends Model
     private function updatePrice($value,$emiten,$code){
         
         $price = floatval($value['Last']);
-        $margin = intval($value['Last']) <= 0 ? 0 : floatval($value['+/-']/$value['Last'])*100;
+        $margin = intval($value['Last']) <= 0 ? 0 : floatval(($value['Last']-$value['Prev'])/$value['Last'])*100;
         $eps = $emiten->profit <=0 ? 0 : (($emiten->profit*$emiten->currency*$this->multiply($emiten->quarter))/$emiten->share);
         $per = $emiten->profit <=0 ? 0 : ($emiten->price/((($emiten->profit*$emiten->currency*$this->multiply($emiten->quarter))/$emiten->share)));
         $pbv = $emiten->equity == 0 ? 0 : floatval($price/(($emiten->equity*$emiten->currency)/$emiten->share));
@@ -186,7 +185,7 @@ class EmitenForm extends Model
         
         if(count($portofolio) && $margin !=0){
             
-            $trend2 = floatval($margin+$portofolio->trend)<0 ? floatval($margin) + floatval($portofolio->trend) : 0;
+            $trend2 = floatval($value['Last']-$portofolio->buy)<0 || floatval($margin) < 0 || floatval($portofolio->trend) < 0  ? floatval($margin) + floatval($portofolio->trend) : 0;
                 
             $sql3 = "UPDATE muvti_portofolio SET trend=$trend2  WHERE code='$code'";
             
