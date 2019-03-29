@@ -105,6 +105,6 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
 <script>
 $(document).ready(function(){
     $("table").addClass("table table-bordered table-striped");
-    $("img").addClass(".img-responsive");
+    $("img").addClass("img-responsive");
 })
 </script>
