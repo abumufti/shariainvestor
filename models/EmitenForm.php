@@ -174,7 +174,7 @@ class EmitenForm extends Model
     private function updatePrice($value,$emiten,$code){
         
         $price = floatval($value['Last']);
-        $margin = intval($value['Last']) <= 0 ? 0 : floatval(($value['Last']-$value['Prev'])/$value['Last'])*100;
+        $margin = intval($value['Last']) <= 0 ? 0 : floatval(($value['Last']-$value['Prev'])/$value['Prev'])*100;
         $eps = $emiten->profit <=0 ? 0 : (($emiten->profit*$emiten->currency*$this->multiply($emiten->quarter))/$emiten->share);
         $per = $emiten->profit <=0 ? 0 : ($emiten->price/((($emiten->profit*$emiten->currency*$this->multiply($emiten->quarter))/$emiten->share)));
         $pbv = $emiten->equity == 0 ? 0 : floatval($price/(($emiten->equity*$emiten->currency)/$emiten->share));
