@@ -85,7 +85,7 @@ use yii\helpers\BaseStringHelper;
         line-height: 1.625;
     }
     h3 {
-        font-family: bree-serif,serif;
+        font-family: 'Open Sans',bree-serif,serif;
         font-weight: 600;
         line-height: 1.2;
         margin: 10px 0 10px;
